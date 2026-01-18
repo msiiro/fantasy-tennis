@@ -1,8 +1,22 @@
 // League standings page
 import { getUser } from '../state.js';
+import { fetchAllTeams } from '../api.js';
 
 export async function renderLeaguePage() {
     const app = document.getElementById('app');
+    const user = getUser();
+    
+    // Check if user is authenticated
+    if (!user) {
+        app.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon">🔒</div>
+                <h3>Please sign in to view league standings</h3>
+                <a href="#/signin" class="btn btn-primary mt-2">Sign In</a>
+            </div>
+        `;
+        return;
+    }
     
     app.innerHTML = `
         <div class="page-header">
@@ -45,9 +59,7 @@ export async function renderLeaguePage() {
 
 async function loadStandings() {
     try {
-        const response = await fetch('http://localhost:3000/api/teams');
-        const teams = await response.json();
-        
+        const teams = await fetchAllTeams();
         const user = getUser();
         
         // Calculate points for each team and sort
@@ -97,26 +109,42 @@ async function loadStandings() {
                     `).join('')}
                 </tbody>
             </table>
+            
+            ${standings.length === 0 ? `
+                <div class="empty-state">
+                    <div class="empty-state-icon">🏆</div>
+                    <p>No teams in the league yet. Be the first to build a team!</p>
+                </div>
+            ` : ''}
         `;
         
         document.getElementById('standings-content').innerHTML = standingsHtml;
         
         // Update league stats
-        const totalTeams = teams.length;
-        const avgPoints = standings.reduce((sum, t) => sum + t.totalPoints, 0) / totalTeams;
-        const totalPlayersPicked = standings.reduce((sum, t) => sum + t.playerCount, 0);
+        if (standings.length > 0) {
+            const totalTeams = teams.length;
+            const avgPoints = standings.reduce((sum, t) => sum + t.totalPoints, 0) / totalTeams;
+            const totalPlayersPicked = standings.reduce((sum, t) => sum + t.playerCount, 0);
+            
+            document.getElementById('total-teams').textContent = totalTeams;
+            document.getElementById('avg-points').textContent = Math.round(avgPoints).toLocaleString();
+            document.getElementById('total-players-picked').textContent = totalPlayersPicked;
+        } else {
+            document.getElementById('total-teams').textContent = '0';
+            document.getElementById('avg-points').textContent = '0';
+            document.getElementById('total-players-picked').textContent = '0';
+        }
         
-        document.getElementById('total-teams').textContent = totalTeams;
-        document.getElementById('avg-points').textContent = Math.round(avgPoints).toLocaleString();
-        document.getElementById('total-players-picked').textContent= totalPlayersPicked;
-} catch (error) {
-    console.error('Error loading standings:', error);
-    document.getElementById('standings-content').innerHTML = 
-        '<p style="color: red;">Error loading standings. Please try again.</p>';
-}}
+    } catch (error) {
+        console.error('Error loading standings:', error);
+        document.getElementById('standings-content').innerHTML = 
+            '<p style="color: red;">Error loading standings. Please try again.</p>';
+    }
+}
+
 function getRankClass(index) {
-if (index === 0) return 'gold';
-if (index === 1) return 'silver';
-if (index === 2) return 'bronze';
-return '';
+    if (index === 0) return 'gold';
+    if (index === 1) return 'silver';
+    if (index === 2) return 'bronze';
+    return '';
 }

@@ -1,7 +1,8 @@
 // Home page
 import { getUser } from '../state.js';
+import { fetchTeam } from '../api.js';
 
-export function renderHomePage() {
+export async function renderHomePage() {
     const app = document.getElementById('app');
     const user = getUser();
     
@@ -9,7 +10,12 @@ export function renderHomePage() {
         <div class="hero-section">
             <h1>🎾 Welcome to Fantasy Tennis</h1>
             <p>Build your dream team and compete with friends!</p>
-            ${!user ? '<a href="#/signin" class="btn btn-primary btn-large">Get Started</a>' : ''}
+            ${!user ? `
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                    <a href="#/signup" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Get Started</a>
+                    <a href="#/signin" class="btn btn-secondary" style="font-size: 1.1rem; padding: 1rem 2rem;">Sign In</a>
+                </div>
+            ` : ''}
         </div>
         
         <div class="features-grid">
@@ -41,7 +47,7 @@ export function renderHomePage() {
         ${user ? `
             <div class="card">
                 <div class="card-header">
-                    <h2>Quick Stats</h2>
+                    <h2>Your Quick Stats</h2>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-box blue">
@@ -62,20 +68,23 @@ export function renderHomePage() {
                     <a href="#/league" class="btn btn-secondary">View Standings</a>
                 </div>
             </div>
-        ` : ''}
-        
-        <div class="card">
-            <div class="card-header">
-                <h2>How It Works</h2>
+        ` : `
+            <div class="card">
+                <div class="card-header">
+                    <h2>How It Works</h2>
+                </div>
+                <ol style="line-height: 2; padding-left: 2rem;">
+                    <li><strong>Create your team</strong> by selecting up to 10 tennis players</li>
+                    <li><strong>Earn points</strong> based on your players' real-world ATP/WTA rankings</li>
+                    <li><strong>Compete</strong> against other users in your league</li>
+                    <li><strong>Update your team</strong> anytime to optimize your points</li>
+                    <li><strong>Win</strong> by having the highest total points in your league!</li>
+                </ol>
+                <div class="text-center mt-3">
+                    <a href="#/signup" class="btn btn-primary">Create Account to Start</a>
+                </div>
             </div>
-            <ol style="line-height: 2; padding-left: 2rem;">
-                <li><strong>Create your team</strong> by selecting up to 10 tennis players</li>
-                <li><strong>Earn points</strong> based on your players' real-world ATP/WTA rankings</li>
-                <li><strong>Compete</strong> against other users in your league</li>
-                <li><strong>Update your team</strong> anytime to optimize your points</li>
-                <li><strong>Win</strong> by having the highest total points in your league!</li>
-            </ol>
-        </div>
+        `}
     `;
     
     // Load quick stats if user is logged in
@@ -87,8 +96,7 @@ export function renderHomePage() {
 async function loadHomeStats() {
     try {
         const user = getUser();
-        const response = await fetch(`http://localhost:3000/api/teams/user/${user.id}`);
-        const teamData = await response.json();
+        const teamData = await fetchTeam(user.id);
         
         const teamPlayers = teamData.team_players || [];
         const totalPoints = teamPlayers.reduce((sum, tp) => sum + tp.players.points, 0);
