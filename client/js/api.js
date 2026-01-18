@@ -3,8 +3,8 @@ import { API_URL } from './config.js';
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 // Initialize Supabase client
-const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace with your URL
-const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY'; // Replace with your key
+const supabaseUrl = 'https://ugxbybhbnoylantodnmc.supabase.co';
+const supabaseAnonKey = 'sb_publishable_RqLrQst3zv7zWZfqgjtuVg_dy9G4AP1';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
