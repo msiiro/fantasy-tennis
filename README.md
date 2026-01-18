@@ -25,4 +25,5 @@ A web application for creating and managing fantasy tennis teams based on ATP an
 
 ## Deployment
 
-Deployed on Vercel at [your-app-url]
+Deployed on Vercel at [https://fantasy-tennis-fawn.vercel.app]
+🌐 **[View Live App](https://fantasy-tennis-fawn.vercel.app)**
