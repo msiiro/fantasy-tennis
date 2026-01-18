@@ -1,17 +1,32 @@
 // API communication layer
 import { API_URL } from './config.js';
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-// Initialize Supabase client
-const supabaseUrl = 'https://ugxbybhbnoylantodnmc.supabase.co';
-const supabaseAnonKey = 'sb_publishable_RqLrQst3zv7zWZfqgjtuVg_dy9G4AP1';
+// Supabase configuration
+const SUPABASE_URL = 'https://ugxbybhbnoylantodnmc.supabase.co'; // Replace with your URL
+const SUPABASE_ANON_KEY = 'sb_publishable_RqLrQst3zv7zWZfqgjtuVg_dy9G4AP1'; // Replace with your key
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Initialize Supabase
+let supabaseClient = null;
+
+async function getSupabase() {
+    if (!supabaseClient) {
+        const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+        supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+    return supabaseClient;
+}
+
+// Export supabase for use in other files
+export async function getSupabaseClient() {
+    return await getSupabase();
+}
 
 // ===== AUTHENTICATION =====
 
 export async function signUp(email, password, username, teamName) {
-    // First, sign up with Supabase Auth
+    const supabase = await getSupabase();
+    
+    // Sign up with Supabase Auth
     const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
@@ -36,6 +51,8 @@ export async function signUp(email, password, username, teamName) {
 }
 
 export async function signIn(email, password) {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -47,23 +64,37 @@ export async function signIn(email, password) {
 }
 
 export async function signOut() {
+    const supabase = await getSupabase();
+    
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
 }
 
 export async function getCurrentUser() {
+    const supabase = await getSupabase();
+    
     const { data: { user } } = await supabase.auth.getUser();
     return user;
 }
 
 export async function getCurrentSession() {
+    const supabase = await getSupabase();
+    
     const { data: { session } } = await supabase.auth.getSession();
     return session;
+}
+
+export async function onAuthStateChange(callback) {
+    const supabase = await getSupabase();
+    
+    return supabase.auth.onAuthStateChange(callback);
 }
 
 // ===== USER PROFILE =====
 
 export async function getUserProfile(userId) {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase
         .from('users')
         .select('*')
@@ -75,6 +106,8 @@ export async function getUserProfile(userId) {
 }
 
 export async function updateUserProfile(userId, updates) {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase
         .from('users')
         .update(updates)
@@ -89,6 +122,8 @@ export async function updateUserProfile(userId, updates) {
 // ===== PLAYERS =====
 
 export async function fetchPlayers() {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase
         .from('players')
         .select('*')
@@ -99,6 +134,8 @@ export async function fetchPlayers() {
 }
 
 export async function fetchPlayer(id) {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase
         .from('players')
         .select('*')
@@ -112,6 +149,8 @@ export async function fetchPlayer(id) {
 // ===== TEAMS =====
 
 export async function fetchAllTeams() {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase
         .from('teams')
         .select(`
@@ -127,6 +166,8 @@ export async function fetchAllTeams() {
 }
 
 export async function fetchTeam(userId) {
+    const supabase = await getSupabase();
+    
     const { data, error } = await supabase
         .from('teams')
         .select(`
@@ -146,6 +187,8 @@ export async function fetchTeam(userId) {
 }
 
 export async function addPlayerToTeam(teamId, playerId) {
+    const supabase = await getSupabase();
+    
     // Check team size first
     const { data: teamPlayers, error: checkError } = await supabase
         .from('team_players')
@@ -179,6 +222,8 @@ export async function addPlayerToTeam(teamId, playerId) {
 }
 
 export async function removePlayerFromTeam(teamId, playerId) {
+    const supabase = await getSupabase();
+    
     const { error } = await supabase
         .from('team_players')
         .delete()
@@ -187,25 +232,4 @@ export async function removePlayerFromTeam(teamId, playerId) {
     
     if (error) throw error;
     return { success: true };
-}
-
-// Keep the old backend API calls for backwards compatibility if needed
-export async function fetchUsers() {
-    const response = await fetch(`${API_URL}/users`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch users');
-    }
-    return await response.json();
-}
-
-export async function createUser(userData) {
-    const response = await fetch(`${API_URL}/users`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
-    });
-    if (!response.ok) {
-        throw new Error('Failed to create user');
-    }
-    return await response.json();
 }
