@@ -1,4 +1,4 @@
-#!/Users/msiiro/GitLocal/fantasy-tennis/python-backend/venv/bin/python3
+#!/Users/msiiro/GitLocal/fantasy-tennis/python-backend/venv/bin/python3.14
 import sys
 from poetry_scripts import run_tests
 if __name__ == '__main__':
