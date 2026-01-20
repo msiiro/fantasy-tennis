@@ -107,6 +107,7 @@ async function setupAuthListener() {
         
         if (event === 'SIGNED_IN') {
             initializeAuth().then(() => {
+                // Refresh the current page after auth
                 router.handleRoute();
             });
         } else if (event === 'SIGNED_OUT') {
@@ -121,7 +122,17 @@ async function setupAuthListener() {
 // Start the app
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🚀 App starting...');
-    await initializeAuth();
-    await setupAuthListener();
+    
+    // Show home page immediately
+    router.handleRoute();
+    
+    // Load auth in background (don't await)
+    initializeAuth().catch(error => {
+        console.error('Auth initialization failed:', error);
+    });
+    
+    // Setup auth listener
+    setupAuthListener();
+    
     console.log('✅ App initialized');
 });

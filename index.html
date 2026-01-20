@@ -15,13 +15,13 @@
                 <h1>🎾 Fantasy Tennis</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="#/" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="#/" class="nav-link active" data-page="home">Home</a></li>
                 <li><a href="#/league" class="nav-link" data-page="league">League</a></li>
                 <li><a href="#/team" class="nav-link" data-page="team">My Team</a></li>
                 <li><a href="#/events" class="nav-link" data-page="events">Events</a></li>
             </ul>
             <div class="nav-user" id="nav-user-info">
-                <span class="loading">Loading...</span>
+                <span class="user-loading">Loading user...</span>
             </div>
         </div>
     </nav>
@@ -29,9 +29,58 @@
     <!-- Main Content Area -->
     <main class="main-content">
         <div id="app" class="container">
-            <!-- Page content will be injected here -->
-            <div class="loading-screen">
-                <h2>Loading Fantasy Tennis...</h2>
+            <!-- Default to home page content -->
+            <div id="home-page" class="page-content">
+                <div class="hero-section">
+                    <h1>🎾 Welcome to Fantasy Tennis League</h1>
+                    <p class="hero-subtitle">Draft your dream team and compete for the championship</p>
+                    <div class="hero-actions">
+                        <a href="#/team" class="btn btn-primary">View My Team</a>
+                        <a href="#/league" class="btn btn-secondary">View Standings</a>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-value" id="total-teams">-</div>
+                        <div class="stat-label">Active Teams</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value" id="total-players">-</div>
+                        <div class="stat-label">Players Available</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value">2026</div>
+                        <div class="stat-label">Current Season</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-value">French Open</div>
+                        <div class="stat-label">Next Grand Slam</div>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h2>🎮 How to Play</h2>
+                        <ol class="how-to-list">
+                            <li><strong>Build Your Team:</strong> Select 4 ATP and 4 WTA players</li>
+                            <li><strong>Earn Points:</strong> Players score based on tournament performance</li>
+                            <li><strong>Trade & Compete:</strong> Make changes after each Grand Slam</li>
+                            <li><strong>Win the League:</strong> Highest points at season end wins!</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-card">
+                        <h2>📊 Top Players</h2>
+                        <div id="top-players-list">
+                            <p class="loading-text">Loading top players...</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
