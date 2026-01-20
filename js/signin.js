@@ -68,11 +68,16 @@ async function handleSignIn(e) {
     errorDiv.style.display = 'none';
     
     try {
-        await signIn(email, password);
+        const result = await signIn(email, password);
+        console.log('✅ Sign in result:', result);
         
-        // Redirect to home page
-        window.location.hash = '/';
-        window.location.reload(); // Reload to reinitialize with auth
+        // Wait a moment for session to be set
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Manually reload to reinitialize with auth
+        console.log('🔄 Reloading page to show authenticated state...');
+        window.location.href = window.location.pathname + '#/';
+        window.location.reload();
         
     } catch (error) {
         console.error('Sign in error:', error);

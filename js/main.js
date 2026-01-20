@@ -1,6 +1,6 @@
 // Main application orchestration
-import { setUser, setTeam, setAuthUser, setSession, getUser, clearAuth } from './state.js';
-import { getCurrentUser, getCurrentSession, getUserProfile, fetchTeam, signOut, onAuthStateChange } from './api.js';
+import { setUser, setTeam, setAuthUser, setSession, getUser, getAuthUser, clearAuth } from './state.js';
+import { getCurrentUser, getCurrentSession, getUserProfile, fetchTeam, signOut, supabase } from './api.js';
 import { Router } from './router.js';
 import { renderHomePage } from './pages/home.js';
 import { renderLeaguePage } from './pages/league.js';
@@ -22,40 +22,34 @@ router.addRoute('/signup', renderSignUpPage);
 
 // Initialize authentication
 async function initializeAuth() {
-    console.log('Initializing auth...');
-    
     try {
         // Get current session
         const session = await getCurrentSession();
-        console.log('Session:', session);
         
         if (session) {
             setSession(session);
             
             // Get auth user
             const authUser = await getCurrentUser();
-            console.log('Auth user:', authUser);
             setAuthUser(authUser);
             
             // Get user profile
             const userProfile = await getUserProfile(authUser.id);
-            console.log('User profile:', userProfile);
             setUser(userProfile);
             
             // Get user's team
             const team = await fetchTeam(authUser.id);
-            console.log('User team:', team);
             setTeam(team);
             
-            console.log('✅ User authenticated successfully');
+            console.log('User authenticated:', userProfile);
         } else {
-            console.log('No active session - user not logged in');
+            console.log('No active session');
             clearAuth();
         }
         
         updateNavUI();
     } catch (error) {
-        console.error('❌ Error initializing auth:', error);
+        console.error('Error initializing auth:', error);
         clearAuth();
         updateNavUI();
     }
@@ -74,10 +68,7 @@ function updateNavUI() {
         `;
         
         // Add sign out handler
-        const signOutBtn = document.getElementById('signout-btn');
-        if (signOutBtn) {
-            signOutBtn.addEventListener('click', handleSignOut);
-        }
+        document.getElementById('signout-btn').addEventListener('click', handleSignOut);
     } else {
         navUserInfo.innerHTML = `
             <a href="#/signin" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.9rem;">
@@ -101,38 +92,55 @@ async function handleSignOut() {
 }
 
 // Listen for auth state changes
-async function setupAuthListener() {
-    const { data } = await onAuthStateChange((event, session) => {
-        console.log('🔄 Auth state changed:', event);
-        
-        if (event === 'SIGNED_IN') {
-            initializeAuth().then(() => {
-                // Refresh the current page after auth
-                router.handleRoute();
-            });
-        } else if (event === 'SIGNED_OUT') {
-            clearAuth();
-            updateNavUI();
-            window.location.hash = '/';
+supabase.auth.onAuthStateChange((event, session) => {
+    console.log('Auth state changed:', event);
+    
+    if (event === 'SIGNED_IN') {
+        // Reload the app when user signs in
+        initializeAuth().then(() => {
             router.handleRoute();
-        }
-    });
+        });
+    } else if (event === 'SIGNED_OUT') {
+        clearAuth();
+        updateNavUI();
+        window.location.hash = '/';
+        router.handleRoute();
+    }
+});
+
+// Listen for auth state changes
+async function setupAuthListener() {
+    console.log('🔧 Setting up auth listener...');
+    
+    try {
+        const { data } = await onAuthStateChange(async (event, session) => {
+            console.log('🔄 Auth state changed:', event, session);
+            
+            if (event === 'SIGNED_IN') {
+                console.log('✅ User signed in, reinitializing...');
+                await initializeAuth();
+                updateNavUI();
+                
+                // Redirect to home and refresh the page content
+                window.location.hash = '/';
+                router.handleRoute();
+                
+            } else if (event === 'SIGNED_OUT') {
+                console.log('👋 User signed out');
+                clearAuth();
+                updateNavUI();
+                window.location.hash = '/';
+                router.handleRoute();
+            }
+        });
+        
+        console.log('✅ Auth listener set up successfully');
+    } catch (error) {
+        console.error('❌ Error setting up auth listener:', error);
+    }
 }
 
 // Start the app
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('🚀 App starting...');
-    
-    // Show home page immediately
-    router.handleRoute();
-    
-    // Load auth in background (don't await)
-    initializeAuth().catch(error => {
-        console.error('Auth initialization failed:', error);
-    });
-    
-    // Setup auth listener
-    setupAuthListener();
-    
-    console.log('✅ App initialized');
+    await initializeAuth();
 });

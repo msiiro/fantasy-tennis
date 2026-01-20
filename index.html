@@ -4,42 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasy Tennis League</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <h1>🎾 Fantasy Tennis</h1>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#/" class="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#/league" class="nav-link" data-page="league">League</a></li>
-                <li><a href="#/team" class="nav-link" data-page="team">My Team</a></li>
-                <li><a href="#/events" class="nav-link" data-page="events">Events</a></li>
-            </ul>
-            <div class="nav-user" id="nav-user-info">
-                <span class="user-loading">Loading user...</span>
-            </div>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('home')" class="nav-link active">🎾 Fantasy Tennis</a></li>
+            <li><a href="#" onclick="showPage('team')" class="nav-link">My Team</a></li>
+            <li><a href="#" onclick="showPage('matches')" class="nav-link">Matches</a></li>
+            <li style="margin-left: auto;">
+                <span id="user-name" class="hidden"></span>
+                <button id="sign-out-btn" class="btn hidden" onclick="handleSignOut()">Sign Out</button>
+                <button id="sign-in-btn" class="btn" onclick="showSignIn()">Sign In</button>
+            </li>
+        </ul>
     </nav>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-    <div id="app" class="container">
-        <!-- Page content will be injected here by router -->
-    </div>
-</main>
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page active">
+            <div class="hero">
+                <h1>🎾 Fantasy Tennis League</h1>
+                <p>Build your dream team and compete with friends</p>
+                <button class="btn" onclick="showPage('team')">Get Started</button>
+            </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Fantasy Tennis League | Built with ❤️ for tennis fans</p>
+            <div class="grid">
+                <div class="stat-box">
+                    <div class="stat-value" id="total-players">-</div>
+                    <div class="stat-label">Active Players</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">2026</div>
+                    <div class="stat-label">Season</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">French Open</div>
+                    <div class="stat-label">Next Grand Slam</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>How It Works</h2>
+                <ol class="how-to-list">
+                    <li><strong>Build Your Team:</strong> Select 4 ATP and 4 WTA players</li>
+                    <li><strong>Earn Points:</strong> Players score based on real tournament results</li>
+                    <li><strong>Trade & Compete:</strong> Make changes after each Grand Slam</li>
+                    <li><strong>Win:</strong> Highest points at season end wins!</li>
+                </ol>
+            </div>
         </div>
-    </footer>
 
-    <script type="module" src="js/main.js"></script>
+        <!-- TEAM PAGE -->
+        <div id="team-page" class="page">
+            <div class="card">
+                <h2>My Team</h2>
+                <div id="user-team-info" class="user-info hidden">
+                    <strong>Team:</strong> <span id="team-name"></span> | 
+                    <strong>Players:</strong> <span id="team-size">0</span>/10
+                </div>
+                <div id="my-team-list">
+                    <div class="loading">Sign in to view your team</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Available Players</h2>
+                <div class="filter-buttons">
+                    <button class="btn" onclick="filterPlayers('all')" id="filter-all">All</button>
+                    <button class="btn btn-secondary" onclick="filterPlayers('ATP')" id="filter-atp">ATP</button>
+                    <button class="btn btn-secondary" onclick="filterPlayers('WTA')" id="filter-wta">WTA</button>
+                </div>
+                <div id="available-players">
+                    <div class="loading">Loading players...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MATCHES PAGE -->
+        <div id="matches-page" class="page">
+            <div class="card">
+                <h2>Recent Matches</h2>
+                <div id="matches-list">
+                    <div class="loading">Loading matches...</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Upcoming Tournaments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tournament</th>
+                            <th>Date</th>
+                            <th>Surface</th>
+                            <th>Tour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Australian Open</td>
+                            <td>January 2026</td>
+                            <td>Hard</td>
+                            <td>Both</td>
+                        </tr>
+                        <tr>
+                            <td>French Open</td>
+                            <td>May 2026</td>
+                            <td>Clay</td>
+                            <td>Both</td>
+                        </tr>
+                        <tr>
+                            <td>Wimbledon</td>
+                            <td>July 2026</td>
+                            <td>Grass</td>
+                            <td>Both</td>
+                        </tr>
+                        <tr>
+                            <td>US Open</td>
+                            <td>August 2026</td>
+                            <td>Hard</td>
+                            <td>Both</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
 </body>
 </html>
