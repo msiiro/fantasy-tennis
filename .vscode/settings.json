@@ -1,0 +1,8 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/python-backend/venv/bin/python",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/python-backend/src"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "python.languageServer": "Pylance"
+}

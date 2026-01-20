@@ -5,9 +5,10 @@ import schedule
 import time
 from datetime import datetime
 from scraper import get_all_tennis_data
-from supabase_client import update_player_rankings, insert_matches, clear_all_matches
-from match_scraper import scrape_and_store_match_results
+from supabase_client import update_player_rankings
+from tennis_data_csv_scraper import scrape_and_store_csv_matches
 from match_results import update_season_stats
+from update_rankings import update_all_player_rankings, update_all_player_points
 
 def update_tennis_data():
     """Main job to update all tennis data"""
@@ -16,20 +17,21 @@ def update_tennis_data():
     print(f"{'='*60}\n")
     
     try:
-        # 1. Scrape current rankings
-        print("📊 Step 1: Updating player rankings...")
-        data = get_all_tennis_data()
+        # 1. Download CSV match results
+        print("📥 Step 1: Downloading CSV match data...")
+        matches_inserted = scrape_and_store_csv_matches(year=2026, days_back=30)
         
-        if data['players']:
-            update_player_rankings(data['players'])
+        # 2. Update player rankings from matches table
+        print("\n📊 Step 2: Updating player rankings from matches...")
+        update_all_player_rankings()
         
-        # 2. Scrape recent match results
-        print("\n🎾 Step 2: Scraping match results...")
-        matches_inserted = scrape_and_store_match_results(days_back=7)
+        # 3. Update player points from matches table
+        print("\n💯 Step 3: Updating player points from matches...")
+        update_all_player_points()
         
-        # 3. Update season stats based on new match results
+        # 4. Update season stats based on match results
         if matches_inserted > 0:
-            print("\n📈 Step 3: Updating season statistics...")
+            print("\n📈 Step 4: Updating season statistics...")
             update_season_stats()
         
         print(f"\n{'='*60}")
