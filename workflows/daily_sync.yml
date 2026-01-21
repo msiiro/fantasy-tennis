@@ -2,9 +2,8 @@ name: Daily Tennis Data Sync
 
 on:
   schedule:
-    # Run at 2 AM UTC every day
-    - cron: '0 2 * * *'
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 2 * * *'  # 2 AM UTC daily
+  workflow_dispatch:  # Manual trigger
 
 jobs:
   sync-data:
@@ -21,6 +20,7 @@ jobs:
       
       - name: Install dependencies
         run: |
+          cd data-pipeline
           pip install -r requirements.txt
       
       - name: Run sync pipeline
@@ -30,11 +30,12 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
+          cd data-pipeline
           python main.py
       
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: tennis-data
-          path: tennis_matches.json
+          path: data-pipeline/tennis_matches.*
           retention-days: 7
