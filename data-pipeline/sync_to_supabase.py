@@ -49,8 +49,6 @@ else:
     if not SUPABASE_KEY:
         print("  - SUPABASE_KEY is missing")
 
-# ... rest of your code
-
 
 def determine_tour(tournament_name, stage_name):
     """
