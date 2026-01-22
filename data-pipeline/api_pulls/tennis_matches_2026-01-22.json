@@ -1,0 +1,3989 @@
+{
+  "fetch_date": "2026-01-21T22:07:55.058469",
+  "date_requested": "2026-01-22",
+  "total_tournaments": 9,
+  "data": [
+    {
+      "country": {
+        "country_name": "Australian Open",
+        "country_code": "australian-open"
+      },
+      "stage": {
+        "stage_id": "24394",
+        "stage_name": "Men's Singles",
+        "stage_code": "mens-singles",
+        "stage_image_path": "https://storage.livescore.com/images/competition/high/aussie-open-2026.png"
+      },
+      "matches": [
+        {
+          "match_id": "1727039",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3021",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "174255",
+              "team_name": "Jakub Mensik",
+              "team_abbreviation": "JAK",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "252702",
+              "team_name": "Rafael Jodar",
+              "team_abbreviation": "RAF",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "3",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "2",
+            "home_set2": "6",
+            "away_set2": "4",
+            "home_set3": "6",
+            "away_set3": "4"
+          }
+        },
+        {
+          "match_id": "1725371",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3026",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "5827",
+              "team_name": "Rinky Hijikata",
+              "team_abbreviation": "RIN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "200870",
+              "team_name": "Valentin Vacherot",
+              "team_abbreviation": "VAL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "3",
+            "home_set1": "1",
+            "away_set1": "6",
+            "home_set2": "3",
+            "away_set2": "6",
+            "home_set3": "6",
+            "away_set3": "4",
+            "home_set4": "2",
+            "away_set4": "6"
+          }
+        },
+        {
+          "match_id": "1727032",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:15:00",
+          "match_round_info": "3029",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "615",
+              "team_name": "Karen Khachanov",
+              "team_abbreviation": "KAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "220656",
+              "team_name": "Nishesh Basavareddy",
+              "team_abbreviation": "NIS",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "3",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "1",
+            "home_set2": "6",
+            "away_set2": "4",
+            "home_set3": "6",
+            "away_set3": "3"
+          }
+        },
+        {
+          "match_id": "1727024",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:15:00",
+          "match_round_info": "3030",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "5357",
+              "team_name": "Sebastian Baez",
+              "team_abbreviation": "SEB",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "9340",
+              "team_name": "Luciano Darderi",
+              "team_abbreviation": "LUC",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "3",
+            "home_set1": "3",
+            "away_set1": "6",
+            "home_set2": "6",
+            "away_set2": "1",
+            "home_set3": "4",
+            "away_set3": "6",
+            "home_set4": "3",
+            "away_set4": "6"
+          }
+        },
+        {
+          "match_id": "1727021",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:40:00",
+          "match_round_info": "3017",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1211",
+              "team_name": "Lorenzo Musetti",
+              "team_abbreviation": "LOR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "897",
+              "team_name": "Lorenzo Sonego",
+              "team_abbreviation": "LOR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "6",
+            "away_set2": "3",
+            "home_set3": "3",
+            "away_set3": "4"
+          }
+        },
+        {
+          "match_id": "1727035",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 08:50:00",
+          "match_round_info": "3025",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "180657",
+              "team_name": "Ben Shelton",
+              "team_abbreviation": "BEN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5404",
+              "team_name": "Dane Sweeny",
+              "team_abbreviation": "DAN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "6",
+            "away_set2": "2",
+            "home_set3": "1",
+            "away_set3": "2"
+          }
+        },
+        {
+          "match_id": "1727050",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:05:00",
+          "match_round_info": "3022",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "849",
+              "team_name": "Hubert Hurkacz",
+              "team_abbreviation": "HUB",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "172880",
+              "team_name": "Ethan Quinn",
+              "team_abbreviation": "ETH",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "1",
+            "home_set1": "4",
+            "away_set1": "6",
+            "home_set2": "2",
+            "away_set2": "2"
+          }
+        },
+        {
+          "match_id": "1725403",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:45:00",
+          "match_round_info": "3024",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "12671",
+              "team_name": "Francesco Maestrelli",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "580",
+              "team_name": "Novak Djokovic",
+              "team_abbreviation": "NOV",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "0",
+            "home_set1": "1",
+            "away_set1": "4"
+          }
+        },
+        {
+          "match_id": "1725362",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:30:00",
+          "match_round_info": "3023",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1152",
+              "team_name": "Botic van de Zandschulp",
+              "team_abbreviation": "BOT",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "150212",
+              "team_name": "Juncheng Shang",
+              "team_abbreviation": "JUN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727099",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:55:00",
+          "match_round_info": "3018",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5423",
+              "team_name": "Tomas Machac",
+              "team_abbreviation": "TOM",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "880",
+              "team_name": "Stefanos Tsitsipas",
+              "team_abbreviation": "STE",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727033",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:00:00",
+          "match_round_info": "3031",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5817",
+              "team_name": "Eliot Spizzirri",
+              "team_abbreviation": "ELI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "8687",
+              "team_name": "Yibing Wu",
+              "team_abbreviation": "YIB",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1725376",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:25:00",
+          "match_round_info": "3019",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "172861",
+              "team_name": "Arthur Gea",
+              "team_abbreviation": "ART",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "525",
+              "team_name": "Stan Wawrinka",
+              "team_abbreviation": "STA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1725361",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:05:00",
+          "match_round_info": "3027",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "754",
+              "team_name": "Denis Shapovalov",
+              "team_abbreviation": "DEN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "768",
+              "team_name": "Marin Cilic",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727049",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 14:30:00",
+          "match_round_info": "3020",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1115",
+              "team_name": "Vit Kopriva",
+              "team_abbreviation": "VIT",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1021",
+              "team_name": "Taylor Fritz",
+              "team_abbreviation": "TAY",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727074",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 15:00:00",
+          "match_round_info": "3032",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "874",
+              "team_name": "James Duckworth",
+              "team_abbreviation": "JAM",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "958",
+              "team_name": "Jannik Sinner",
+              "team_abbreviation": "JAN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1725402",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 16:30:00",
+          "match_round_info": "3028",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "633",
+              "team_name": "Jaume Munar",
+              "team_abbreviation": "JAU",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "902",
+              "team_name": "Casper Ruud",
+              "team_abbreviation": "CAS",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "Australian Open",
+        "country_code": "australian-open"
+      },
+      "stage": {
+        "stage_id": "24392",
+        "stage_name": "Women's Singles",
+        "stage_code": "womens-singles",
+        "stage_image_path": "https://storage.livescore.com/images/competition/high/aussie-open-2026.png"
+      },
+      "matches": [
+        {
+          "match_id": "1727018",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3020",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "145496",
+              "team_name": "Ashlyn Krueger",
+              "team_abbreviation": "ASH",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "699",
+              "team_name": "Madison Keys",
+              "team_abbreviation": "MAD",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "2",
+            "home_set1": "1",
+            "away_set1": "6",
+            "home_set2": "5",
+            "away_set2": "7"
+          }
+        },
+        {
+          "match_id": "1725359",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3018",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "5541",
+              "team_name": "Oksana Selekhmeteva",
+              "team_abbreviation": "OKS",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1048",
+              "team_name": "Paula Badosa",
+              "team_abbreviation": "PAU",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "4",
+            "home_set2": "6",
+            "away_set2": "4"
+          }
+        },
+        {
+          "match_id": "1725349",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:45:00",
+          "match_round_info": "3017",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "579",
+              "team_name": "Jessica Pegula",
+              "team_abbreviation": "JES",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "89465",
+              "team_name": "McCartney Kessler",
+              "team_abbreviation": "MCC",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "0",
+            "home_set2": "6",
+            "away_set2": "2"
+          }
+        },
+        {
+          "match_id": "1727020",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 08:40:00",
+          "match_round_info": "3019",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "87383",
+              "team_name": "Janice Tjen",
+              "team_abbreviation": "JAN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "760",
+              "team_name": "Karolina Pliskova",
+              "team_abbreviation": "KAR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "1",
+            "home_set1": "4",
+            "away_set1": "6",
+            "home_set2": "3",
+            "away_set2": "4"
+          }
+        },
+        {
+          "match_id": "1727028",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:25:00",
+          "match_round_info": "3031",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5501",
+              "team_name": "Anna Kalinskaya",
+              "team_abbreviation": "ANN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5563",
+              "team_name": "Julia Grabher",
+              "team_abbreviation": "JUL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "0",
+            "away_set2": "1"
+          }
+        },
+        {
+          "match_id": "1727102",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:30:00",
+          "match_round_info": "3030",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1101",
+              "team_name": "Maddison Inglis",
+              "team_abbreviation": "MAD",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "643",
+              "team_name": "Laura Siegemund",
+              "team_abbreviation": "LAU",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "0",
+            "home_set1": "2",
+            "away_set1": "3"
+          }
+        },
+        {
+          "match_id": "1727017",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:00:00",
+          "match_round_info": "3021",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "12661",
+              "team_name": "Linda Noskova",
+              "team_abbreviation": "LIN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "12696",
+              "team_name": "Taylah Preston",
+              "team_abbreviation": "TAY",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "0",
+            "home_set1": "0",
+            "away_set1": "1"
+          }
+        },
+        {
+          "match_id": "1727034",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:00:00",
+          "match_round_info": "3022",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1005",
+              "team_name": "Xinyu Wang",
+              "team_abbreviation": "XIN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1033",
+              "team_name": "Jelena Ostapenko",
+              "team_abbreviation": "JEL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "0",
+            "home_set1": "1",
+            "away_set1": "1"
+          }
+        },
+        {
+          "match_id": "1725341",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:10:00",
+          "match_round_info": "3023",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "183111",
+              "team_name": "Peyton Stearns",
+              "team_abbreviation": "PEY",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "172846",
+              "team_name": "Petra Marcinko",
+              "team_abbreviation": "PET",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1726972",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:25:00",
+          "match_round_info": "3024",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "631",
+              "team_name": "Katerina Siniakova",
+              "team_abbreviation": "KAT",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "660",
+              "team_name": "Amanda Anisimova",
+              "team_abbreviation": "AMA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1725375",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:35:00",
+          "match_round_info": "3027",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "772",
+              "team_name": "Elise Mertens",
+              "team_abbreviation": "ELI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5753",
+              "team_name": "Moyuka Uchijima",
+              "team_abbreviation": "MOY",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727022",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:00:00",
+          "match_round_info": "3026",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5874",
+              "team_name": "Linda Fruhvirtova",
+              "team_abbreviation": "LIN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "179155",
+              "team_name": "Tereza Valentova",
+              "team_abbreviation": "TER",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727096",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:30:00",
+          "match_round_info": "3028",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "99624",
+              "team_name": "Nikola Bartunkova",
+              "team_abbreviation": "NIK",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "935",
+              "team_name": "Belinda Bencic",
+              "team_abbreviation": "BEL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1725373",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 13:00:00",
+          "match_round_info": "3032",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "907",
+              "team_name": "Marie Bouzkova",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5969",
+              "team_name": "Iga Swiatek",
+              "team_abbreviation": "IGA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727093",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 15:00:00",
+          "match_round_info": "3029",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "636",
+              "team_name": "Naomi Osaka",
+              "team_abbreviation": "NAO",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "576",
+              "team_name": "Sorana Cirstea",
+              "team_abbreviation": "SOR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727026",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 17:00:00",
+          "match_round_info": "3025",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "595",
+              "team_name": "Elena Rybakina",
+              "team_abbreviation": "ELE",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1045",
+              "team_name": "Varvara Gracheva",
+              "team_abbreviation": "VAR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "Australian Open",
+        "country_code": "australian-open"
+      },
+      "stage": {
+        "stage_id": "24395",
+        "stage_name": "Men's Doubles",
+        "stage_code": "mens-doubles",
+        "stage_image_path": "https://storage.livescore.com/images/competition/high/aussie-open-2026.png"
+      },
+      "matches": [
+        {
+          "match_id": "1724681",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:00:00",
+          "match_round_info": "3010",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "882",
+              "team_name": "Kamil Majchrzak",
+              "team_abbreviation": "KAM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "172880",
+              "team_name": "Ethan Quinn",
+              "team_abbreviation": "ETH",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "557",
+              "team_name": "Pierre-Hugues Herbert",
+              "team_abbreviation": "PIE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "993",
+              "team_name": "Jordan Thompson",
+              "team_abbreviation": "JOR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724683",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3004",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "6706",
+              "team_name": "Jakub Paul",
+              "team_abbreviation": "JAK",
+              "team_image_path": null
+            },
+            {
+              "team_id": "248459",
+              "team_name": "Marcus Willis",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "535",
+              "team_name": "John Peers",
+              "team_abbreviation": "JOH",
+              "team_image_path": null
+            },
+            {
+              "team_id": "681",
+              "team_name": "Evan King",
+              "team_abbreviation": "EVA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "7",
+            "away_set1": "6",
+            "home_set1_tiebreak": "7",
+            "away_set1_tiebreak": "4",
+            "home_set2": "6",
+            "away_set2": "3"
+          }
+        },
+        {
+          "match_id": "1724700",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3016",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "5639",
+              "team_name": "Ray Ho",
+              "team_abbreviation": "RAY",
+              "team_image_path": null
+            },
+            {
+              "team_id": "198209",
+              "team_name": "Hendrik Jebens",
+              "team_abbreviation": "HEN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "544",
+              "team_name": "Andrea Vavassori",
+              "team_abbreviation": "AND",
+              "team_image_path": null
+            },
+            {
+              "team_id": "960",
+              "team_name": "Simone Bolelli",
+              "team_abbreviation": "SIM",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "1",
+            "home_set1": "6",
+            "away_set1": "7",
+            "home_set1_tiebreak": "6",
+            "away_set1_tiebreak": "8",
+            "home_set2": "7",
+            "away_set2": "6",
+            "home_set2_tiebreak": "7",
+            "away_set2_tiebreak": "2",
+            "home_set3": "6",
+            "away_set3": "4"
+          }
+        },
+        {
+          "match_id": "1724706",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3011",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "6568",
+              "team_name": "Vasil Kirkov",
+              "team_abbreviation": "VAS",
+              "team_image_path": null
+            },
+            {
+              "team_id": "174257",
+              "team_name": "Bart Stevens",
+              "team_abbreviation": "BAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1148",
+              "team_name": "Miguel Angel Reyes",
+              "team_abbreviation": "MIG",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1157",
+              "team_name": "Gonzalo Escobar",
+              "team_abbreviation": "GON",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "1",
+            "home_set2": "6",
+            "away_set2": "4"
+          }
+        },
+        {
+          "match_id": "1724705",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 08:55:00",
+          "match_round_info": "3009",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "711",
+              "team_name": "Mate Pavic",
+              "team_abbreviation": "MAT",
+              "team_image_path": null
+            },
+            {
+              "team_id": "807",
+              "team_name": "Marcelo Arevalo",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1064",
+              "team_name": "Damir Dzumhur",
+              "team_abbreviation": "DAM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1091",
+              "team_name": "Tomislav Brkic",
+              "team_abbreviation": "TOM",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "2",
+            "home_set2": "6",
+            "away_set2": "3"
+          }
+        },
+        {
+          "match_id": "1724698",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:00:00",
+          "match_round_info": "3032",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "729",
+              "team_name": "Diego Hidalgo",
+              "team_abbreviation": "DIE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "273393",
+              "team_name": "Patrik Trhac",
+              "team_abbreviation": "PAT",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1182",
+              "team_name": "Harri Helioevaara",
+              "team_abbreviation": "HAR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "220819",
+              "team_name": "Henry Patten",
+              "team_abbreviation": "HEN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "1",
+            "home_set1": "4",
+            "away_set1": "6",
+            "home_set2": "5",
+            "away_set2": "4"
+          }
+        },
+        {
+          "match_id": "1724703",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:05:00",
+          "match_round_info": "3019",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "516",
+              "team_name": "Santiago Gonzalez",
+              "team_abbreviation": "SAN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1190",
+              "team_name": "David Pel",
+              "team_abbreviation": "DAV",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "556",
+              "team_name": "Fernando Romboli",
+              "team_abbreviation": "FER",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1156",
+              "team_name": "Marcelo Melo",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "4",
+            "home_set2": "3",
+            "away_set2": "3"
+          }
+        },
+        {
+          "match_id": "1724701",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:50:00",
+          "match_round_info": "3005",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5401",
+              "team_name": "Sadio Doumbia",
+              "team_abbreviation": "SAD",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5402",
+              "team_name": "Fabien Reboul",
+              "team_abbreviation": "FAB",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "731",
+              "team_name": "Sander Arends",
+              "team_abbreviation": "SAN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "865",
+              "team_name": "Romain Arneodo",
+              "team_abbreviation": "ROM",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "0",
+            "home_set1": "2",
+            "away_set1": "3"
+          }
+        },
+        {
+          "match_id": "1727019",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:15:00",
+          "match_round_info": "4004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5387",
+              "team_name": "Tomas Etcheverry",
+              "team_abbreviation": "TOM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5448",
+              "team_name": "Camilo Ugo Carabelli",
+              "team_abbreviation": "CAM",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "915",
+              "team_name": "Juan Manuel Cerundolo",
+              "team_abbreviation": "JUA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1225",
+              "team_name": "Francisco Cerundolo",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724697",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:20:00",
+          "match_round_info": "3031",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "795",
+              "team_name": "Matthew Romios",
+              "team_abbreviation": "MAT",
+              "team_image_path": null
+            },
+            {
+              "team_id": "234009",
+              "team_name": "Ryan Seggerman",
+              "team_abbreviation": "RYA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "539",
+              "team_name": "Robert Galloway",
+              "team_abbreviation": "ROB",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5495",
+              "team_name": "Alexander Erler",
+              "team_abbreviation": "ALE",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724709",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:55:00",
+          "match_round_info": "3024",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5357",
+              "team_name": "Sebastian Baez",
+              "team_abbreviation": "SEB",
+              "team_image_path": null
+            },
+            {
+              "team_id": "194137",
+              "team_name": "Francisco Comesana",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1079",
+              "team_name": "Marcel Granollers",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5399",
+              "team_name": "Horacio Zeballos",
+              "team_abbreviation": "HOR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727257",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:50:00",
+          "match_round_info": "3010",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1194",
+              "team_name": "Sriram Balaji",
+              "team_abbreviation": "SRI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "89782",
+              "team_name": "Neil Oberleitner",
+              "team_abbreviation": "NEI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "557",
+              "team_name": "Pierre-Hugues Herbert",
+              "team_abbreviation": "PIE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "993",
+              "team_name": "Jordan Thompson",
+              "team_abbreviation": "JOR",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724686",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:55:00",
+          "match_round_info": "3003",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "613",
+              "team_name": "Nick Kyrgios",
+              "team_abbreviation": "NIC",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5619",
+              "team_name": "Thanasi Kokkinakis",
+              "team_abbreviation": "THA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "743",
+              "team_name": "Marc Polmans",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1004",
+              "team_name": "Jason Kubler",
+              "team_abbreviation": "JAS",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724708",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 13:00:00",
+          "match_round_info": "3023",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "679",
+              "team_name": "Alex Bolt",
+              "team_abbreviation": "ALE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5404",
+              "team_name": "Dane Sweeny",
+              "team_abbreviation": "DAN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "529",
+              "team_name": "Corentin Moutet",
+              "team_abbreviation": "COR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "223738",
+              "team_name": "Luca Sanchez",
+              "team_abbreviation": "LUC",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "Australian Open",
+        "country_code": "australian-open"
+      },
+      "stage": {
+        "stage_id": "24393",
+        "stage_name": "Women's Doubles",
+        "stage_code": "womens-doubles",
+        "stage_image_path": "https://storage.livescore.com/images/competition/high/aussie-open-2026.png"
+      },
+      "matches": [
+        {
+          "match_id": "1724736",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3028",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "583",
+              "team_name": "Ena Shibahara",
+              "team_abbreviation": "ENA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "7274",
+              "team_name": "Vera Zvonareva",
+              "team_abbreviation": "VER",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "749",
+              "team_name": "Liudmila Samsonova",
+              "team_abbreviation": "LUD",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5871",
+              "team_name": "Diana Shnaider",
+              "team_abbreviation": "DIA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "7",
+            "away_set1": "6",
+            "home_set1_tiebreak": "7",
+            "away_set1_tiebreak": "4",
+            "home_set2": "6",
+            "away_set2": "1"
+          }
+        },
+        {
+          "match_id": "1724742",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3031",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "7276",
+              "team_name": "Kimberly Birrell",
+              "team_abbreviation": "KIM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "9435",
+              "team_name": "Talia Gibson",
+              "team_abbreviation": "TAL",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5584",
+              "team_name": "Ayano Shimizu",
+              "team_abbreviation": "AYA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5668",
+              "team_name": "Momoko Kobori",
+              "team_abbreviation": "MOM",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "7",
+            "away_set2": "6",
+            "home_set2_tiebreak": "7",
+            "away_set2_tiebreak": "3"
+          }
+        },
+        {
+          "match_id": "1724718",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3008",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "1263",
+              "team_name": "Quinn Gleason",
+              "team_abbreviation": "QUI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "178414",
+              "team_name": "Elena Pridankina",
+              "team_abbreviation": "ELE",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1270",
+              "team_name": "Anna Danilina",
+              "team_abbreviation": "ANN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5612",
+              "team_name": "Aleksandra Krunic",
+              "team_abbreviation": "ALE",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "2",
+            "home_set1": "5",
+            "away_set1": "7",
+            "home_set2": "6",
+            "away_set2": "4",
+            "home_set3": "0",
+            "away_set3": "6"
+          }
+        },
+        {
+          "match_id": "1724717",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 07:10:00",
+          "match_round_info": "3021",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "815",
+              "team_name": "Xinyu Jiang",
+              "team_abbreviation": "XIN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1012",
+              "team_name": "Hao-Ching Chan",
+              "team_abbreviation": "HAO",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "858",
+              "team_name": "Anna Blinkova",
+              "team_abbreviation": "ANN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1216",
+              "team_name": "Kamilla Rakhimova",
+              "team_abbreviation": "KAM",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "2",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "5",
+            "away_set2": "7",
+            "home_set3": "6",
+            "away_set3": "7",
+            "home_set3_tiebreak": "1",
+            "away_set3_tiebreak": "10"
+          }
+        },
+        {
+          "match_id": "1724728",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:30:00",
+          "match_round_info": "3029",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "572",
+              "team_name": "Kristina Mladenovic",
+              "team_abbreviation": "KRI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5581",
+              "team_name": "Hanyu Guo",
+              "team_abbreviation": "HAN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "975",
+              "team_name": "Dayana Yastremska",
+              "team_abbreviation": "DAY",
+              "team_image_path": null
+            },
+            {
+              "team_id": "153895",
+              "team_name": "Alycia Parks",
+              "team_abbreviation": "ALY",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724712",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:20:00",
+          "match_round_info": "3004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "705",
+              "team_name": "Viktorija Golubic",
+              "team_abbreviation": "VIK",
+              "team_image_path": null
+            },
+            {
+              "team_id": "945",
+              "team_name": "Ann Li",
+              "team_abbreviation": "ANN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "814",
+              "team_name": "Miyu Kato",
+              "team_abbreviation": "MIY",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1169",
+              "team_name": "Fanny Stollar",
+              "team_abbreviation": "FAN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724729",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:30:00",
+          "match_round_info": "3018",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "594",
+              "team_name": "Makoto Ninomiya",
+              "team_abbreviation": "MAK",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5516",
+              "team_name": "Nadiya Kichenok",
+              "team_abbreviation": "NAD",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5571",
+              "team_name": "Astra Sharma",
+              "team_abbreviation": "AST",
+              "team_image_path": null
+            },
+            {
+              "team_id": "245694",
+              "team_name": "Emerson Jones",
+              "team_abbreviation": "EME",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724735",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:45:00",
+          "match_round_info": "3020",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1164",
+              "team_name": "Fang-Hsien Wu",
+              "team_abbreviation": "FAN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5658",
+              "team_name": "Eri Hozumi",
+              "team_abbreviation": "ERI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "7183",
+              "team_name": "Alexandra Panova",
+              "team_abbreviation": "ALE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "8383",
+              "team_name": "Irina Khromacheva",
+              "team_abbreviation": "IRI",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724714",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:00:00",
+          "match_round_info": "3012",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "812",
+              "team_name": "Caty McNally",
+              "team_abbreviation": "CAT",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5809",
+              "team_name": "Maria Osorio",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "643",
+              "team_name": "Laura Siegemund",
+              "team_abbreviation": "LAU",
+              "team_image_path": null
+            },
+            {
+              "team_id": "778",
+              "team_name": "Sofia Kenin",
+              "team_abbreviation": "SOF",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724740",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:50:00",
+          "match_round_info": "3006",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "823",
+              "team_name": "Priscilla Hon",
+              "team_abbreviation": "PRI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "145496",
+              "team_name": "Ashlyn Krueger",
+              "team_abbreviation": "ASH",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "824",
+              "team_name": "Storm Hunter",
+              "team_abbreviation": "STO",
+              "team_image_path": null
+            },
+            {
+              "team_id": "260069",
+              "team_name": "Maya Joint",
+              "team_abbreviation": "MAY",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1724741",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 13:10:00",
+          "match_round_info": "3022",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1288",
+              "team_name": "Hailey Baptiste",
+              "team_abbreviation": "HAI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "183111",
+              "team_name": "Peyton Stearns",
+              "team_abbreviation": "PEY",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1049",
+              "team_name": "Elisabetta Cocciaretto",
+              "team_abbreviation": "ELI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5928",
+              "team_name": "Jessica Bouzas Maneiro",
+              "team_abbreviation": "JES",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "Australian Open",
+        "country_code": "australian-open"
+      },
+      "stage": {
+        "stage_id": "24424",
+        "stage_name": "Mixed Doubles",
+        "stage_code": "mixed-doubles",
+        "stage_image_path": null
+      },
+      "matches": [
+        {
+          "match_id": "1727139",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 09:55:00",
+          "match_round_info": "4009",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "567",
+              "team_name": "Tim Puetz",
+              "team_abbreviation": "TIM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "908",
+              "team_name": "Shuai Zhang",
+              "team_abbreviation": "SHU",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "856",
+              "team_name": "Nicole Melichar",
+              "team_abbreviation": "NIC",
+              "team_image_path": null
+            },
+            {
+              "team_id": "142368",
+              "team_name": "Yuki Bhambri",
+              "team_abbreviation": "bha",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "0",
+            "home_set1": "2",
+            "away_set1": "2"
+          }
+        },
+        {
+          "match_id": "1727141",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:25:00",
+          "match_round_info": "4002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "535",
+              "team_name": "John Peers",
+              "team_abbreviation": "JOH",
+              "team_image_path": null
+            },
+            {
+              "team_id": "9344",
+              "team_name": "Olivia Gadecki",
+              "team_abbreviation": "OLI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1247",
+              "team_name": "Lucas Miedler",
+              "team_abbreviation": "LUC",
+              "team_image_path": null
+            },
+            {
+              "team_id": "7274",
+              "team_name": "Vera Zvonareva",
+              "team_abbreviation": "VER",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727142",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:40:00",
+          "match_round_info": "4012",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "728",
+              "team_name": "John-Patrick Smith",
+              "team_abbreviation": "JOH",
+              "team_image_path": null
+            },
+            {
+              "team_id": "7276",
+              "team_name": "Kimberly Birrell",
+              "team_abbreviation": "KIM",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "969",
+              "team_name": "Demi Schuurs",
+              "team_abbreviation": "DEM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "220818",
+              "team_name": "Julian Cash",
+              "team_abbreviation": "JUL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727140",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 12:30:00",
+          "match_round_info": "4015",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "681",
+              "team_name": "Evan King",
+              "team_abbreviation": "EVA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "800",
+              "team_name": "Asia Muhammad",
+              "team_abbreviation": "ASI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "577",
+              "team_name": "Gabriella Da Silva Fick",
+              "team_abbreviation": "GAB",
+              "team_image_path": null
+            },
+            {
+              "team_id": "99849",
+              "team_name": "Blake Bayldon",
+              "team_abbreviation": "BAY",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "ATP Challenger",
+        "country_code": "atp-challenger"
+      },
+      "stage": {
+        "stage_id": "24410",
+        "stage_name": "Oeiras, Portugal",
+        "stage_code": "oeiras-portugal",
+        "stage_image_path": null
+      },
+      "matches": [
+        {
+          "match_id": "1725256",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 00:40:00",
+          "match_round_info": "5003",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "704",
+              "team_name": "Denys Molchanov",
+              "team_abbreviation": "DEN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1277",
+              "team_name": "David Pichler",
+              "team_abbreviation": "DAV",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "914",
+              "team_name": "Gastao Elias",
+              "team_abbreviation": "GAS",
+              "team_image_path": null
+            },
+            {
+              "team_id": "233366",
+              "team_name": "Tiago Pereira",
+              "team_abbreviation": "TIA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "1",
+            "home_set1": "6",
+            "away_set1": "1",
+            "home_set2": "1",
+            "away_set2": "6",
+            "home_set3": "10",
+            "away_set3": "6"
+          }
+        },
+        {
+          "match_id": "1725257",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 00:40:00",
+          "match_round_info": "5004",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "1081",
+              "team_name": "Szymon Walkow",
+              "team_abbreviation": "SZY",
+              "team_image_path": null
+            },
+            {
+              "team_id": "259912",
+              "team_name": "Trey Hilderbrand",
+              "team_abbreviation": "TRE",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5905",
+              "team_name": "Francesco Passaro",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "188526",
+              "team_name": "Vilius Gaubas",
+              "team_abbreviation": "VIL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "2",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "1",
+            "away_set2": "6",
+            "home_set3": "8",
+            "away_set3": "10"
+          }
+        },
+        {
+          "match_id": "1727432",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 18:00:00",
+          "match_round_info": "6003",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1212",
+              "team_name": "Alexander Merino",
+              "team_abbreviation": "ALE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "99611",
+              "team_name": "Christoph Negritu",
+              "team_abbreviation": "CHR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "550",
+              "team_name": "Nicolas Barrientos",
+              "team_abbreviation": "NIC",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5920",
+              "team_name": "Benjamin Kittay",
+              "team_abbreviation": "BEN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727463",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 18:00:00",
+          "match_round_info": "6004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "665",
+              "team_name": "Zdenek Kolar",
+              "team_abbreviation": "ZDE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1125",
+              "team_name": "Sergio Martos Gornes",
+              "team_abbreviation": "SER",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "86726",
+              "team_name": "Cleeve Harper",
+              "team_abbreviation": "CLE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "292737",
+              "team_name": "David Stevenson",
+              "team_abbreviation": "DAV",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727178",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 19:30:00",
+          "match_round_info": "5005",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1336",
+              "team_name": "Nicolas Mejia",
+              "team_abbreviation": "NIC",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "87016",
+              "team_name": "Daniil Glinka",
+              "team_abbreviation": "DAN",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727191",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 20:00:00",
+          "match_round_info": "5006",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "528",
+              "team_name": "Stefan Kozlov",
+              "team_abbreviation": "STE",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5905",
+              "team_name": "Francesco Passaro",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727190",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 21:00:00",
+          "match_round_info": "5008",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1160",
+              "team_name": "Denis Yevseyev",
+              "team_abbreviation": "DEN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "6248",
+              "team_name": "Zsombor Piros",
+              "team_abbreviation": "ZSO",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727174",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 21:30:00",
+          "match_round_info": "5007",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5872",
+              "team_name": "Leandro Riedi",
+              "team_abbreviation": "LEA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "238091",
+              "team_name": "Andres Andrade",
+              "team_abbreviation": "AND",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727801",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 22:30:00",
+          "match_round_info": "6002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "704",
+              "team_name": "Denys Molchanov",
+              "team_abbreviation": "DEN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "1277",
+              "team_name": "David Pichler",
+              "team_abbreviation": "DAV",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5905",
+              "team_name": "Francesco Passaro",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "188526",
+              "team_name": "Vilius Gaubas",
+              "team_abbreviation": "VIL",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727428",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 23:00:00",
+          "match_round_info": "6001",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "213557",
+              "team_name": "Ben Jones",
+              "team_abbreviation": "BEN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "241243",
+              "team_name": "Joshua Paris",
+              "team_abbreviation": "JOS",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "154180",
+              "team_name": "Tiago Torres",
+              "team_abbreviation": "TIA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "200872",
+              "team_name": "Francisco Rocha",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "ATP Challenger",
+        "country_code": "atp-challenger"
+      },
+      "stage": {
+        "stage_id": "24411",
+        "stage_name": "Soma Bay, Egypt",
+        "stage_code": "challenger-soma-bay",
+        "stage_image_path": null
+      },
+      "matches": [
+        {
+          "match_id": "1727177",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 16:00:00",
+          "match_round_info": "5002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1251",
+              "team_name": "Ergi Kirkin",
+              "team_abbreviation": "ERG",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "205429",
+              "team_name": "Rodrigo Pacheco Mendez",
+              "team_abbreviation": "ROD",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727165",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 16:00:00",
+          "match_round_info": "5003",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1273",
+              "team_name": "Geoffrey Blancaneaux",
+              "team_abbreviation": "GEO",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "246586",
+              "team_name": "Maxim Mrva",
+              "team_abbreviation": "MAX",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727067",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 16:00:00",
+          "match_round_info": "5004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1226",
+              "team_name": "Michael Geerts",
+              "team_abbreviation": "MIC",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "735",
+              "team_name": "Lloyd Harris",
+              "team_abbreviation": "LLO",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727447",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 17:30:00",
+          "match_round_info": "6002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1238",
+              "team_name": "David Poljak",
+              "team_abbreviation": "DAV",
+              "team_image_path": null
+            },
+            {
+              "team_id": "213556",
+              "team_name": "Ivan Liutarevich",
+              "team_abbreviation": "IVA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1172",
+              "team_name": "Saketh Myneni",
+              "team_abbreviation": "SAK",
+              "team_image_path": null
+            },
+            {
+              "team_id": "186107",
+              "team_name": "Siddhant Banthia",
+              "team_abbreviation": "SID",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727173",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 17:30:00",
+          "match_round_info": "5001",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "178110",
+              "team_name": "Edas Butvilas",
+              "team_abbreviation": "EDA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "101424",
+              "team_name": "Duje Ajdukovic",
+              "team_abbreviation": "DUJ",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727446",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 17:30:00",
+          "match_round_info": "6004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "12680",
+              "team_name": "Max Westphal",
+              "team_abbreviation": "MAX",
+              "team_image_path": null
+            },
+            {
+              "team_id": "264311",
+              "team_name": "Theodore Winegar",
+              "team_abbreviation": "THE",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1183",
+              "team_name": "Patrik Niklas-Salminen",
+              "team_abbreviation": "PAT",
+              "team_image_path": null
+            },
+            {
+              "team_id": "180639",
+              "team_name": "Piotr Matuszewski",
+              "team_abbreviation": "PIO",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727433",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 19:00:00",
+          "match_round_info": "6003",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "8271",
+              "team_name": "Alex Hernandez",
+              "team_abbreviation": "ALE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "205429",
+              "team_name": "Rodrigo Pacheco Mendez",
+              "team_abbreviation": "ROD",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1226",
+              "team_name": "Michael Geerts",
+              "team_abbreviation": "MIC",
+              "team_image_path": null
+            },
+            {
+              "team_id": "330746",
+              "team_name": "Tim Ruehl",
+              "team_abbreviation": "TIM",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727445",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 19:00:00",
+          "match_round_info": "6001",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "342966",
+              "team_name": "Erik Grevelius",
+              "team_abbreviation": "ERI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "342967",
+              "team_name": "Adam Heinonen",
+              "team_abbreviation": "ADA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1273",
+              "team_name": "Geoffrey Blancaneaux",
+              "team_abbreviation": "GEO",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5655",
+              "team_name": "Matteo Martineau",
+              "team_abbreviation": "MAT",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "ATP Challenger",
+        "country_code": "atp-challenger"
+      },
+      "stage": {
+        "stage_id": "24422",
+        "stage_name": "Itajai, Brazil",
+        "stage_code": "itajai-brazil",
+        "stage_image_path": null
+      },
+      "matches": [
+        {
+          "match_id": "1726872",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 00:05:00",
+          "match_round_info": "5001",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "555",
+              "team_name": "Luis David Martinez",
+              "team_abbreviation": "LUI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "6253",
+              "team_name": "Cristian Rodriguez",
+              "team_abbreviation": "CRI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1246",
+              "team_name": "Federico Zeballos",
+              "team_abbreviation": "FED",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5719",
+              "team_name": "Juan Carlos Manuel Aguilar",
+              "team_abbreviation": "JUA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "1",
+            "home_set1": "4",
+            "away_set1": "6",
+            "home_set2": "7",
+            "away_set2": "6",
+            "home_set2_tiebreak": "7",
+            "away_set2_tiebreak": "4",
+            "home_set3": "10",
+            "away_set3": "6"
+          }
+        },
+        {
+          "match_id": "1726877",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 00:10:00",
+          "match_round_info": "5003",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "5632",
+              "team_name": "Mariano Kestelboim",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "185186",
+              "team_name": "Marcelo Zormann Da Silva",
+              "team_abbreviation": "MAR",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1295",
+              "team_name": "Gonzalo Villanueva",
+              "team_abbreviation": "GON",
+              "team_image_path": null
+            },
+            {
+              "team_id": "142373",
+              "team_name": "Guido Justo",
+              "team_abbreviation": "jus",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "2",
+            "home_set1": "3",
+            "away_set1": "6",
+            "home_set2": "6",
+            "away_set2": "2",
+            "home_set3": "8",
+            "away_set3": "10"
+          }
+        },
+        {
+          "match_id": "1726873",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 01:10:00",
+          "match_round_info": "5008",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "142645",
+              "team_name": "Nicolas Kicker",
+              "team_abbreviation": "NIC",
+              "team_image_path": null
+            },
+            {
+              "team_id": "190324",
+              "team_name": "Ignacio Carou",
+              "team_abbreviation": "IGN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5653",
+              "team_name": "Mircea-Alexandru Jecan",
+              "team_abbreviation": "MIR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "263692",
+              "team_name": "Bogdan Pavel",
+              "team_abbreviation": "BOG",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "1",
+            "away": "2",
+            "home_set1": "1",
+            "away_set1": "6",
+            "home_set2": "6",
+            "away_set2": "4",
+            "home_set3": "2",
+            "away_set3": "10"
+          }
+        },
+        {
+          "match_id": "1727175",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 02:00:00",
+          "match_round_info": "5007",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "521",
+              "team_name": "Thiago Monteiro",
+              "team_abbreviation": "THI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "8151",
+              "team_name": "Franco Agamenone",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "0",
+            "home_set1": "6",
+            "away_set1": "2",
+            "home_set2": "6",
+            "away_set2": "4"
+          }
+        },
+        {
+          "match_id": "1726878",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 02:15:00",
+          "match_round_info": "5004",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "5593",
+              "team_name": "Joao Lucas Da Silva",
+              "team_abbreviation": "JOA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "276603",
+              "team_name": "Joao Eduardo Schiessl",
+              "team_abbreviation": "JOA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5605",
+              "team_name": "Daniel Dutra da Silva",
+              "team_abbreviation": "DAN",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5608",
+              "team_name": "Pedro Boscardin Dias",
+              "team_abbreviation": "PED",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "1",
+            "home_set1": "6",
+            "away_set1": "3",
+            "home_set2": "4",
+            "away_set2": "6",
+            "home_set3": "11",
+            "away_set3": "9"
+          }
+        },
+        {
+          "match_id": "1726874",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 02:55:00",
+          "match_round_info": "5006",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "1003",
+              "team_name": "Andrea Collarini",
+              "team_abbreviation": "AND",
+              "team_image_path": null
+            },
+            {
+              "team_id": "172886",
+              "team_name": "Alvaro Guilen Meza",
+              "team_abbreviation": "ALV",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1245",
+              "team_name": "Boris Arias",
+              "team_abbreviation": "BOR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5471",
+              "team_name": "Arklon Del Pino",
+              "team_abbreviation": "ARK",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "1",
+            "home_set1": "4",
+            "away_set1": "6",
+            "home_set2": "7",
+            "away_set2": "6",
+            "home_set2_tiebreak": "7",
+            "away_set2_tiebreak": "5",
+            "home_set3": "10",
+            "away_set3": "5"
+          }
+        },
+        {
+          "match_id": "1727189",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 04:10:00",
+          "match_round_info": "5008",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "102036",
+              "team_name": "Eduardo Ribeiro",
+              "team_abbreviation": "EDU",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5713",
+              "team_name": "Adolfo Vallejo",
+              "team_abbreviation": "ADO",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "2",
+            "home_set1": "3",
+            "away_set1": "6",
+            "home_set2": "2",
+            "away_set2": "6"
+          }
+        },
+        {
+          "match_id": "1727171",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 04:10:00",
+          "match_round_info": "5002",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "5356",
+              "team_name": "Genaro Alberto Olivieri",
+              "team_abbreviation": "GEN",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5327",
+              "team_name": "Thiago Seyboth Wild",
+              "team_abbreviation": "THI",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "2",
+            "home_set1": "5",
+            "away_set1": "7",
+            "home_set2": "2",
+            "away_set2": "6"
+          }
+        },
+        {
+          "match_id": "1726875",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 05:40:00",
+          "match_round_info": "5007",
+          "match_winner": 1,
+          "team_home": [
+            {
+              "team_id": "5592",
+              "team_name": "Matheus Pucinelli de Almeida",
+              "team_abbreviation": "MAT",
+              "team_image_path": null
+            },
+            {
+              "team_id": "101508",
+              "team_name": "Bruno Oliveira",
+              "team_abbreviation": "BRU",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5656",
+              "team_name": "Nikolas Sanchez Izquierdo",
+              "team_abbreviation": "NIK",
+              "team_image_path": null
+            },
+            {
+              "team_id": "8151",
+              "team_name": "Franco Agamenone",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "2",
+            "away": "1",
+            "home_set1": "6",
+            "away_set1": "2",
+            "home_set2": "4",
+            "away_set2": "6",
+            "home_set3": "10",
+            "away_set3": "3"
+          }
+        },
+        {
+          "match_id": "1726971",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 06:10:00",
+          "match_round_info": "5001",
+          "match_winner": 2,
+          "team_home": [
+            {
+              "team_id": "503",
+              "team_name": "Hugo Dellien",
+              "team_abbreviation": "HUG",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "8837",
+              "team_name": "Igor Ribeiro Marcondes",
+              "team_abbreviation": "IGO",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": "0",
+            "away": "2",
+            "home_set1": "4",
+            "away_set1": "6",
+            "home_set2": "2",
+            "away_set2": "6"
+          }
+        },
+        {
+          "match_id": "1727834",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 20:00:00",
+          "match_round_info": "6003",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5713",
+              "team_name": "Adolfo Vallejo",
+              "team_abbreviation": "ADO",
+              "team_image_path": null
+            },
+            {
+              "team_id": "172875",
+              "team_name": "Gonzalo Bueno",
+              "team_abbreviation": "GON",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1003",
+              "team_name": "Andrea Collarini",
+              "team_abbreviation": "AND",
+              "team_image_path": null
+            },
+            {
+              "team_id": "172886",
+              "team_name": "Alvaro Guilen Meza",
+              "team_abbreviation": "ALV",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727831",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 20:00:00",
+          "match_round_info": "6002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "1295",
+              "team_name": "Gonzalo Villanueva",
+              "team_abbreviation": "GON",
+              "team_image_path": null
+            },
+            {
+              "team_id": "142373",
+              "team_name": "Guido Justo",
+              "team_abbreviation": "jus",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5593",
+              "team_name": "Joao Lucas Da Silva",
+              "team_abbreviation": "JOA",
+              "team_image_path": null
+            },
+            {
+              "team_id": "276603",
+              "team_name": "Joao Eduardo Schiessl",
+              "team_abbreviation": "JOA",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727836",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 20:00:00",
+          "match_round_info": "6004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5592",
+              "team_name": "Matheus Pucinelli de Almeida",
+              "team_abbreviation": "MAT",
+              "team_image_path": null
+            },
+            {
+              "team_id": "101508",
+              "team_name": "Bruno Oliveira",
+              "team_abbreviation": "BRU",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5653",
+              "team_name": "Mircea-Alexandru Jecan",
+              "team_abbreviation": "MIR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "263692",
+              "team_name": "Bogdan Pavel",
+              "team_abbreviation": "BOG",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727835",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 20:00:00",
+          "match_round_info": "6004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "521",
+              "team_name": "Thiago Monteiro",
+              "team_abbreviation": "THI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5713",
+              "team_name": "Adolfo Vallejo",
+              "team_abbreviation": "ADO",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    },
+    {
+      "country": {
+        "country_name": "ATP Challenger",
+        "country_code": "atp-challenger"
+      },
+      "stage": {
+        "stage_id": "24423",
+        "stage_name": "Phan Thiet",
+        "stage_code": "phan-thiet",
+        "stage_image_path": null
+      },
+      "matches": [
+        {
+          "match_id": "1727037",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:05:00",
+          "match_round_info": "5001",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "99867",
+              "team_name": "Omar Jasika",
+              "team_abbreviation": "OMA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "317269",
+              "team_name": "Ilia Simakin",
+              "team_abbreviation": "ILI",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727025",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 10:05:00",
+          "match_round_info": "5002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "101538",
+              "team_name": "Robin Bertrand",
+              "team_abbreviation": "ROB",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "843",
+              "team_name": "Hyeon Chung",
+              "team_abbreviation": "HYE",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727280",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:30:00",
+          "match_round_info": "6004",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "6355",
+              "team_name": "Courtney John Lock",
+              "team_abbreviation": "COU",
+              "team_image_path": null
+            },
+            {
+              "team_id": "7689",
+              "team_name": "Francis Casey Alcantara",
+              "team_abbreviation": "FRA",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "5453",
+              "team_name": "Aoran Wang",
+              "team_abbreviation": "AOR",
+              "team_image_path": null
+            },
+            {
+              "team_id": "246574",
+              "team_name": "Yi Zhou",
+              "team_abbreviation": "YIZ",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727031",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:30:00",
+          "match_round_info": "5007",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "99608",
+              "team_name": "Max Hans Rehberg",
+              "team_abbreviation": "MAX",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "268974",
+              "team_name": "Arthur Weber",
+              "team_abbreviation": "ART",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727027",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 11:30:00",
+          "match_round_info": "5008",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "509",
+              "team_name": "Soon-Woo Kwon",
+              "team_abbreviation": "SOO",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "374132",
+              "team_name": "Nikolai Barsukov",
+              "team_abbreviation": "NIK",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727315",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 13:00:00",
+          "match_round_info": "6002",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "12645",
+              "team_name": "Jake Delaney",
+              "team_abbreviation": "JAK",
+              "team_image_path": null
+            },
+            {
+              "team_id": "99806",
+              "team_name": "Joshua Charlton",
+              "team_abbreviation": "JOS",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "1364",
+              "team_name": "Adil Kalyanpur",
+              "team_abbreviation": "ADI",
+              "team_image_path": null
+            },
+            {
+              "team_id": "5418",
+              "team_name": "Fajing Sun",
+              "team_abbreviation": "FAJ",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727259",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 13:00:00",
+          "match_round_info": "6003",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "5666",
+              "team_name": "James Kent Trotter",
+              "team_abbreviation": "JAM",
+              "team_image_path": null
+            },
+            {
+              "team_id": "6427",
+              "team_name": "Kaito Uesugi",
+              "team_abbreviation": "KAI",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "971",
+              "team_name": "Ji-Sung Nam",
+              "team_abbreviation": "JI-",
+              "team_image_path": null
+            },
+            {
+              "team_id": "236214",
+              "team_name": "Ui-Sung Park",
+              "team_abbreviation": "UI-",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        },
+        {
+          "match_id": "1727262",
+          "match_status": {
+            "is_in_progress": false,
+            "live_time": null
+          },
+          "match_date": "2026-01-22 13:00:00",
+          "match_round_info": "6001",
+          "match_winner": null,
+          "team_home": [
+            {
+              "team_id": "181826",
+              "team_name": "Reese Stalder",
+              "team_abbreviation": "REE",
+              "team_image_path": null
+            },
+            {
+              "team_id": "247135",
+              "team_name": "George Goldhoff",
+              "team_abbreviation": "GEO",
+              "team_image_path": null
+            }
+          ],
+          "team_away": [
+            {
+              "team_id": "6433",
+              "team_name": "Naoki Tajima",
+              "team_abbreviation": "NAO",
+              "team_image_path": null
+            },
+            {
+              "team_id": "8859",
+              "team_name": "Masamichi Imamura",
+              "team_abbreviation": "MAS",
+              "team_image_path": null
+            }
+          ],
+          "scores": {
+            "home": null,
+            "away": null
+          }
+        }
+      ]
+    }
+  ]
+}

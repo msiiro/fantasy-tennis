@@ -68,13 +68,39 @@
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Available Players</h2>
-                <div class="filter-buttons">
-                    <button class="btn" onclick="filterPlayers('all')" id="filter-all">All</button>
-                    <button class="btn btn-secondary" onclick="filterPlayers('ATP')" id="filter-atp">ATP</button>
-                    <button class="btn btn-secondary" onclick="filterPlayers('WTA')" id="filter-wta">WTA</button>
+                            <!-- Add this right before the filter buttons in the Team page -->
+            <div class="section">
+                <h2>Available Players (<span id="total-players">0</span>)</h2>
+                
+                <!-- Search Bar -->
+                <div style="margin-bottom: 1rem;">
+                    <input 
+                        type="text" 
+                        id="player-search" 
+                        placeholder="🔍 Search players by name..." 
+                        oninput="searchPlayers(this.value)"
+                        style="
+                            width: 100%;
+                            padding: 0.75rem 1rem;
+                            font-size: 1rem;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 10px;
+                            outline: none;
+                            transition: border-color 0.3s;
+                        "
+                        onfocus="this.style.borderColor='#1976d2'"
+                        onblur="this.style.borderColor='#e0e0e0'"
+                    />
                 </div>
+                
+                <!-- Filter buttons -->
+                <!-- Filter buttons -->
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                    <button class="btn btn-secondary filter-btn" id="filter-all" onclick="filterPlayers('all')">All</button>
+                    <button class="btn filter-btn" id="filter-atp" onclick="filterPlayers('ATP')">ATP</button>
+                    <button class="btn filter-btn" id="filter-wta" onclick="filterPlayers('WTA')">WTA</button>
+                </div>
+                
                 <div id="available-players">
                     <div class="loading">Loading players...</div>
                 </div>
