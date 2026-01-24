@@ -3,161 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Tennis League</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Tennis Fantasy League</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#" onclick="showPage('home')" class="nav-link active">🎾 Fantasy Tennis</a></li>
-            <li><a href="#" onclick="showPage('team')" class="nav-link">My Team</a></li>
-            <li><a href="#" onclick="showPage('matches')" class="nav-link">Matches</a></li>
-            <li style="margin-left: auto;">
-                <span id="user-name" class="hidden"></span>
-                <button id="sign-out-btn" class="btn hidden" onclick="handleSignOut()">Sign Out</button>
-                <button id="sign-in-btn" class="btn" onclick="showSignIn()">Sign In</button>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <!-- HOME PAGE -->
-        <div id="home-page" class="page active">
-            <div class="hero">
-                <h1>🎾 Fantasy Tennis League</h1>
-                <p>Build your dream team and compete with friends</p>
-                <button class="btn" onclick="showPage('team')">Get Started</button>
+    <!-- Sign In Screen -->
+    <div id="signInScreen" class="sign-in-screen active">
+        <div class="sign-in-container">
+            <div class="sign-in-header">
+                <h1 class="brand-title">Fantasy<br>Tennis</h1>
+                <div class="subtitle">Live League Standings</div>
             </div>
-
-            <div class="grid">
-                <div class="stat-box">
-                    <div class="stat-value" id="total-players">-</div>
-                    <div class="stat-label">Active Players</div>
+            <form id="signInForm" class="sign-in-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="your@email.com">
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value">2026</div>
-                    <div class="stat-label">Season</div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="••••••••">
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value">French Open</div>
-                    <div class="stat-label">Next Grand Slam</div>
+                <button type="submit" class="btn-primary">
+                    <span>Enter League</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10h12m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="sign-in-footer">
+                    <p>Demo Mode: Click "Enter League" to continue</p>
                 </div>
-            </div>
-
-            <div class="card">
-                <h2>How It Works</h2>
-                <ol class="how-to-list">
-                    <li><strong>Build Your Team:</strong> Select 4 ATP and 4 WTA players</li>
-                    <li><strong>Earn Points:</strong> Players score based on real tournament results</li>
-                    <li><strong>Trade & Compete:</strong> Make changes after each Grand Slam</li>
-                    <li><strong>Win:</strong> Highest points at season end wins!</li>
-                </ol>
-            </div>
+            </form>
         </div>
-
-        <!-- TEAM PAGE -->
-        <div id="team-page" class="page">
-            <div class="card">
-                <h2>My Team</h2>
-                <div id="user-team-info" class="user-info hidden">
-                    <strong>Team:</strong> <span id="team-name"></span> | 
-                    <strong>Players:</strong> <span id="team-size">0</span>/10
-                </div>
-                <div id="my-team-list">
-                    <div class="loading">Sign in to view your team</div>
-                </div>
-            </div>
-
-                            <!-- Add this right before the filter buttons in the Team page -->
-            <div class="section">
-                <h2>Available Players (<span id="total-players">0</span>)</h2>
-                
-                <!-- Search Bar -->
-                <div style="margin-bottom: 1rem;">
-                    <input 
-                        type="text" 
-                        id="player-search" 
-                        placeholder="🔍 Search players by name..." 
-                        oninput="searchPlayers(this.value)"
-                        style="
-                            width: 100%;
-                            padding: 0.75rem 1rem;
-                            font-size: 1rem;
-                            border: 2px solid #e0e0e0;
-                            border-radius: 10px;
-                            outline: none;
-                            transition: border-color 0.3s;
-                        "
-                        onfocus="this.style.borderColor='#1976d2'"
-                        onblur="this.style.borderColor='#e0e0e0'"
-                    />
-                </div>
-                
-                <!-- Filter buttons -->
-                <!-- Filter buttons -->
-                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                    <button class="btn btn-secondary filter-btn" id="filter-all" onclick="filterPlayers('all')">All</button>
-                    <button class="btn filter-btn" id="filter-atp" onclick="filterPlayers('ATP')">ATP</button>
-                    <button class="btn filter-btn" id="filter-wta" onclick="filterPlayers('WTA')">WTA</button>
-                </div>
-                
-                <div id="available-players">
-                    <div class="loading">Loading players...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MATCHES PAGE -->
-        <div id="matches-page" class="page">
-            <div class="card">
-                <h2>Recent Matches</h2>
-                <div id="matches-list">
-                    <div class="loading">Loading matches...</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Upcoming Tournaments</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tournament</th>
-                            <th>Date</th>
-                            <th>Surface</th>
-                            <th>Tour</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Australian Open</td>
-                            <td>January 2026</td>
-                            <td>Hard</td>
-                            <td>Both</td>
-                        </tr>
-                        <tr>
-                            <td>French Open</td>
-                            <td>May 2026</td>
-                            <td>Clay</td>
-                            <td>Both</td>
-                        </tr>
-                        <tr>
-                            <td>Wimbledon</td>
-                            <td>July 2026</td>
-                            <td>Grass</td>
-                            <td>Both</td>
-                        </tr>
-                        <tr>
-                            <td>US Open</td>
-                            <td>August 2026</td>
-                            <td>Hard</td>
-                            <td>Both</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="sign-in-visual">
+            <div class="visual-grid"></div>
+            <div class="visual-accent"></div>
         </div>
     </div>
 
-    <script type="module" src="app.js"></script>
+    <!-- Main App -->
+    <div id="mainApp" class="main-app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="logo">Fantasy<br>Tennis</h1>
+                <div class="user-info">
+                    <span class="user-name" id="userName">Player Name</span>
+                    <button id="signOutBtn" class="btn-ghost">Sign Out</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="leaderboard">
+                <span class="nav-number">01</span>
+                <span class="nav-label">Leaderboard</span>
+            </button>
+            <button class="nav-btn" data-section="matches">
+                <span class="nav-number">02</span>
+                <span class="nav-label">Matches</span>
+            </button>
+            <button class="nav-btn" data-section="players">
+                <span class="nav-number">03</span>
+                <span class="nav-label">Players</span>
+            </button>
+        </nav>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboardSection" class="content-section active">
+            <div class="section-header">
+                <h2 class="section-title">Team Standings</h2>
+                <div class="section-meta">
+                    <span id="lastUpdated">Updated: Just now</span>
+                </div>
+            </div>
+            <div class="leaderboard-grid">
+                <div class="leaderboard-table">
+                    <div class="table-header">
+                        <div class="col-rank">Rank</div>
+                        <div class="col-team">Team</div>
+                        <div class="col-points">Points</div>
+                        <div class="col-change">Change</div>
+                    </div>
+                    <div id="leaderboardList" class="table-body">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Matches Section -->
+        <section id="matchesSection" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Match Center</h2>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Matches</button>
+                    <button class="filter-btn" data-filter="myteam">My Team</button>
+                    <button class="filter-btn" data-filter="headtohead">Head-to-Head</button>
+                </div>
+            </div>
+            
+            <div class="matches-container">
+                <div class="matches-group">
+                    <h3 class="matches-group-title">Upcoming Matches</h3>
+                    <div id="upcomingMatches" class="matches-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                
+                <div class="matches-group">
+                    <h3 class="matches-group-title">Recent Results</h3>
+                    <div id="recentMatches" class="matches-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Players Section -->
+        <section id="playersSection" class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">Player Rankings</h2>
+                <div class="search-box">
+                    <input type="text" id="playerSearch" placeholder="Search players...">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12.5 12.5l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="players-grid">
+                <div class="players-table">
+                    <div class="table-header">
+                        <div class="col-rank">Rank</div>
+                        <div class="col-player">Player</div>
+                        <div class="col-tour">Tour</div>
+                        <div class="col-points">Points</div>
+                        <div class="col-matches">Matches</div>
+                    </div>
+                    <div id="playersList" class="table-body">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
 </body>
 </html>

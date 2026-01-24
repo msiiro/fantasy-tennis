@@ -1,475 +1,477 @@
-// Supabase configuration
-const SUPABASE_URL = 'https://ugxbybhbnoylantodnmc.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVneGJ5Ymhibm95bGFudG9kbm1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2ODExNzgsImV4cCI6MjA4NDI1NzE3OH0.6S_SivqxxSPqd0KktZPohdCq8co6TLR7xLeao3w00d4';
 
-let supabase;
-let currentUser = null;
-let allPlayers = [];
-let playerTours = {}; // Map player_id -> tour (ATP/WTA)
-let currentFilter = 'all';
-let searchQuery = '';
+const supabaseUrl = 'https://ugxbybhbnoylantodnmc.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVneGJ5Ymhibm95bGFudG9kbm1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2ODExNzgsImV4cCI6MjA4NDI1NzE3OH0.6S_SivqxxSPqd0KktZPohdCq8co6TLR7xLeao3w00d4';
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// Initialize Supabase
-async function initSupabase() {
-    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
-    supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    console.log('✅ Supabase initialized');
-}
-
-// Page navigation
-function showPage(pageName) {
-    // Hide all pages
-    document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-    });
-    
-    // Show selected page
-    document.getElementById(`${pageName}-page`).classList.add('active');
-    
-    // Update nav
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-    });
-    event.target.classList.add('active');
-    
-    // Load page data
-    if (pageName === 'team') {
-        loadTeamPage();
-    } else if (pageName === 'matches') {
-        loadMatchesPage();
-    }
-}
-
-// Check authentication status
-async function checkAuth() {
-    const { data: { session } } = await supabase.auth.getSession();
-    
-    if (session) {
-        currentUser = session.user;
-        
-        // Load user profile
-        const { data: profile } = await supabase
-            .from('users')
-            .select('*')
-            .eq('id', currentUser.id)
-            .single();
-        
-        if (profile) {
-            currentUser = { ...currentUser, ...profile };
+// Demo data - Replace with Supabase API calls
+const DEMO_DATA = {
+    user: {
+        name: "Alex Thompson",
+        email: "alex@email.com",
+        teamId: 1
+    },
+    teams: [
+        { id: 1, name: "Alex Thompson", points: 1250, change: 3 },
+        { id: 2, name: "Sarah Chen", points: 1180, change: -1 },
+        { id: 3, name: "Mike Rodriguez", points: 1150, change: 2 },
+        { id: 4, name: "Emma Williams", points: 1090, change: 0 },
+        { id: 5, name: "James Park", points: 980, change: -2 },
+        { id: 6, name: "Lisa Anderson", points: 920, change: 1 },
+        { id: 7, name: "Tom Miller", points: 850, change: -1 },
+        { id: 8, name: "Rachel Green", points: 780, change: 0 }
+    ],
+    players: [
+        { id: 1, name: "Carlos Alcaraz", tour: "ATP", points: 420, matches: 12, teamId: 1 },
+        { id: 2, name: "Novak Djokovic", tour: "ATP", points: 395, matches: 10, teamId: 2 },
+        { id: 3, name: "Jannik Sinner", tour: "ATP", points: 380, matches: 11, teamId: 1 },
+        { id: 4, name: "Daniil Medvedev", tour: "ATP", points: 365, matches: 13, teamId: 3 },
+        { id: 5, name: "Aryna Sabalenka", tour: "WTA", points: 340, matches: 9, teamId: 2 },
+        { id: 6, name: "Iga Swiatek", tour: "WTA", points: 335, matches: 10, teamId: 3 },
+        { id: 7, name: "Coco Gauff", tour: "WTA", points: 310, matches: 11, teamId: 4 },
+        { id: 8, name: "Stefanos Tsitsipas", tour: "ATP", points: 295, matches: 12, teamId: 4 },
+        { id: 9, name: "Elena Rybakina", tour: "WTA", points: 280, matches: 8, teamId: 5 },
+        { id: 10, name: "Holger Rune", tour: "ATP", points: 265, matches: 10, teamId: 5 },
+        { id: 11, name: "Jessica Pegula", tour: "WTA", points: 250, matches: 11, teamId: 6 },
+        { id: 12, name: "Alexander Zverev", tour: "ATP", points: 245, matches: 9, teamId: 6 },
+        { id: 13, name: "Andrey Rublev", tour: "ATP", points: 230, matches: 12, teamId: 7 },
+        { id: 14, name: "Ons Jabeur", tour: "WTA", points: 220, matches: 10, teamId: 7 },
+        { id: 15, name: "Taylor Fritz", tour: "ATP", points: 210, matches: 11, teamId: 8 },
+        { id: 16, name: "Maria Sakkari", tour: "WTA", points: 195, matches: 9, teamId: 8 }
+    ],
+    upcomingMatches: [
+        {
+            id: 1,
+            tournament: "Australian Open",
+            date: "2026-01-24",
+            homePlayer: { id: 1, name: "Carlos Alcaraz", teamId: 1 },
+            awayPlayer: { id: 2, name: "Novak Djokovic", teamId: 2 },
+            round: "Quarterfinal"
+        },
+        {
+            id: 2,
+            tournament: "Australian Open",
+            date: "2026-01-24",
+            homePlayer: { id: 3, name: "Jannik Sinner", teamId: 1 },
+            awayPlayer: { id: 4, name: "Daniil Medvedev", teamId: 3 },
+            round: "Quarterfinal"
+        },
+        {
+            id: 3,
+            tournament: "Australian Open",
+            date: "2026-01-25",
+            homePlayer: { id: 5, name: "Aryna Sabalenka", teamId: 2 },
+            awayPlayer: { id: 6, name: "Iga Swiatek", teamId: 3 },
+            round: "Semifinal"
+        },
+        {
+            id: 4,
+            tournament: "Australian Open",
+            date: "2026-01-25",
+            homePlayer: { id: 7, name: "Coco Gauff", teamId: 4 },
+            awayPlayer: { id: 9, name: "Elena Rybakina", teamId: 5 },
+            round: "Semifinal"
+        },
+        {
+            id: 5,
+            tournament: "Australian Open",
+            date: "2026-01-26",
+            homePlayer: { id: 8, name: "Stefanos Tsitsipas", teamId: 4 },
+            awayPlayer: { id: 10, name: "Holger Rune", teamId: 5 },
+            round: "Quarterfinal"
         }
-        
-        // Update UI
-        document.getElementById('user-name').textContent = `👤 ${currentUser.username || currentUser.email}`;
-        document.getElementById('user-name').classList.remove('hidden');
-        document.getElementById('sign-out-btn').classList.remove('hidden');
-        document.getElementById('sign-in-btn').classList.add('hidden');
-        
-        console.log('✅ User logged in:', currentUser.username);
-    } else {
-        console.log('ℹ️ No user logged in');
-    }
+    ],
+    recentMatches: [
+        {
+            id: 101,
+            tournament: "Australian Open",
+            date: "2026-01-22",
+            homePlayer: { id: 1, name: "Carlos Alcaraz", teamId: 1 },
+            awayPlayer: { id: 12, name: "Alexander Zverev", teamId: 6 },
+            homeScore: "6-4, 7-6, 6-3",
+            awayScore: "4-6, 6-7, 3-6",
+            winner: "home",
+            round: "Round of 16"
+        },
+        {
+            id: 102,
+            tournament: "Australian Open",
+            date: "2026-01-22",
+            homePlayer: { id: 2, name: "Novak Djokovic", teamId: 2 },
+            awayPlayer: { id: 15, name: "Taylor Fritz", teamId: 8 },
+            homeScore: "7-6, 6-4, 6-2",
+            awayScore: "6-7, 4-6, 2-6",
+            winner: "home",
+            round: "Round of 16"
+        },
+        {
+            id: 103,
+            tournament: "Australian Open",
+            date: "2026-01-21",
+            homePlayer: { id: 5, name: "Aryna Sabalenka", teamId: 2 },
+            awayPlayer: { id: 11, name: "Jessica Pegula", teamId: 6 },
+            homeScore: "6-3, 6-4",
+            awayScore: "3-6, 4-6",
+            winner: "home",
+            round: "Round of 16"
+        },
+        {
+            id: 104,
+            tournament: "Australian Open",
+            date: "2026-01-21",
+            homePlayer: { id: 6, name: "Iga Swiatek", teamId: 3 },
+            awayPlayer: { id: 14, name: "Ons Jabeur", teamId: 7 },
+            homeScore: "6-2, 6-3",
+            awayScore: "2-6, 3-6",
+            winner: "home",
+            round: "Round of 16"
+        },
+        {
+            id: 105,
+            tournament: "Australian Open",
+            date: "2026-01-20",
+            homePlayer: { id: 3, name: "Jannik Sinner", teamId: 1 },
+            awayPlayer: { id: 13, name: "Andrey Rublev", teamId: 7 },
+            homeScore: "6-4, 6-7, 7-5, 6-3",
+            awayScore: "4-6, 7-6, 5-7, 3-6",
+            winner: "home",
+            round: "Round of 16"
+        },
+        {
+            id: 106,
+            tournament: "Australian Open",
+            date: "2026-01-20",
+            homePlayer: { id: 7, name: "Coco Gauff", teamId: 4 },
+            awayPlayer: { id: 16, name: "Maria Sakkari", teamId: 8 },
+            homeScore: "7-5, 6-4",
+            awayScore: "5-7, 4-6",
+            winner: "home",
+            round: "Round of 16"
+        }
+    ]
+};
+
+
+
+
+// State
+let currentUser = null;
+let currentFilter = 'all';
+let currentSection = 'leaderboard';
+
+// Initialize app
+document.addEventListener('DOMContentLoaded', () => {
+    initializeEventListeners();
+});
+
+// Event Listeners
+function initializeEventListeners() {
+    // Sign in form
+    document.getElementById('signInForm').addEventListener('submit', handleSignIn);
+    
+    // Sign out button
+    document.getElementById('signOutBtn').addEventListener('click', handleSignOut);
+    
+    // Navigation
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => switchSection(btn.dataset.section));
+    });
+    
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => filterMatches(btn.dataset.filter));
+    });
+    
+    // Player search
+    document.getElementById('playerSearch').addEventListener('input', (e) => {
+        filterPlayers(e.target.value);
+    });
 }
 
-// Sign in
-async function showSignIn() {
-    const email = prompt('Enter your email:');
-    const password = prompt('Enter your password:');
+function handleSignOut() {
+    currentUser = null;
+    document.getElementById('mainApp').classList.remove('active');
+    document.getElementById('signInScreen').classList.add('active');
     
-    if (!email || !password) return;
+    // Reset form
+    document.getElementById('signInForm').reset();
+}
+
+async function handleSignIn(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
     
     try {
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email,
-            password
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
         });
         
-        if (error) throw error;
-        
-        alert('✅ Signed in successfully!');
-        window.location.reload();
-    } catch (error) {
-        alert('❌ Sign in failed: ' + error.message);
-    }
-}
-
-// Sign out
-async function handleSignOut() {
-    await supabase.auth.signOut();
-    window.location.reload();
-}
-
-// Load players and determine their tours from matches
-async function loadPlayers() {
-    try {
-        // Load all players
-        const { data: players, error: playerError } = await supabase
-            .from('players')
-            .select('*')
-            .order('name', { ascending: true });
-        
-        if (playerError) throw playerError;
-        
-        allPlayers = players;
-        
-        // Load matches to determine player tours
-        const { data: matches, error: matchError } = await supabase
-            .from('matches')
-            .select(`
-                home_player_id,
-                away_player_id,
-                tournaments (tour)
-            `);
-        
-        if (!matchError && matches) {
-            // Map players to their tours based on matches
-            playerTours = {};
-            matches.forEach(match => {
-                const tour = match.tournaments?.tour;
-                if (tour) {
-                    if (match.home_player_id) {
-                        playerTours[match.home_player_id] = tour;
-                    }
-                    if (match.away_player_id) {
-                        playerTours[match.away_player_id] = tour;
-                    }
-                }
-            });
+        if (error) {
+            alert('Sign in failed: ' + error.message);
+            console.error('Sign in error:', error);
+            return;
         }
         
-        document.getElementById('total-players').textContent = players.length;
-        displayPlayers();
+        console.log('Sign in successful:', data);
+        currentUser = data.user;
         
-    } catch (error) {
-        console.error('Error loading players:', error);
-        allPlayers = [];
-        document.getElementById('total-players').textContent = '0';
+        // Show main app
+        document.getElementById('signInScreen').classList.remove('active');
+        document.getElementById('mainApp').classList.add('active');
+        document.getElementById('userName').textContent = currentUser.email;
+        
+        // Load initial data
+        loadLeaderboard();
+        loadMatches();
+        loadPlayers();
+        updateLastUpdated();
+        
+    } catch (err) {
+        console.error('Unexpected error:', err);
+        alert('An error occurred during sign in');
     }
 }
 
-// Search players
-function searchPlayers(query) {
-    searchQuery = query.toLowerCase().trim();
-    displayPlayers();
-}
-
-// Filter players by tour
-function filterPlayers(tour) {
-    currentFilter = tour;
+// Section Navigation
+function switchSection(section) {
+    currentSection = section;
     
-    // Update button styles
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('btn-secondary');
-        btn.classList.add('btn');
+    // Update nav buttons
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.section === section);
     });
     
-    if (tour === 'all') {
-        document.getElementById('filter-all').classList.remove('btn');
-        document.getElementById('filter-all').classList.add('btn-secondary');
-    } else if (tour === 'ATP') {
-        document.getElementById('filter-atp').classList.remove('btn');
-        document.getElementById('filter-atp').classList.add('btn-secondary');
-    } else if (tour === 'WTA') {
-        document.getElementById('filter-wta').classList.remove('btn');
-        document.getElementById('filter-wta').classList.add('btn-secondary');
-    }
-    
-    displayPlayers();
+    // Update content sections
+    document.querySelectorAll('.content-section').forEach(sec => {
+        sec.classList.toggle('active', sec.id === `${section}Section`);
+    });
 }
 
-// Display players
-function displayPlayers() {
-    const container = document.getElementById('available-players');
+// Leaderboard
+function loadLeaderboard() {
+    const container = document.getElementById('leaderboardList');
+    container.innerHTML = '';
     
-    let filtered = allPlayers;
+    DEMO_DATA.teams.forEach((team, index) => {
+        const row = createLeaderboardRow(team, index + 1);
+        row.style.animationDelay = `${index * 0.05}s`;
+        container.appendChild(row);
+    });
+}
+
+function createLeaderboardRow(team, rank) {
+    const row = document.createElement('div');
+    row.className = 'table-row';
     
-    // Apply tour filter
-    if (currentFilter !== 'all') {
-        filtered = filtered.filter(player => playerTours[player.id] === currentFilter);
+    const changeIcon = team.change > 0 ? '▲' : team.change < 0 ? '▼' : '—';
+    const changeClass = team.change > 0 ? 'positive' : team.change < 0 ? 'negative' : 'neutral';
+    
+    row.innerHTML = `
+        <div class="col-rank">
+            <div class="rank-badge ${rank <= 3 ? 'top-3' : ''}">${rank}</div>
+        </div>
+        <div class="col-team">
+            <div class="team-name">${team.name}</div>
+        </div>
+        <div class="col-points">
+            <div class="points">${team.points}</div>
+        </div>
+        <div class="col-change">
+            <div class="change ${changeClass}">
+                ${changeIcon} ${Math.abs(team.change)}
+            </div>
+        </div>
+    `;
+    
+    return row;
+}
+
+// Matches
+function loadMatches() {
+    loadUpcomingMatches();
+    loadRecentMatches();
+}
+
+function loadUpcomingMatches() {
+    const container = document.getElementById('upcomingMatches');
+    container.innerHTML = '';
+    
+    const filtered = filterMatchesByTeam(DEMO_DATA.upcomingMatches);
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No upcoming matches</p>';
+        return;
     }
     
-    // Apply search filter
-    if (searchQuery) {
-        filtered = filtered.filter(player => 
-            player.name.toLowerCase().includes(searchQuery) ||
-            (player.abbreviation && player.abbreviation.toLowerCase().includes(searchQuery))
+    filtered.forEach((match, index) => {
+        const card = createMatchCard(match, false);
+        card.style.animationDelay = `${index * 0.05}s`;
+        container.appendChild(card);
+    });
+}
+
+function loadRecentMatches() {
+    const container = document.getElementById('recentMatches');
+    container.innerHTML = '';
+    
+    const filtered = filterMatchesByTeam(DEMO_DATA.recentMatches);
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No recent matches</p>';
+        return;
+    }
+    
+    filtered.forEach((match, index) => {
+        const card = createMatchCard(match, true);
+        card.style.animationDelay = `${index * 0.05}s`;
+        container.appendChild(card);
+    });
+}
+
+function createMatchCard(match, isComplete) {
+    const card = document.createElement('div');
+    card.className = 'match-card';
+    
+    const date = new Date(match.date).toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric' 
+    });
+    
+    const homeOnMyTeam = match.homePlayer.teamId === currentUser.teamId;
+    const awayOnMyTeam = match.awayPlayer.teamId === currentUser.teamId;
+    
+    card.innerHTML = `
+        <div class="match-header">
+            <div class="tournament-name">${match.tournament} • ${match.round}</div>
+            <div class="match-date">${date}</div>
+        </div>
+        <div class="match-players">
+            <div class="player-row">
+                <div class="player-info">
+                    ${homeOnMyTeam ? '<span class="player-badge">MY TEAM</span>' : ''}
+                    <span>${match.homePlayer.name}</span>
+                </div>
+                ${isComplete ? `<div class="score ${match.winner === 'home' ? 'winner' : ''}">${match.homeScore}</div>` : ''}
+            </div>
+            <div class="player-row">
+                <div class="player-info">
+                    ${awayOnMyTeam ? '<span class="player-badge">MY TEAM</span>' : ''}
+                    <span>${match.awayPlayer.name}</span>
+                </div>
+                ${isComplete ? `<div class="score ${match.winner === 'away' ? 'winner' : ''}">${match.awayScore}</div>` : ''}
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+function filterMatches(filter) {
+    currentFilter = filter;
+    
+    // Update filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
+    
+    // Reload matches with filter
+    loadMatches();
+}
+
+function filterMatchesByTeam(matches) {
+    if (currentFilter === 'all') {
+        return matches;
+    }
+    
+    if (currentFilter === 'myteam') {
+        return matches.filter(match => 
+            match.homePlayer.teamId === currentUser.teamId || 
+            match.awayPlayer.teamId === currentUser.teamId
         );
     }
     
-    if (filtered.length === 0) {
-        if (searchQuery) {
-            container.innerHTML = `<div class="loading">No players found matching "${searchQuery}"</div>`;
-        } else if (currentFilter !== 'all') {
-            container.innerHTML = `<div class="loading">No ${currentFilter} players found. Make sure matches are synced!</div>`;
-        } else {
-            container.innerHTML = '<div class="loading">No players found. Run the data pipeline to sync players!</div>';
-        }
-        return;
+    if (currentFilter === 'headtohead') {
+        return matches.filter(match => 
+            match.homePlayer.teamId !== null && 
+            match.awayPlayer.teamId !== null &&
+            match.homePlayer.teamId !== match.awayPlayer.teamId
+        );
     }
     
-    // Show count
-    let countText = `Showing ${Math.min(filtered.length, 50)} of ${allPlayers.length} players`;
-    if (searchQuery || currentFilter !== 'all') {
-        countText = `Showing ${Math.min(filtered.length, 50)} of ${filtered.length} filtered (${allPlayers.length} total)`;
-    }
+    return matches;
+}
+
+// Players
+function loadPlayers() {
+    const container = document.getElementById('playersList');
+    container.innerHTML = '';
     
-    container.innerHTML = `
-        <div style="padding: 0.75rem; background: #f5f5f5; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem; color: #666;">
-            ${countText}
+    const sortedPlayers = [...DEMO_DATA.players].sort((a, b) => b.points - a.points);
+    
+    sortedPlayers.forEach((player, index) => {
+        const row = createPlayerRow(player, index + 1);
+        row.style.animationDelay = `${index * 0.05}s`;
+        container.appendChild(row);
+    });
+}
+
+function createPlayerRow(player, rank) {
+    const row = document.createElement('div');
+    row.className = 'table-row';
+    row.dataset.playerName = player.name.toLowerCase();
+    
+    row.innerHTML = `
+        <div class="col-rank">
+            <div class="rank-badge ${rank <= 3 ? 'top-3' : ''}">${rank}</div>
         </div>
-    ` + filtered.slice(0, 50).map(player => {
-        const tour = playerTours[player.id] || 'Unknown';
-        return `
-            <div class="player-card">
-                <div class="player-info">
-                    <div>
-                        <strong>${player.name}</strong>
-                        ${player.abbreviation ? `<span style="color: #666;">(${player.abbreviation})</span>` : ''}
-                        ${tour !== 'Unknown' ? `<span class="badge badge-${tour.toLowerCase()}">${tour}</span>` : ''}
-                        <div style="font-size: 0.9rem; color: #666; margin-top: 0.25rem;">
-                            Player ID: ${player.id}
-                        </div>
-                    </div>
-                </div>
-                <button class="btn" onclick="addPlayerToTeam(${player.id}, '${player.name.replace(/'/g, "\\'")}')">
-                    Add to Team
-                </button>
-            </div>
-        `;
-    }).join('');
+        <div class="col-player">
+            <div class="player-name">${player.name}</div>
+        </div>
+        <div class="col-tour">
+            <span class="tour-badge">${player.tour}</span>
+        </div>
+        <div class="col-points">
+            <div class="points">${player.points}</div>
+        </div>
+        <div class="col-matches">
+            <div style="color: var(--color-text-secondary)">${player.matches}</div>
+        </div>
+    `;
+    
+    return row;
 }
 
-// Add player to team
-async function addPlayerToTeam(playerId, playerName) {
-    if (!currentUser) {
-        alert('Please sign in first!');
-        showSignIn();
-        return;
-    }
+function filterPlayers(searchTerm) {
+    const rows = document.querySelectorAll('#playersList .table-row');
+    const term = searchTerm.toLowerCase();
     
-    try {
-        // Check team size
-        const { data: teamPlayers, error: checkError } = await supabase
-            .from('team_players')
-            .select('*')
-            .eq('user_id', currentUser.id);
-        
-        if (checkError) throw checkError;
-        
-        if (teamPlayers.length >= 10) {
-            alert('❌ Team is full (max 10 players)');
-            return;
+    rows.forEach(row => {
+        const playerName = row.dataset.playerName;
+        if (playerName.includes(term)) {
+            row.style.display = 'grid';
+        } else {
+            row.style.display = 'none';
         }
-        
-        // Check if player already in team
-        const alreadyAdded = teamPlayers.some(tp => tp.player_id === playerId);
-        if (alreadyAdded) {
-            alert('❌ Player already in your team');
-            return;
-        }
-        
-        // Add player
-        const { error } = await supabase
-            .from('team_players')
-            .insert([{
-                user_id: currentUser.id,
-                player_id: playerId
-            }]);
-        
-        if (error) throw error;
-        
-        alert(`✅ Added ${playerName} to your team!`);
-        loadMyTeam();
-    } catch (error) {
-        alert('❌ Failed to add player: ' + error.message);
-    }
+    });
 }
 
-// Load my team
-async function loadMyTeam() {
-    const container = document.getElementById('my-team-list');
-    
-    if (!currentUser) {
-        container.innerHTML = '<div class="loading">Sign in to view your team</div>';
-        return;
-    }
-    
-    try {
-        const { data, error } = await supabase
-            .from('team_players')
-            .select(`
-                *,
-                players (*)
-            `)
-            .eq('user_id', currentUser.id);
-        
-        if (error) throw error;
-        
-        document.getElementById('user-team-info').classList.remove('hidden');
-        document.getElementById('team-name').textContent = currentUser.username || 'My Team';
-        document.getElementById('team-size').textContent = data.length;
-        
-        if (data.length === 0) {
-            container.innerHTML = '<div class="loading">No players yet. Add some from below!</div>';
-            return;
-        }
-        
-        container.innerHTML = `
-            <div style="margin-bottom: 1.5rem; padding: 1rem; background: #e3f2fd; border-radius: 10px;">
-                <strong>Team Size:</strong> ${data.length} / 10 players
-            </div>
-            ${data.map(tp => {
-                const player = tp.players;
-                const tour = playerTours[player.id] || 'Unknown';
-                return `
-                    <div class="player-card">
-                        <div class="player-info">
-                            <div>
-                                <strong>${player.name}</strong>
-                                ${player.abbreviation ? `<span style="color: #666;">(${player.abbreviation})</span>` : ''}
-                                ${tour !== 'Unknown' ? `<span class="badge badge-${tour.toLowerCase()}">${tour}</span>` : ''}
-                                <div style="font-size: 0.9rem; color: #666; margin-top: 0.25rem;">
-                                    Player ID: ${player.id}
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-secondary" onclick="removePlayerFromTeam('${tp.id}', '${player.name.replace(/'/g, "\\'")}')">
-                            Remove
-                        </button>
-                    </div>
-                `;
-            }).join('')}
-        `;
-    } catch (error) {
-        console.error('Error loading team:', error);
-        container.innerHTML = '<div class="loading">Error loading team</div>';
-    }
+// Utility
+function updateLastUpdated() {
+    const element = document.getElementById('lastUpdated');
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        minute: '2-digit' 
+    });
+    element.textContent = `Updated: ${timeString}`;
 }
 
-// Remove player from team
-async function removePlayerFromTeam(teamPlayerId, playerName) {
-    if (!confirm(`Remove ${playerName} from your team?`)) return;
-    
-    try {
-        const { error } = await supabase
-            .from('team_players')
-            .delete()
-            .eq('id', teamPlayerId);
-        
-        if (error) throw error;
-        
-        alert(`✅ Removed ${playerName} from team`);
-        loadMyTeam();
-    } catch (error) {
-        alert('❌ Failed to remove player: ' + error.message);
+// Auto-refresh (simulate real-time updates)
+setInterval(() => {
+    if (currentUser) {
+        updateLastUpdated();
+        // In production, this would fetch fresh data from Supabase
     }
-}
-
-// Load team page
-async function loadTeamPage() {
-    await loadMyTeam();
-    if (allPlayers.length === 0) {
-        await loadPlayers();
-    } else {
-        displayPlayers();
-    }
-}
-
-// Load matches
-async function loadMatchesPage() {
-    const container = document.getElementById('matches-list');
-    
-    try {
-        const { data, error } = await supabase
-            .from('matches')
-            .select(`
-                *,
-                tournaments (name, tour),
-                home:home_player_id (name),
-                away:away_player_id (name)
-            `)
-            .order('match_date', { ascending: false })
-            .limit(50);
-        
-        if (error) throw error;
-        
-        if (data.length === 0) {
-            container.innerHTML = '<div class="loading">No matches yet. Run the data pipeline to sync matches!</div>';
-            return;
-        }
-        
-        container.innerHTML = data.map(match => {
-            const homeName = match.home?.name || 'Unknown';
-            const awayName = match.away?.name || 'Unknown';
-            const tournamentName = match.tournaments?.name || 'Unknown Tournament';
-            const tour = match.tournaments?.tour || 'ATP';
-            const matchDate = new Date(match.match_date);
-            
-            // Format scores
-            const scores = match.scores || {};
-            let scoreDisplay = 'Scheduled';
-            if (match.is_in_progress) {
-                scoreDisplay = 'Live';
-            } else if (scores.home !== null && scores.away !== null) {
-                scoreDisplay = `${scores.home}-${scores.away}`;
-                if (scores.home_set1) {
-                    scoreDisplay += ` (${scores.home_set1}-${scores.away_set1}`;
-                    if (scores.home_set2) {
-                        scoreDisplay += `, ${scores.home_set2}-${scores.away_set2}`;
-                    }
-                    if (scores.home_set3) {
-                        scoreDisplay += `, ${scores.home_set3}-${scores.away_set3}`;
-                    }
-                    scoreDisplay += ')';
-                }
-            }
-            
-            return `
-                <div class="player-card">
-                    <div>
-                        <strong>${tournamentName}</strong>
-                        <span class="badge badge-${tour.toLowerCase()}">${tour}</span>
-                        ${match.match_round ? `<span style="margin-left: 0.5rem; color: #666;">Round ${match.match_round}</span>` : ''}
-                        <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
-                            <strong>${homeName}</strong> vs <strong>${awayName}</strong>
-                        </div>
-                        <div style="font-size: 0.9rem; color: #999; margin-top: 0.25rem;">
-                            ${matchDate.toLocaleDateString()} ${matchDate.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
-                        </div>
-                    </div>
-                    <div style="text-align: right;">
-                        <div style="font-size: 1rem; font-weight: bold; color: #1976d2;">
-                            ${scoreDisplay}
-                        </div>
-                        ${match.is_in_progress ? '<div style="color: #f44336; font-size: 0.8rem; margin-top: 0.25rem;">● LIVE</div>' : ''}
-                    </div>
-                </div>
-            `;
-        }).join('');
-        
-        document.getElementById('total-matches').textContent = data.length;
-    } catch (error) {
-        console.error('Error loading matches:', error);
-        container.innerHTML = `<div class="loading">Error loading matches: ${error.message}</div>`;
-    }
-}
-
-// Make functions globally available
-window.showPage = showPage;
-window.showSignIn = showSignIn;
-window.handleSignOut = handleSignOut;
-window.filterPlayers = filterPlayers;
-window.addPlayerToTeam = addPlayerToTeam;
-window.removePlayerFromTeam = removePlayerFromTeam;
-window.searchPlayers = searchPlayers;
-
-// Initialize app
-async function init() {
-    console.log('🚀 App starting...');
-    await initSupabase();
-    await checkAuth();
-    await loadPlayers();
-    console.log('✅ App ready!');
-}
-
-// Start the app
-init();
+}, 60000); // Update every minute
