@@ -151,8 +151,6 @@ const DEMO_DATA = {
 };
 
 
-
-
 // State
 let currentUser = null;
 let currentFilter = 'all';
@@ -160,6 +158,31 @@ let currentSection = 'leaderboard';
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
+    // Listen for auth state changes
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+        console.log('Auth state changed:', event, session);
+        
+        if (session) {
+            // User is logged in
+            currentUser = session.user;
+            
+            document.getElementById('signInScreen').classList.remove('active');
+            document.getElementById('mainApp').classList.add('active');
+            document.getElementById('userName').textContent = currentUser.email;
+            
+            // Load data
+            loadLeaderboard();
+            loadMatches();
+            loadPlayers();
+            updateLastUpdated();
+        } else {
+            // User is logged out
+            currentUser = null;
+            document.getElementById('mainApp').classList.remove('active');
+            document.getElementById('signInScreen').classList.add('active');
+        }
+    });
+    
     initializeEventListeners();
 });
 
@@ -250,15 +273,50 @@ function switchSection(section) {
 }
 
 // Leaderboard
-function loadLeaderboard() {
+async function loadLeaderboard() {
     const container = document.getElementById('leaderboardList');
-    container.innerHTML = '';
+    container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
-    DEMO_DATA.teams.forEach((team, index) => {
-        const row = createLeaderboardRow(team, index + 1);
-        row.style.animationDelay = `${index * 0.05}s`;
-        container.appendChild(row);
-    });
+    try {
+        // Query teams with user information
+        const { data, error } = await supabaseClient
+            .from('teams')
+            .select(`
+                id,
+                name,
+                current_points
+            `)
+            .order('current_points', { ascending: false });
+        
+        if (error) {
+            console.error('Error loading leaderboard:', error);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading leaderboard</p>';
+            return;
+        }
+        
+        console.log('Leaderboard data:', data);
+        
+        // Clear container
+        container.innerHTML = '';
+        
+        // Render each team
+        data.forEach((team, index) => {
+            const teamData = {
+                id: team.id,
+                name: team.name || 'Unknown User',
+                points: team.current_points || 0,
+                change: team.change || 0
+            };
+            
+            const row = createLeaderboardRow(teamData, index + 1);
+            row.style.animationDelay = `${index * 0.05}s`;
+            container.appendChild(row);
+        });
+        
+    } catch (err) {
+        console.error('Unexpected error loading leaderboard:', err);
+        container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading leaderboard</p>';
+    }
 }
 
 function createLeaderboardRow(team, rank) {
@@ -289,45 +347,213 @@ function createLeaderboardRow(team, rank) {
 }
 
 // Matches
-function loadMatches() {
-    loadUpcomingMatches();
-    loadRecentMatches();
+async function loadMatches() {
+    await loadUpcomingMatches();
+    await loadRecentMatches();
 }
 
-function loadUpcomingMatches() {
+async function loadUpcomingMatches() {
     const container = document.getElementById('upcomingMatches');
-    container.innerHTML = '';
+    container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
-    const filtered = filterMatchesByTeam(DEMO_DATA.upcomingMatches);
-    
-    if (filtered.length === 0) {
-        container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No upcoming matches</p>';
-        return;
+    try {
+        const { data, error } = await supabaseClient
+            .from('matches')
+            .select(`
+                id,
+                match_date,
+                match_round,
+                match_winner,
+                scores,
+                tournament_id,
+                home_player_id,
+                away_player_id,
+                tournaments (
+                    id,
+                    name
+                ),
+                home_player:players!home_player_id (
+                    id,
+                    name,
+                    team_players (
+                        team_id
+                    )
+                ),
+                away_player:players!away_player_id (
+                    id,
+                    name,
+                    team_players (
+                        team_id
+                    )
+                )
+            `)
+            .is('match_winner', null)
+            .order('match_date', { ascending: false })
+            .limit(20);
+        
+        if (error) {
+            console.error('Error loading upcoming matches:', error);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
+            return;
+        }
+        
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        const upcomingMatches = data.filter(match => {
+            const matchDate = new Date(match.match_date);
+            return matchDate >= today;
+        });
+
+
+        console.log('Upcoming matches:', data);
+        
+        const filtered = filterMatchesByTeam(data.map(match => ({
+            id: match.id,
+            tournament: match.tournaments?.name || 'Unknown Tournament',
+            date: match.match_date,
+            homePlayer: {
+                id: match.home_player?.id,
+                name: match.home_player?.name || 'Unknown Player',
+                teamId: match.home_player?.team_players?.[0]?.team_id || null
+            },
+            awayPlayer: {
+                id: match.away_player?.id,
+                name: match.away_player?.name || 'Unknown Player',
+                teamId: match.away_player?.team_players?.[0]?.team_id || null
+            },
+            round: match.match_round || 'TBD'
+        })));
+        
+        container.innerHTML = '';
+        
+        if (filtered.length === 0) {
+            container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No upcoming matches</p>';
+            return;
+        }
+        
+        filtered.forEach((match, index) => {
+            const card = createMatchCard(match, false);
+            card.style.animationDelay = `${index * 0.05}s`;
+            container.appendChild(card);
+        });
+        
+    } catch (err) {
+        console.error('Unexpected error loading upcoming matches:', err);
+        container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
     }
-    
-    filtered.forEach((match, index) => {
-        const card = createMatchCard(match, false);
-        card.style.animationDelay = `${index * 0.05}s`;
-        container.appendChild(card);
-    });
 }
 
-function loadRecentMatches() {
+async function loadRecentMatches() {
     const container = document.getElementById('recentMatches');
-    container.innerHTML = '';
+    container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
-    const filtered = filterMatchesByTeam(DEMO_DATA.recentMatches);
+    try {
+        const { data, error } = await supabaseClient
+            .from('matches')
+            .select(`
+                id,
+                match_date,
+                match_round,
+                match_winner,
+                scores,
+                tournament_id,
+                home_player_id,
+                away_player_id,
+                tournaments (
+                    id,
+                    name
+                ),
+                home_player:players!home_player_id (
+                    id,
+                    name,
+                    team_players (
+                        team_id
+                    )
+                ),
+                away_player:players!away_player_id (
+                    id,
+                    name,
+                    team_players (
+                        team_id
+                    )
+                )
+            `)
+            .not('match_winner', 'is', null)
+            .order('match_date', { ascending: false })
+            .limit(20);
+        
+        if (error) {
+            console.error('Error loading recent matches:', error);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
+            return;
+        }
+        
+        console.log('Recent matches:', data);
+        
+        const filtered = filterMatchesByTeam(data.map(match => {
+            const scores = match.scores || {};
+            const homeScore = formatSetScores(scores, 'home');
+            const awayScore = formatSetScores(scores, 'away');
+            
+            return {
+                id: match.id,
+                tournament: match.tournaments?.name || 'Unknown Tournament',
+                date: match.match_date,
+                homePlayer: {
+                    id: match.home_player?.id,
+                    name: match.home_player?.name || 'Unknown Player',
+                    teamId: match.home_player?.team_players?.[0]?.team_id || null
+                },
+                awayPlayer: {
+                    id: match.away_player?.id,
+                    name: match.away_player?.name || 'Unknown Player',
+                    teamId: match.away_player?.team_players?.[0]?.team_id || null
+                },
+                round: match.match_round || 'TBD',
+                homeScore: homeScore,
+                awayScore: awayScore,
+                winner: match.match_winner === 1 ? 'home' : 'away'
+            };
+        }));
+        
+        container.innerHTML = '';
+        
+        if (filtered.length === 0) {
+            container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No recent matches</p>';
+            return;
+        }
+        
+        filtered.forEach((match, index) => {
+            const card = createMatchCard(match, true);
+            card.style.animationDelay = `${index * 0.05}s`;
+            container.appendChild(card);
+        });
+        
+    } catch (err) {
+        console.error('Unexpected error loading recent matches:', err);
+        container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
+    }
+}
+
+// Helper function to format set scores
+function formatSetScores(scores, player) {
+    const sets = [];
+    let setNum = 1;
     
-    if (filtered.length === 0) {
-        container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No recent matches</p>';
-        return;
+    // Loop through sets (set1, set2, set3, etc.)
+    while (scores[`${player}_set${setNum}`] !== undefined) {
+        sets.push(scores[`${player}_set${setNum}`]);
+        setNum++;
     }
     
-    filtered.forEach((match, index) => {
-        const card = createMatchCard(match, true);
-        card.style.animationDelay = `${index * 0.05}s`;
-        container.appendChild(card);
-    });
+    // If no individual sets found, return the total score
+    if (sets.length === 0) {
+        return scores[player] || '0';
+    }
+    
+    // Format as "6-4, 7-6, 6-3" style
+    return sets.join(', ');
 }
 
 function createMatchCard(match, isComplete) {
