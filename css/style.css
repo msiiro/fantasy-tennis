@@ -677,6 +677,50 @@ body {
     color: var(--color-accent);
 }
 
+.match-status {
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-retired {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.status-walkover {
+    background-color: rgba(156, 39, 176, 0.1);
+    color: #9c27b0;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.status-canceled {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+/* Optional: Add this if you want the status badge to have similar styling to scores */
+.player-row .status-badge {
+    margin-left: auto;
+}
+
+.score sup {
+    font-size: 0.7em;
+    vertical-align: super;
+    margin-left: 1px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .sign-in-screen.active {

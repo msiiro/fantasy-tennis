@@ -358,37 +358,10 @@ async function loadUpcomingMatches() {
     
     try {
         const { data, error } = await supabaseClient
-            .from('matches')
-            .select(`
-                id,
-                match_date,
-                match_round,
-                match_winner,
-                scores,
-                tournament_id,
-                home_player_id,
-                away_player_id,
-                tournaments (
-                    id,
-                    name
-                ),
-                home_player:players!home_player_id (
-                    id,
-                    name,
-                    team_players (
-                        team_id
-                    )
-                ),
-                away_player:players!away_player_id (
-                    id,
-                    name,
-                    team_players (
-                        team_id
-                    )
-                )
-            `)
-            .is('match_winner', null)
-            .order('match_date', { ascending: false })
+            .from('tennis_matches')
+            .select('*')
+            .eq('status_type', 'notstarted')
+            .order('start_timestamp', { ascending: true })
             .limit(20);
         
         if (error) {
@@ -397,32 +370,23 @@ async function loadUpcomingMatches() {
             return;
         }
         
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        
-        const upcomingMatches = data.filter(match => {
-            const matchDate = new Date(match.match_date);
-            return matchDate >= today;
-        });
-
-
         console.log('Upcoming matches:', data);
         
         const filtered = filterMatchesByTeam(data.map(match => ({
-            id: match.id,
-            tournament: match.tournaments?.name || 'Unknown Tournament',
+            id: match.match_id,
+            tournament: match.tournament_name || 'Unknown Tournament',
             date: match.match_date,
             homePlayer: {
-                id: match.home_player?.id,
-                name: match.home_player?.name || 'Unknown Player',
-                teamId: match.home_player?.team_players?.[0]?.team_id || null
+                id: match.player1_id,
+                name: match.player1_name || 'Unknown Player',
+                teamId: null // Tennis doesn't use teams, but keeping for compatibility
             },
             awayPlayer: {
-                id: match.away_player?.id,
-                name: match.away_player?.name || 'Unknown Player',
-                teamId: match.away_player?.team_players?.[0]?.team_id || null
+                id: match.player2_id,
+                name: match.player2_name || 'Unknown Player',
+                teamId: null
             },
-            round: match.match_round || 'TBD'
+            round: match.round_name || 'TBD'
         })));
         
         container.innerHTML = '';
@@ -450,37 +414,10 @@ async function loadRecentMatches() {
     
     try {
         const { data, error } = await supabaseClient
-            .from('matches')
-            .select(`
-                id,
-                match_date,
-                match_round,
-                match_winner,
-                scores,
-                tournament_id,
-                home_player_id,
-                away_player_id,
-                tournaments (
-                    id,
-                    name
-                ),
-                home_player:players!home_player_id (
-                    id,
-                    name,
-                    team_players (
-                        team_id
-                    )
-                ),
-                away_player:players!away_player_id (
-                    id,
-                    name,
-                    team_players (
-                        team_id
-                    )
-                )
-            `)
-            .not('match_winner', 'is', null)
-            .order('match_date', { ascending: false })
+            .from('tennis_matches')
+            .select('*')
+            .eq('status_type', 'finished')
+            .order('start_timestamp', { ascending: false })
             .limit(20);
         
         if (error) {
@@ -492,28 +429,29 @@ async function loadRecentMatches() {
         console.log('Recent matches:', data);
         
         const filtered = filterMatchesByTeam(data.map(match => {
-            const scores = match.scores || {};
-            const homeScore = formatSetScores(scores, 'home');
-            const awayScore = formatSetScores(scores, 'away');
+            // Format scores from the set columns
+            const homeScore = formatTennisSetScores(match, 'player1');
+            const awayScore = formatTennisSetScores(match, 'player2');
             
             return {
-                id: match.id,
-                tournament: match.tournaments?.name || 'Unknown Tournament',
+                id: match.match_id,
+                tournament: match.tournament_name || 'Unknown Tournament',
                 date: match.match_date,
                 homePlayer: {
-                    id: match.home_player?.id,
-                    name: match.home_player?.name || 'Unknown Player',
-                    teamId: match.home_player?.team_players?.[0]?.team_id || null
+                    id: match.player1_id,
+                    name: match.player1_name || 'Unknown Player',
+                    teamId: null
                 },
                 awayPlayer: {
-                    id: match.away_player?.id,
-                    name: match.away_player?.name || 'Unknown Player',
-                    teamId: match.away_player?.team_players?.[0]?.team_id || null
+                    id: match.player2_id,
+                    name: match.player2_name || 'Unknown Player',
+                    teamId: null
                 },
-                round: match.match_round || 'TBD',
+                round: match.round_name || 'TBD',
                 homeScore: homeScore,
                 awayScore: awayScore,
-                winner: match.match_winner === 1 ? 'home' : 'away'
+                winner: match.winner_code === 1 ? 'home' : 'away',
+                statusDescription: match.status_description // Add this line
             };
         }));
         
@@ -534,6 +472,26 @@ async function loadRecentMatches() {
         console.error('Unexpected error loading recent matches:', err);
         container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
     }
+}
+
+// Helper function to format tennis set scores
+// Helper function to format tennis set scores
+function formatTennisSetScores(match, playerPrefix) {
+    const sets = [];
+    
+    for (let i = 1; i <= 5; i++) {
+        const setScore = match[`${playerPrefix}_set${i}_score`];
+        if (setScore !== null && setScore !== undefined) {
+            const tiebreak = match[`${playerPrefix}_set${i}_tiebreak`];
+            if (tiebreak !== null && tiebreak !== undefined) {
+                sets.push(`${setScore}<sup>${tiebreak}</sup>`);
+            } else {
+                sets.push(setScore.toString());
+            }
+        }
+    }
+    
+    return sets.join(' ');
 }
 
 // Helper function to format set scores
@@ -560,18 +518,46 @@ function createMatchCard(match, isComplete) {
     const card = document.createElement('div');
     card.className = 'match-card';
     
-    const date = new Date(match.date).toLocaleDateString('en-US', { 
+    // Format date and time in user's local timezone
+    const matchDateTime = new Date(match.date);
+    const dateOptions = { 
         month: 'short', 
-        day: 'numeric' 
-    });
+        day: 'numeric'
+    };
+    
+    let dateTimeDisplay;
+    if (isComplete) {
+        // Only show date for completed matches
+        dateTimeDisplay = matchDateTime.toLocaleDateString('en-US', dateOptions);
+    } else {
+        // Show date and time for upcoming matches
+        const timeOptions = {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        };
+        
+        const date = matchDateTime.toLocaleDateString('en-US', dateOptions);
+        const time = matchDateTime.toLocaleTimeString('en-US', timeOptions);
+        
+        // Get timezone abbreviation
+        const timezone = new Intl.DateTimeFormat('en-US', {
+            timeZoneName: 'short'
+        }).formatToParts(matchDateTime).find(part => part.type === 'timeZoneName')?.value || '';
+        
+        dateTimeDisplay = `${date} • ${time} ${timezone}`;
+    }
     
     const homeOnMyTeam = match.homePlayer.teamId === currentUser.teamId;
     const awayOnMyTeam = match.awayPlayer.teamId === currentUser.teamId;
     
+    // Check if we should show status description instead of score
+    const showStatusDescription = isComplete && match.statusDescription && match.statusDescription !== 'Ended';
+    
     card.innerHTML = `
         <div class="match-header">
             <div class="tournament-name">${match.tournament} • ${match.round}</div>
-            <div class="match-date">${date}</div>
+            <div class="match-date">${dateTimeDisplay}</div>
         </div>
         <div class="match-players">
             <div class="player-row">
@@ -579,14 +565,22 @@ function createMatchCard(match, isComplete) {
                     ${homeOnMyTeam ? '<span class="player-badge">MY TEAM</span>' : ''}
                     <span>${match.homePlayer.name}</span>
                 </div>
-                ${isComplete ? `<div class="score ${match.winner === 'home' ? 'winner' : ''}">${match.homeScore}</div>` : ''}
+                ${isComplete ? 
+                    showStatusDescription && match.winner === 'home' 
+                        ? `<span class="status-badge status-${match.statusDescription.toLowerCase()}">${match.statusDescription}</span>`
+                        : `<div class="score ${match.winner === 'home' ? 'winner' : ''}">${match.homeScore}</div>`
+                    : ''}
             </div>
             <div class="player-row">
                 <div class="player-info">
                     ${awayOnMyTeam ? '<span class="player-badge">MY TEAM</span>' : ''}
                     <span>${match.awayPlayer.name}</span>
                 </div>
-                ${isComplete ? `<div class="score ${match.winner === 'away' ? 'winner' : ''}">${match.awayScore}</div>` : ''}
+                ${isComplete ? 
+                    showStatusDescription && match.winner === 'away' 
+                        ? `<span class="status-badge status-${match.statusDescription.toLowerCase()}">${match.statusDescription}</span>`
+                        : `<div class="score ${match.winner === 'away' ? 'winner' : ''}">${match.awayScore}</div>`
+                    : ''}
             </div>
         </div>
     `;
