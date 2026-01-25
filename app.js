@@ -167,8 +167,8 @@ async function handleSignIn(e) {
         updateLastUpdated();
         
     } catch (err) {
-        console.error('Unexpected error:', err);
-        alert('An error occurred during sign in');
+        /* console.error('Unexpected error:', err);
+        alert('An error occurred during sign in'); */
     }
 }
 
