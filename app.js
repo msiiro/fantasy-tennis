@@ -4,10 +4,15 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // State
 let currentUser = null;
-let currentUserTeam = null; // Store the user's team info
-let playerTeamMap = {}; // Map of player_id -> {teamId, teamName}
-let currentFilter = 'myteam';
+let currentUserTeam = null;
+let playerTeamMap = {};
+let currentFilter = 'anyteam';
 let currentSection = 'leaderboard';
+let allPlayers = []; // Store all players data
+let currentGenderFilter = 'all';
+let currentTeamFilter = 'all';
+let currentSpecificTeam = null;
+let allTeams = []; // Store all teams for dropdown
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Load current user's team
+// Load current user's team
 async function loadUserTeam() {
     try {
         const { data, error } = await supabaseClient
@@ -58,6 +64,7 @@ async function loadUserTeam() {
         }
         
         currentUserTeam = data;
+        currentSpecificTeam = data.id; // Set the specific team filter to user's team
         console.log('Current user team:', currentUserTeam);
     } catch (err) {
         console.error('Unexpected error loading user team:', err);
@@ -111,14 +118,62 @@ function initializeEventListeners() {
         btn.addEventListener('click', () => switchSection(btn.dataset.section));
     });
     
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    // Filter buttons for MATCHES - use .filter-tabs selector
+    document.querySelectorAll('.filter-tabs .filter-btn').forEach(btn => {
         btn.addEventListener('click', () => filterMatches(btn.dataset.filter));
     });
     
     // Player search
     document.getElementById('playerSearch').addEventListener('input', (e) => {
         filterPlayers(e.target.value);
+    });
+    
+    // Gender filter buttons - SINGLE SELECT
+    document.querySelectorAll('.filter-btn[data-gender]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Only update if clicking a different button
+            if (currentGenderFilter !== btn.dataset.gender) {
+                currentGenderFilter = btn.dataset.gender;
+                // Only remove active from gender buttons
+                document.querySelectorAll('.filter-btn[data-gender]').forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+                renderFilteredPlayers();
+            }
+        });
+    });
+    
+    // Team filter buttons - SINGLE SELECT
+    document.querySelectorAll('.filter-btn[data-team-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Only update if clicking a different button
+            if (currentTeamFilter !== btn.dataset.teamFilter) {
+                currentTeamFilter = btn.dataset.teamFilter;
+                // Only remove active from team filter buttons
+                document.querySelectorAll('.filter-btn[data-team-filter]').forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+                
+                // Show/hide team dropdown
+                const dropdownGroup = document.getElementById('teamDropdownGroup');
+                if (currentTeamFilter === 'specific') {
+                    dropdownGroup.style.display = 'flex';
+                } else {
+                    dropdownGroup.style.display = 'none';
+                    currentSpecificTeam = null;
+                }
+                
+                renderFilteredPlayers();
+            }
+        });
+    });
+    
+    // Team dropdown
+    document.getElementById('teamDropdown').addEventListener('change', (e) => {
+        currentSpecificTeam = e.target.value ? parseInt(e.target.value) : null;
+        renderFilteredPlayers();
     });
 }
 
@@ -152,23 +207,12 @@ async function handleSignIn(e) {
         }
         
         console.log('Sign in successful:', data);
-        currentUser = data.user;
-        
-        // Show main app
-        document.getElementById('signInScreen').classList.remove('active');
-        document.getElementById('mainApp').classList.add('active');
-        document.getElementById('userName').textContent = currentUser.email;
-        
-        // Load user team first, then load initial data
-        await loadUserTeam();
-        loadLeaderboard();
-        loadMatches();
-        loadPlayers();
-        updateLastUpdated();
+        // Don't call loadLeaderboard, loadMatches, etc. here
+        // Let onAuthStateChange handle it
         
     } catch (err) {
-        /* console.error('Unexpected error:', err);
-        alert('An error occurred during sign in'); */
+        console.error('Unexpected error:', err);
+        alert('An error occurred during sign in');
     }
 }
 
@@ -211,6 +255,12 @@ async function loadLeaderboard() {
         
         console.log('Leaderboard data:', data);
         
+        // Check if data is empty
+        if (!data || data.length === 0) {
+            container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No teams found</p>';
+            return;
+        }
+        
         // Clear container
         container.innerHTML = '';
         
@@ -220,11 +270,11 @@ async function loadLeaderboard() {
                 id: team.id,
                 name: team.name || 'Unknown User',
                 points: team.current_points || 0,
-                change: team.change || 0
+                change: 0
             };
             
             const row = createLeaderboardRow(teamData, index + 1);
-            row.style.animationDelay = `${index * 0.05}s`;
+            // Remove this line: row.style.animationDelay = `${index * 0.05}s`;
             container.appendChild(row);
         });
         
@@ -625,9 +675,13 @@ function createMatchCard(match, isComplete) {
 function filterMatches(filter) {
     currentFilter = filter;
     
-    // Update filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.filter === filter);
+    // Update ONLY match filter buttons (not gender or team filters)
+    document.querySelectorAll('.filter-tabs .filter-btn').forEach(btn => {
+        if (btn.dataset.filter === filter) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
     });
     
     // Reload matches with filter
@@ -669,17 +723,122 @@ function filterMatchesByTeam(matches) {
 }
 
 // Players
-function loadPlayers() {
+async function loadPlayers() {
     const container = document.getElementById('playersList');
-    container.innerHTML = '';
+    container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
-    const sortedPlayers = [...DEMO_DATA.players].sort((a, b) => b.points - a.points);
-    
-    sortedPlayers.forEach((player, index) => {
-        const row = createPlayerRow(player, index + 1);
-        row.style.animationDelay = `${index * 0.05}s`;
-        container.appendChild(row);
-    });
+    try {
+        // Fetch players first
+        const { data: players, error: playersError } = await supabaseClient
+            .from('players')
+            .select('player_id, name, gender');
+        
+        if (playersError) {
+            console.error('Error loading players:', playersError);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading players</p>';
+            return;
+        }
+        
+        // Fetch all teams for dropdown
+        const { data: teams, error: teamsError } = await supabaseClient
+            .from('teams')
+            .select('id, name')
+            .order('name', { ascending: true });
+        
+        if (teamsError) {
+            console.error('Error loading teams:', teamsError);
+        } else {
+            allTeams = teams || [];
+            populateTeamDropdown();
+            
+            // Set dropdown to user's team if available
+            if (currentUserTeam && currentUserTeam.id) {
+                const dropdown = document.getElementById('teamDropdown');
+                if (dropdown) {
+                    dropdown.value = currentUserTeam.id;
+                }
+            }
+        }
+        
+        // Fetch team assignments separately
+        const { data: teamAssignments, error: teamError } = await supabaseClient
+            .from('teams_players')
+            .select(`
+                player_id,
+                team_id,
+                teams (
+                    id,
+                    name
+                )
+            `);
+        
+        if (teamError) {
+            console.error('Error loading team assignments:', teamError);
+        }
+        
+        // Create a map of player_id -> team info
+        const teamMap = {};
+        if (teamAssignments) {
+            teamAssignments.forEach(ta => {
+                teamMap[ta.player_id] = {
+                    teamId: ta.team_id,
+                    teamName: ta.teams?.name || 'Unknown Team'
+                };
+            });
+        }
+        
+        // Fetch match points to calculate total points and match count per player
+        const { data: matchPoints, error: matchError } = await supabaseClient
+            .from('match_points')
+            .select('player_id, points_earned, match_id');
+        
+        if (matchError) {
+            console.error('Error loading match points:', matchError);
+        }
+        
+        // Create maps for points and match counts
+        const playerPointsMap = {};
+        const matchCountMap = {};
+        if (matchPoints) {
+            matchPoints.forEach(mp => {
+                // Sum up points
+                playerPointsMap[mp.player_id] = (playerPointsMap[mp.player_id] || 0) + (mp.points_earned || 0);
+                // Count unique matches
+                if (!matchCountMap[mp.player_id]) {
+                    matchCountMap[mp.player_id] = new Set();
+                }
+                matchCountMap[mp.player_id].add(mp.match_id);
+            });
+        }
+        
+        console.log('Players data:', players);
+        console.log('Team map:', teamMap);
+        console.log('Points map:', playerPointsMap);
+        
+        // Create player data array with all info
+        allPlayers = players.map(player => {
+            const teamInfo = teamMap[player.player_id];
+            return {
+                id: player.player_id,
+                name: player.name,
+                gender: player.gender || 'M',
+                team: teamInfo?.teamName || 'Free Agent',
+                teamId: teamInfo?.teamId || null,
+                points: playerPointsMap[player.player_id] || 0,
+                matches: matchCountMap[player.player_id]?.size || 0
+            };
+        });
+        
+        // Sort by points descending
+        allPlayers.sort((a, b) => b.points - a.points);
+        
+        // Initial render
+        renderFilteredPlayers();
+        
+    } catch (err) {
+        console.error('Unexpected error loading players:', err);
+        container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading players</p>';
+    }
 }
 
 function createPlayerRow(player, rank) {
@@ -687,15 +846,33 @@ function createPlayerRow(player, rank) {
     row.className = 'table-row';
     row.dataset.playerName = player.name.toLowerCase();
     
+    // Determine row type based on team
+    const isMyTeam = currentUserTeam && player.teamId === currentUserTeam.id;
+    const hasTeam = player.teamId !== null;
+    
+    // Add class based on team status
+    if (isMyTeam) {
+        row.classList.add('my-team-row');
+    } else if (hasTeam) {
+        row.classList.add('other-team-row');
+    } else {
+        row.classList.add('no-team-row');
+    }
+    
     row.innerHTML = `
         <div class="col-rank">
-            <div class="rank-badge ${rank <= 3 ? 'top-3' : ''}">${rank}</div>
+            <div class="rank-badge">${rank}</div>
         </div>
         <div class="col-player">
             <div class="player-name">${player.name}</div>
         </div>
-        <div class="col-tour">
-            <span class="tour-badge">${player.tour}</span>
+        <div class="col-gender">
+            <span class="gender-badge gender-${player.gender}">${player.gender}</span>
+        </div>
+        <div class="col-team">
+            ${player.team !== 'Free Agent' 
+                ? `<span class="team-badge ${isMyTeam ? 'my-team' : 'other-team'}">${player.team}</span>` 
+                : ''}
         </div>
         <div class="col-points">
             <div class="points">${player.points}</div>
@@ -720,6 +897,69 @@ function filterPlayers(searchTerm) {
             row.style.display = 'none';
         }
     });
+}
+
+function populateTeamDropdown() {
+    const dropdown = document.getElementById('teamDropdown');
+    dropdown.innerHTML = '<option value="">Select a team...</option>';
+    
+    allTeams.forEach(team => {
+        const option = document.createElement('option');
+        option.value = team.id;
+        option.textContent = team.name;
+        dropdown.appendChild(option);
+    });
+}
+
+function renderFilteredPlayers() {
+    const container = document.getElementById('playersList');
+    const searchTerm = document.getElementById('playerSearch').value.toLowerCase();
+    
+    // Apply all filters
+    let filtered = allPlayers.filter(player => {
+        // Gender filter
+        if (currentGenderFilter !== 'all' && player.gender !== currentGenderFilter) {
+            return false;
+        }
+        
+        // Team filter
+        if (currentTeamFilter === 'league') {
+            // Only show players on a team
+            if (!player.teamId) {
+                return false;
+            }
+        } else if (currentTeamFilter === 'specific') {
+            // Only show players on the selected team
+            if (!currentSpecificTeam || player.teamId !== currentSpecificTeam) {
+                return false;
+            }
+        }
+        
+        // Search filter
+        if (searchTerm && !player.name.toLowerCase().includes(searchTerm)) {
+            return false;
+        }
+        
+        return true;
+    });
+    
+    container.innerHTML = '';
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No players found</p>';
+        return;
+    }
+    
+    filtered.forEach((player, index) => {
+        const row = createPlayerRow(player, index + 1);
+        row.style.animationDelay = `${index * 0.05}s`;
+        container.appendChild(row);
+    });
+}
+
+function filterPlayers(searchTerm) {
+    // Just trigger a re-render with the current search term
+    renderFilteredPlayers();
 }
 
 // Utility

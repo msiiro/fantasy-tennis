@@ -9,6 +9,9 @@
     --color-accent-secondary: #00d4ff;
     --color-warning: #ffa500;
     --color-danger: #ff4444;
+    --color-primary: #00ff88;
+    --color-background: #0a0e14;
+    --color-text-primary: #e8eaed;
     
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Archivo', sans-serif;
@@ -367,6 +370,13 @@ body {
     margin-bottom: 2rem;
 }
 
+.section-header h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    letter-spacing: 0.02em;
+}
+
 .section-title {
     font-family: var(--font-display);
     font-size: 3rem;
@@ -376,6 +386,73 @@ body {
 .section-meta {
     font-size: 0.875rem;
     color: var(--color-text-secondary);
+}
+
+.section-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Player Search */
+#playerSearch {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    min-width: 250px;
+}
+
+#playerSearch:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Players Filters */
+.players-filters {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-surface);
+    border-radius: 12px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.filter-group .filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.team-dropdown {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.team-dropdown:focus {
+    outline: none;
+    border-color: var(--color-primary);
 }
 
 /* Filter Tabs */
@@ -441,7 +518,57 @@ body {
     pointer-events: none;
 }
 
-/* Leaderboard */
+/* Data Table */
+.data-table {
+    background: var(--color-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.table-header {
+    padding: 1rem;
+    background-color: var(--color-surface-elevated);
+    border-radius: 12px 12px 0 0;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-body {
+    background-color: var(--color-surface);
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+}
+
+.table-row {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.2s;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Leaderboard Table */
+
+.leaderboard-table .table-header,
+.leaderboard-table .table-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px 120px;
+    gap: 1rem; /* Add this line for spacing between columns */
+    padding: 1.5rem 2rem;
+}
+
 .leaderboard-grid {
     background: var(--color-surface);
     border-radius: 16px;
@@ -449,13 +576,13 @@ body {
     border: 1px solid var(--color-border);
 }
 
-.leaderboard-table,
-.players-table {
+.leaderboard-table {
     width: 100%;
 }
 
-.table-header {
+.leaderboard-table .table-header {
     display: grid;
+    grid-template-columns: 80px 1fr 120px 120px;
     padding: 1.5rem 2rem;
     font-size: 0.75rem;
     font-weight: 700;
@@ -466,42 +593,28 @@ body {
     border-bottom: 1px solid var(--color-border);
 }
 
-.leaderboard-table .table-header {
-    grid-template-columns: 80px 1fr 120px 120px;
-}
-
-.players-table .table-header {
-    grid-template-columns: 80px 1fr 120px 120px 120px;
-}
-
-.table-body {
+.leaderboard-table .table-body {
     display: flex;
     flex-direction: column;
 }
 
-.table-row {
+.leaderboard-table .table-row {
     display: grid;
+    grid-template-columns: 80px 1fr 120px 120px;
     padding: 1.5rem 2rem;
+    gap: 1rem;
     border-bottom: 1px solid var(--color-border);
     transition: var(--transition-smooth);
     cursor: pointer;
     animation: slideInUp 0.4s ease-out backwards;
 }
 
-.table-row:hover {
+.leaderboard-table .table-row:hover {
     background: var(--color-surface-elevated);
 }
 
-.table-row:last-child {
+.leaderboard-table .table-row:last-child {
     border-bottom: none;
-}
-
-.leaderboard-table .table-row {
-    grid-template-columns: 80px 1fr 120px 120px;
-}
-
-.players-table .table-row {
-    grid-template-columns: 80px 1fr 120px 120px 120px;
 }
 
 @keyframes slideInUp {
@@ -515,35 +628,127 @@ body {
     }
 }
 
+/* Players Table */
+.players-table {
+    width: 100%;
+}
+
+.data-table .table-header,
+.data-table .table-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 80px 150px 100px 100px;
+    gap: 1rem;
+    align-items: center;
+}
+
+.col-rank {
+    justify-self: center;
+}
+
+.col-player {
+    justify-self: start;
+}
+
+.col-gender {
+    justify-self: center;
+}
+
+.col-team {
+    justify-self: start;
+}
+
+.col-points {
+    justify-self: end;
+}
+
+.col-matches {
+    justify-self: end;
+}
+
+/* Rank Badge */
 .rank-badge {
-    width: 48px;
-    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    background: var(--color-surface-elevated);
-    border: 2px solid var(--color-border);
-    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: rgba(158, 158, 158, 0.1);
+    color: var(--color-text-secondary);
     transition: var(--transition-smooth);
 }
 
+/* Player Row Team-based Styling */
+.table-row.my-team-row .rank-badge {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.table-row.other-team-row .rank-badge {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.table-row.no-team-row .rank-badge {
+    background-color: rgba(158, 158, 158, 0.1);
+    color: var(--color-text-secondary);
+    border: 1px solid rgba(158, 158, 158, 0.3);
+}
+
 .table-row:hover .rank-badge {
-    border-color: var(--color-accent);
+    border-color: currentColor;
 }
 
-.rank-badge.top-3 {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
-    border-color: var(--color-accent);
-    color: var(--color-bg);
-    font-weight: bold;
-}
-
+/* Player/Team Names */
 .team-name,
 .player-name {
     font-weight: 600;
     font-size: 1.1rem;
+    color: var(--color-text-primary);
+}
+
+/* Badges */
+.team-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.team-badge.my-team {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.team-badge.other-team {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+.gender-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.gender-badge.gender-M {
+    background-color: rgba(0, 229, 255, 0.1);
+    color: #00e5ff;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.gender-badge.gender-F {
+    background-color: rgba(255, 64, 129, 0.1);
+    color: #ff4081;
+    border: 1px solid rgba(255, 64, 129, 0.3);
 }
 
 .tour-badge {
@@ -557,10 +762,11 @@ body {
     color: var(--color-accent);
 }
 
+/* Points */
 .points {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--color-accent);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 .change {
@@ -688,10 +894,11 @@ body {
     font-size: 1.5rem;
     color: var(--color-text-secondary);
 }
+
 .score-section {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0.75rem;
     margin-left: auto;
 }
 
@@ -699,7 +906,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    min-width: 120px; /* Adjust based on your needs */
+    min-width: 120px;
 }
 
 .points-earned {
@@ -718,7 +925,6 @@ body {
     width: 0;
     visibility: hidden;
 }
-
 
 .score.winner {
     color: var(--color-accent);
@@ -776,11 +982,10 @@ body {
 
 .stake-value {
     font-size: 0.875rem;
-    color: var(--color-primary);
+    color: var(--color-accent);
     font-weight: 600;
 }
 
-/* Optional: Add this if you want the status badge to have similar styling to scores */
 .player-row .status-badge {
     margin-left: auto;
 }
@@ -790,7 +995,6 @@ body {
     vertical-align: super;
     margin-left: 1px;
 }
-
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -826,21 +1030,25 @@ body {
     
     .leaderboard-table .table-header,
     .leaderboard-table .table-row {
-        grid-template-columns: 60px 1fr 100px;
+        display: grid;
+        grid-template-columns: 80px 1fr 120px 120px;
+        gap: 1rem; /* Add this line for spacing between columns */
+        padding: 1.5rem 2rem;
     }
     
     .col-change {
         display: none;
     }
     
-    .players-table .table-header,
-    .players-table .table-row {
-        grid-template-columns: 60px 1fr 80px;
+    .data-table .table-header,
+    .data-table .table-row {
+        grid-template-columns: 50px 1fr 60px 120px 80px 80px;
+        gap: 0.5rem;
+        font-size: 0.875rem;
     }
     
-    .col-tour,
-    .col-matches {
-        display: none;
+    #playerSearch {
+        min-width: 200px;
     }
     
     .section-header {

@@ -100,7 +100,7 @@
             <div class="section-header">
                 <h2 class="section-title">Match Center</h2>
                 <div class="filter-tabs">
-                    <button class="filter-btn" data-filter="anyteam">League</button>
+                    <button class="filter-btn active" data-filter="anyteam">League</button>
                     <button class="filter-btn" data-filter="myteam">My Team</button>
                     <button class="filter-btn" data-filter="headtohead">Head-to-Head</button>
                 </div>
@@ -126,29 +126,49 @@
         <!-- Players Section -->
         <section id="playersSection" class="content-section">
             <div class="section-header">
-                <h2 class="section-title">Player Rankings</h2>
-                <div class="search-box">
+                <h2>Players</h2>
+                <div class="section-actions">
                     <input type="text" id="playerSearch" placeholder="Search players...">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
-                        <path d="M12.5 12.5l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
                 </div>
             </div>
             
-            <div class="players-grid">
-                <div class="players-table">
-                    <div class="table-header">
-                        <div class="col-rank">Rank</div>
-                        <div class="col-player">Player</div>
-                        <div class="col-tour">Tour</div>
-                        <div class="col-points">Points</div>
-                        <div class="col-matches">Matches</div>
-                    </div>
-                    <div id="playersList" class="table-body">
-                        <!-- Populated by JS -->
+            <div class="players-filters">
+                <div class="filter-group">
+                    <label>Gender:</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-gender="all">All</button>
+                        <button class="filter-btn" data-gender="M">Men</button>
+                        <button class="filter-btn" data-gender="F">Women</button>
                     </div>
                 </div>
+                
+                <div class="filter-group">
+                    <label>Players:</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-team-filter="all">All</button>
+                        <button class="filter-btn" data-team-filter="league">League</button>
+                        <button class="filter-btn" data-team-filter="specific">Team</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group" id="teamDropdownGroup" style="display: none;">
+                    <label>Select Team:</label>
+                    <select id="teamDropdown" class="team-dropdown">
+                        <option value="">Select a team...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="data-table">
+                <div class="table-header">
+                    <div class="col-rank">Rank</div>
+                    <div class="col-player">Player</div>
+                    <div class="col-gender">Gender</div>
+                    <div class="col-team">Team</div>
+                    <div class="col-points">Points</div>
+                    <div class="col-matches">Matches</div>
+                </div>
+                <div id="playersList" class="table-body"></div>
             </div>
         </section>
     </div>
