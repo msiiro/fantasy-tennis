@@ -275,12 +275,32 @@ async function loadUpcomingMatches() {
     container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
     try {
+        // First, get all player IDs that are on teams
+        const { data: teamPlayers, error: teamPlayersError } = await supabaseClient
+            .from('teams_players')
+            .select('player_id');
+        
+        if (teamPlayersError) {
+            console.error('Error loading team players:', teamPlayersError);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
+            return;
+        }
+        
+        const teamPlayerIds = teamPlayers.map(tp => tp.player_id);
+        
+        if (teamPlayerIds.length === 0) {
+            container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No team players found</p>';
+            return;
+        }
+        
+        // Now fetch matches where player1_id OR player2_id is in the team players list
         const { data, error } = await supabaseClient
             .from('tennis_matches')
             .select('*')
             .eq('status_type', 'notstarted')
+            .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: true })
-            .limit(100);
+            .limit(50);
         
         if (error) {
             console.error('Error loading upcoming matches:', error);
@@ -298,6 +318,7 @@ async function loadUpcomingMatches() {
                 id: match.match_id,
                 tournament: match.tournament_name || 'Unknown Tournament',
                 date: match.match_date,
+                startTimestamp: match.start_timestamp,
                 homePlayer: {
                     id: match.player1_id,
                     name: match.player1_name || 'Unknown Player',
@@ -338,12 +359,32 @@ async function loadRecentMatches() {
     container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
     try {
+        // First, get all player IDs that are on teams
+        const { data: teamPlayers, error: teamPlayersError } = await supabaseClient
+            .from('teams_players')
+            .select('player_id');
+        
+        if (teamPlayersError) {
+            console.error('Error loading team players:', teamPlayersError);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
+            return;
+        }
+        
+        const teamPlayerIds = teamPlayers.map(tp => tp.player_id);
+        
+        if (teamPlayerIds.length === 0) {
+            container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">No team players found</p>';
+            return;
+        }
+        
+        // Now fetch matches where player1_id OR player2_id is in the team players list
         const { data, error } = await supabaseClient
             .from('tennis_matches')
             .select('*')
             .eq('status_type', 'finished')
+            .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: false })
-            .limit(100);
+            .limit(50);
         
         if (error) {
             console.error('Error loading recent matches:', error);
@@ -351,7 +392,27 @@ async function loadRecentMatches() {
             return;
         }
         
+        // Fetch match points for all these matches
+        const matchIds = data.map(m => m.match_id);
+        const { data: matchPoints, error: pointsError } = await supabaseClient
+            .from('match_points')
+            .select('match_id, player_id, points_earned')
+            .in('match_id', matchIds);
+        
+        if (pointsError) {
+            console.error('Error loading match points:', pointsError);
+        }
+        
+        // Create a map of match_id + player_id -> points_earned
+        const pointsMap = {};
+        if (matchPoints) {
+            matchPoints.forEach(mp => {
+                pointsMap[`${mp.match_id}_${mp.player_id}`] = mp.points_earned;
+            });
+        }
+        
         console.log('Recent matches:', data);
+        console.log('Match points:', pointsMap);
         
         const filtered = filterMatchesByTeam(data.map(match => {
             const player1Team = playerTeamMap[match.player1_id];
@@ -361,10 +422,15 @@ async function loadRecentMatches() {
             const homeScore = formatTennisSetScores(match, 'player1');
             const awayScore = formatTennisSetScores(match, 'player2');
             
+            // Get points for each player
+            const homePoints = pointsMap[`${match.match_id}_${match.player1_id}`] || 0;
+            const awayPoints = pointsMap[`${match.match_id}_${match.player2_id}`] || 0;
+            
             return {
                 id: match.match_id,
                 tournament: match.tournament_name || 'Unknown Tournament',
                 date: match.match_date,
+                startTimestamp: match.start_timestamp,
                 homePlayer: {
                     id: match.player1_id,
                     name: match.player1_name || 'Unknown Player',
@@ -380,6 +446,8 @@ async function loadRecentMatches() {
                 round: match.round_name || 'TBD',
                 homeScore: homeScore,
                 awayScore: awayScore,
+                homePoints: homePoints,
+                awayPoints: awayPoints,
                 winner: match.winner_code === 1 ? 'home' : 'away',
                 statusDescription: match.status_description
             };
@@ -403,7 +471,6 @@ async function loadRecentMatches() {
         container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
     }
 }
-
 // Helper function to format tennis set scores
 function formatTennisSetScores(match, playerPrefix) {
     const sets = [];
@@ -427,8 +494,11 @@ function createMatchCard(match, isComplete) {
     const card = document.createElement('div');
     card.className = 'match-card';
     
-    // Format date and time in user's local timezone
-    const matchDateTime = new Date(match.date);
+    // Parse the timestamp correctly - use start_timestamp if available
+    const matchDateTime = match.startTimestamp 
+        ? new Date(match.startTimestamp * 1000) 
+        : new Date(match.date);
+    
     const dateOptions = { 
         month: 'short', 
         day: 'numeric'
@@ -489,9 +559,12 @@ function createMatchCard(match, isComplete) {
                     ${homeBadge}
                 </div>
                 ${isComplete ? 
-                    showStatusDescription && match.winner === 'home' 
-                        ? `<span class="status-badge status-${match.statusDescription.toLowerCase()}">${match.statusDescription}</span>`
-                        : `<div class="score ${match.winner === 'home' ? 'winner' : ''}">${match.homeScore}</div>`
+                    `<div class="score-section">
+                        ${match.winner === 'home' && match.homePoints > 0 ? `<span class="points-earned winner">+${match.homePoints} pts</span>` : ''}
+                        ${showStatusDescription && match.winner === 'home' 
+                            ? `<span class="status-badge status-${match.statusDescription.toLowerCase()}">${match.statusDescription}</span>`
+                            : `<div class="score ${match.winner === 'home' ? 'winner' : ''}">${match.homeScore}</div>`}
+                    </div>`
                     : ''}
             </div>
             <div class="player-row">
@@ -500,9 +573,12 @@ function createMatchCard(match, isComplete) {
                     ${awayBadge}
                 </div>
                 ${isComplete ? 
-                    showStatusDescription && match.winner === 'away' 
-                        ? `<span class="status-badge status-${match.statusDescription.toLowerCase()}">${match.statusDescription}</span>`
-                        : `<div class="score ${match.winner === 'away' ? 'winner' : ''}">${match.awayScore}</div>`
+                    `<div class="score-section">
+                        ${match.winner === 'away' && match.awayPoints > 0 ? `<span class="points-earned winner">+${match.awayPoints} pts</span>` : ''}
+                        ${showStatusDescription && match.winner === 'away' 
+                            ? `<span class="status-badge status-${match.statusDescription.toLowerCase()}">${match.statusDescription}</span>`
+                            : `<div class="score ${match.winner === 'away' ? 'winner' : ''}">${match.awayScore}</div>`}
+                    </div>`
                     : ''}
             </div>
         </div>
@@ -510,6 +586,7 @@ function createMatchCard(match, isComplete) {
     
     return card;
 }
+
 function filterMatches(filter) {
     currentFilter = filter;
     
