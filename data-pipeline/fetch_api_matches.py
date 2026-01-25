@@ -116,7 +116,7 @@ def should_include_event(event):
     match_categories = event_filters.get('category', [])
     
     # Check if it's ATP or WTA
-    is_atp_or_wta = category_name in ['ATP', 'WTA'] or category_slug in ['atp', 'wta']
+    is_atp_or_wta = category_name in ['ATP', 'WTA', 'Challenger', 'WTA 125'] or category_slug in ['atp', 'wta', 'challenger', 'wta-125']
     
     # Check if it's singles (not doubles)
     is_singles = 'singles' in match_categories
@@ -124,8 +124,8 @@ def should_include_event(event):
     # Additional check: tournament/season name shouldn't contain "doubles"
     has_doubles_in_name = 'doubles' in tournament_name or 'doubles' in season_name or 'double' in season_name
     
-    # Exclude ITF, junior, youth, challenger, etc.
-    excluded_keywords = ['itf', 'junior', 'youth', 'challenger', 'futures', 'u18', 'u21', 'qualifying']
+    # Exclude ITF, junior, youth, etc.
+    excluded_keywords = ['itf', 'junior', 'youth', 'futures', 'u18', 'u21']
     is_excluded = any(keyword in category_name.lower() for keyword in excluded_keywords)
     is_excluded = is_excluded or any(keyword in category_slug for keyword in excluded_keywords)
     is_excluded = is_excluded or any(keyword in tournament_name for keyword in excluded_keywords)
@@ -483,9 +483,7 @@ if __name__ == "__main__":
         print("  ✓ WTA Singles only")
         print("  ✗ No Doubles")
         print("  ✗ No ITF")
-        print("  ✗ No Challenger")
         print("  ✗ No Junior/Youth")
-        print("  ✗ No Qualifying")
         print()
         
         # Run the bulk fetch and store

@@ -81,8 +81,6 @@ def upsert_player(player_data):
             'country': player_data.get('country', {}).get('name'),
             'country_code': player_data.get('country', {}).get('alpha2'),
             'gender': player_data.get('gender'),
-            'sport_id': player_data.get('sport', {}).get('id'),
-            'user_count': player_data.get('userCount'),
             'disabled': player_data.get('disabled', False),
             'national': player_data.get('national', False),
             'type': player_data.get('type'),
