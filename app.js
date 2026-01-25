@@ -1,11 +1,12 @@
-
 const supabaseUrl = 'https://ugxbybhbnoylantodnmc.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVneGJ5Ymhibm95bGFudG9kbm1jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2ODExNzgsImV4cCI6MjA4NDI1NzE3OH0.6S_SivqxxSPqd0KktZPohdCq8co6TLR7xLeao3w00d4';
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // State
 let currentUser = null;
-let currentFilter = 'all';
+let currentUserTeam = null; // Store the user's team info
+let playerTeamMap = {}; // Map of player_id -> {teamId, teamName}
+let currentFilter = 'myteam';
 let currentSection = 'leaderboard';
 
 // Initialize app
@@ -22,14 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('mainApp').classList.add('active');
             document.getElementById('userName').textContent = currentUser.email;
             
-            // Load data
-            loadLeaderboard();
-            loadMatches();
-            loadPlayers();
-            updateLastUpdated();
+            // Load user's team and then load data
+            loadUserTeam().then(() => {
+                loadLeaderboard();
+                loadMatches();
+                loadPlayers();
+                updateLastUpdated();
+            });
         } else {
             // User is logged out
             currentUser = null;
+            currentUserTeam = null;
+            playerTeamMap = {};
             document.getElementById('mainApp').classList.remove('active');
             document.getElementById('signInScreen').classList.add('active');
         }
@@ -37,6 +42,61 @@ document.addEventListener('DOMContentLoaded', () => {
     
     initializeEventListeners();
 });
+
+// Load current user's team
+async function loadUserTeam() {
+    try {
+        const { data, error } = await supabaseClient
+            .from('teams')
+            .select('id, name')
+            .eq('user_id', currentUser.id)
+            .single();
+        
+        if (error) {
+            console.error('Error loading user team:', error);
+            return;
+        }
+        
+        currentUserTeam = data;
+        console.log('Current user team:', currentUserTeam);
+    } catch (err) {
+        console.error('Unexpected error loading user team:', err);
+    }
+}
+
+// Load player-team mappings
+async function loadPlayerTeamMappings() {
+    try {
+        const { data, error } = await supabaseClient
+            .from('teams_players')
+            .select(`
+                player_id,
+                team_id,
+                teams (
+                    id,
+                    name
+                )
+            `);
+        
+        if (error) {
+            console.error('Error loading player team mappings:', error);
+            return;
+        }
+        
+        // Create a map of player_id -> {teamId, teamName}
+        playerTeamMap = {};
+        data.forEach(item => {
+            playerTeamMap[item.player_id] = {
+                teamId: item.team_id,
+                teamName: item.teams?.name || 'Unknown Team'
+            };
+        });
+        
+        console.log('Player team map:', playerTeamMap);
+    } catch (err) {
+        console.error('Unexpected error loading player team mappings:', err);
+    }
+}
 
 // Event Listeners
 function initializeEventListeners() {
@@ -64,6 +124,8 @@ function initializeEventListeners() {
 
 function handleSignOut() {
     currentUser = null;
+    currentUserTeam = null;
+    playerTeamMap = {};
     document.getElementById('mainApp').classList.remove('active');
     document.getElementById('signInScreen').classList.add('active');
     
@@ -97,7 +159,8 @@ async function handleSignIn(e) {
         document.getElementById('mainApp').classList.add('active');
         document.getElementById('userName').textContent = currentUser.email;
         
-        // Load initial data
+        // Load user team first, then load initial data
+        await loadUserTeam();
         loadLeaderboard();
         loadMatches();
         loadPlayers();
@@ -200,6 +263,9 @@ function createLeaderboardRow(team, rank) {
 
 // Matches
 async function loadMatches() {
+    // Load player-team mappings first
+    await loadPlayerTeamMappings();
+    
     await loadUpcomingMatches();
     await loadRecentMatches();
 }
@@ -214,7 +280,7 @@ async function loadUpcomingMatches() {
             .select('*')
             .eq('status_type', 'notstarted')
             .order('start_timestamp', { ascending: true })
-            .limit(20);
+            .limit(100);
         
         if (error) {
             console.error('Error loading upcoming matches:', error);
@@ -224,22 +290,29 @@ async function loadUpcomingMatches() {
         
         console.log('Upcoming matches:', data);
         
-        const filtered = filterMatchesByTeam(data.map(match => ({
-            id: match.match_id,
-            tournament: match.tournament_name || 'Unknown Tournament',
-            date: match.match_date,
-            homePlayer: {
-                id: match.player1_id,
-                name: match.player1_name || 'Unknown Player',
-                teamId: null // Tennis doesn't use teams, but keeping for compatibility
-            },
-            awayPlayer: {
-                id: match.player2_id,
-                name: match.player2_name || 'Unknown Player',
-                teamId: null
-            },
-            round: match.round_name || 'TBD'
-        })));
+        const filtered = filterMatchesByTeam(data.map(match => {
+            const player1Team = playerTeamMap[match.player1_id];
+            const player2Team = playerTeamMap[match.player2_id];
+            
+            return {
+                id: match.match_id,
+                tournament: match.tournament_name || 'Unknown Tournament',
+                date: match.match_date,
+                homePlayer: {
+                    id: match.player1_id,
+                    name: match.player1_name || 'Unknown Player',
+                    teamId: player1Team?.teamId || null,
+                    teamName: player1Team?.teamName || null
+                },
+                awayPlayer: {
+                    id: match.player2_id,
+                    name: match.player2_name || 'Unknown Player',
+                    teamId: player2Team?.teamId || null,
+                    teamName: player2Team?.teamName || null
+                },
+                round: match.round_name || 'TBD'
+            };
+        }));
         
         container.innerHTML = '';
         
@@ -270,7 +343,7 @@ async function loadRecentMatches() {
             .select('*')
             .eq('status_type', 'finished')
             .order('start_timestamp', { ascending: false })
-            .limit(20);
+            .limit(100);
         
         if (error) {
             console.error('Error loading recent matches:', error);
@@ -281,6 +354,9 @@ async function loadRecentMatches() {
         console.log('Recent matches:', data);
         
         const filtered = filterMatchesByTeam(data.map(match => {
+            const player1Team = playerTeamMap[match.player1_id];
+            const player2Team = playerTeamMap[match.player2_id];
+            
             // Format scores from the set columns
             const homeScore = formatTennisSetScores(match, 'player1');
             const awayScore = formatTennisSetScores(match, 'player2');
@@ -292,18 +368,20 @@ async function loadRecentMatches() {
                 homePlayer: {
                     id: match.player1_id,
                     name: match.player1_name || 'Unknown Player',
-                    teamId: null
+                    teamId: player1Team?.teamId || null,
+                    teamName: player1Team?.teamName || null
                 },
                 awayPlayer: {
                     id: match.player2_id,
                     name: match.player2_name || 'Unknown Player',
-                    teamId: null
+                    teamId: player2Team?.teamId || null,
+                    teamName: player2Team?.teamName || null
                 },
                 round: match.round_name || 'TBD',
                 homeScore: homeScore,
                 awayScore: awayScore,
                 winner: match.winner_code === 1 ? 'home' : 'away',
-                statusDescription: match.status_description // Add this line
+                statusDescription: match.status_description
             };
         }));
         
@@ -327,7 +405,6 @@ async function loadRecentMatches() {
 }
 
 // Helper function to format tennis set scores
-// Helper function to format tennis set scores
 function formatTennisSetScores(match, playerPrefix) {
     const sets = [];
     
@@ -344,26 +421,6 @@ function formatTennisSetScores(match, playerPrefix) {
     }
     
     return sets.join(' ');
-}
-
-// Helper function to format set scores
-function formatSetScores(scores, player) {
-    const sets = [];
-    let setNum = 1;
-    
-    // Loop through sets (set1, set2, set3, etc.)
-    while (scores[`${player}_set${setNum}`] !== undefined) {
-        sets.push(scores[`${player}_set${setNum}`]);
-        setNum++;
-    }
-    
-    // If no individual sets found, return the total score
-    if (sets.length === 0) {
-        return scores[player] || '0';
-    }
-    
-    // Format as "6-4, 7-6, 6-3" style
-    return sets.join(', ');
 }
 
 function createMatchCard(match, isComplete) {
@@ -400,8 +457,22 @@ function createMatchCard(match, isComplete) {
         dateTimeDisplay = `${date} • ${time} ${timezone}`;
     }
     
-    const homeOnMyTeam = match.homePlayer.teamId === currentUser.teamId;
-    const awayOnMyTeam = match.awayPlayer.teamId === currentUser.teamId;
+    // Check if players are on user's team or other teams
+    const homeOnMyTeam = currentUserTeam && match.homePlayer.teamId === currentUserTeam.id;
+    const awayOnMyTeam = currentUserTeam && match.awayPlayer.teamId === currentUserTeam.id;
+    
+    // Get team badges
+    const homeBadge = homeOnMyTeam 
+        ? '<span class="player-badge my-team">MY TEAM</span>' 
+        : (match.homePlayer.teamName 
+            ? `<span class="player-badge other-team">${match.homePlayer.teamName}</span>` 
+            : '');
+    
+    const awayBadge = awayOnMyTeam 
+        ? '<span class="player-badge my-team">MY TEAM</span>' 
+        : (match.awayPlayer.teamName 
+            ? `<span class="player-badge other-team">${match.awayPlayer.teamName}</span>` 
+            : '');
     
     // Check if we should show status description instead of score
     const showStatusDescription = isComplete && match.statusDescription && match.statusDescription !== 'Ended';
@@ -414,8 +485,8 @@ function createMatchCard(match, isComplete) {
         <div class="match-players">
             <div class="player-row">
                 <div class="player-info">
-                    ${homeOnMyTeam ? '<span class="player-badge">MY TEAM</span>' : ''}
                     <span>${match.homePlayer.name}</span>
+                    ${homeBadge}
                 </div>
                 ${isComplete ? 
                     showStatusDescription && match.winner === 'home' 
@@ -425,8 +496,8 @@ function createMatchCard(match, isComplete) {
             </div>
             <div class="player-row">
                 <div class="player-info">
-                    ${awayOnMyTeam ? '<span class="player-badge">MY TEAM</span>' : ''}
                     <span>${match.awayPlayer.name}</span>
+                    ${awayBadge}
                 </div>
                 ${isComplete ? 
                     showStatusDescription && match.winner === 'away' 
@@ -439,7 +510,6 @@ function createMatchCard(match, isComplete) {
     
     return card;
 }
-
 function filterMatches(filter) {
     currentFilter = filter;
     
@@ -453,14 +523,18 @@ function filterMatches(filter) {
 }
 
 function filterMatchesByTeam(matches) {
+    if (!currentUserTeam) {
+        return matches; // If no team, show all
+    }
+    
     if (currentFilter === 'all') {
         return matches;
     }
     
     if (currentFilter === 'myteam') {
         return matches.filter(match => 
-            match.homePlayer.teamId === currentUser.teamId || 
-            match.awayPlayer.teamId === currentUser.teamId
+            match.homePlayer.teamId === currentUserTeam.id || 
+            match.awayPlayer.teamId === currentUserTeam.id
         );
     }
     
@@ -469,6 +543,13 @@ function filterMatchesByTeam(matches) {
             match.homePlayer.teamId !== null && 
             match.awayPlayer.teamId !== null &&
             match.homePlayer.teamId !== match.awayPlayer.teamId
+        );
+    }
+    
+    if (currentFilter === 'anyteam') {
+        return matches.filter(match => 
+            match.homePlayer.teamId !== null || 
+            match.awayPlayer.teamId !== null
         );
     }
     

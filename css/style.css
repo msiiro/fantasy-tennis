@@ -663,6 +663,18 @@ body {
     border-radius: 4px;
 }
 
+.player-badge.my-team {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.player-badge.other-team {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
 .player-info span {
     font-weight: 600;
 }
