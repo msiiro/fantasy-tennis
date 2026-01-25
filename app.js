@@ -293,7 +293,7 @@ async function loadUpcomingMatches() {
             return;
         }
         
-        // Now fetch matches where player1_id OR player2_id is in the team players list
+        // Fetch upcoming matches
         const { data, error } = await supabaseClient
             .from('tennis_matches')
             .select('*')
@@ -308,11 +308,39 @@ async function loadUpcomingMatches() {
             return;
         }
         
+        // Get unique combinations of category_slug, tournament_type, round_name, round_type
+        const matchKeys = [...new Set(data.map(m => 
+            `${m.category_slug}|${m.tournament_type}|${m.round_name}|${m.round_type}`
+        ))];
+        
+        // Fetch points reference for these combinations
+        const { data: pointsRef, error: pointsError } = await supabaseClient
+            .from('atp_points_reference')
+            .select('category_slug, tournament_type, round_name, round_type, points_for_win');
+        
+        if (pointsError) {
+            console.error('Error loading points reference:', pointsError);
+        }
+        
+        // Create a map for quick lookup
+        const pointsMap = {};
+        if (pointsRef) {
+            pointsRef.forEach(ref => {
+                const key = `${ref.category_slug}|${ref.tournament_type}|${ref.round_name}|${ref.round_type}`;
+                pointsMap[key] = ref.points_for_win;
+            });
+        }
+        
         console.log('Upcoming matches:', data);
+        console.log('Points reference map:', pointsMap);
         
         const filtered = filterMatchesByTeam(data.map(match => {
             const player1Team = playerTeamMap[match.player1_id];
             const player2Team = playerTeamMap[match.player2_id];
+            
+            // Get points at stake for this match
+            const matchKey = `${match.category_slug}|${match.tournament_type}|${match.round_name}|${match.round_type}`;
+            const pointsAtStake = pointsMap[matchKey] || 0;
             
             return {
                 id: match.match_id,
@@ -331,7 +359,8 @@ async function loadUpcomingMatches() {
                     teamId: player2Team?.teamId || null,
                     teamName: player2Team?.teamName || null
                 },
-                round: match.round_name || 'TBD'
+                round: match.round_name || 'TBD',
+                pointsAtStake: pointsAtStake
             };
         }));
         
@@ -433,13 +462,13 @@ async function loadRecentMatches() {
                 startTimestamp: match.start_timestamp,
                 homePlayer: {
                     id: match.player1_id,
-                    name: match.player1_name || 'Unknown Player',
+                    name: match.player1_short_name || 'Unknown Player',
                     teamId: player1Team?.teamId || null,
                     teamName: player1Team?.teamName || null
                 },
                 awayPlayer: {
                     id: match.player2_id,
-                    name: match.player2_name || 'Unknown Player',
+                    name: match.player2_short_name || 'Unknown Player',
                     teamId: player2Team?.teamId || null,
                     teamName: player2Team?.teamName || null
                 },
@@ -552,6 +581,12 @@ function createMatchCard(match, isComplete) {
             <div class="tournament-name">${match.tournament} • ${match.round}</div>
             <div class="match-date">${dateTimeDisplay}</div>
         </div>
+        ${!isComplete && match.pointsAtStake > 0 ? `
+            <div class="points-at-stake">
+                <span class="stake-label">Points at stake:</span>
+                <span class="stake-value">${match.pointsAtStake} pts</span>
+            </div>
+        ` : ''}
         <div class="match-players">
             <div class="player-row">
                 <div class="player-info">

@@ -669,12 +669,14 @@ body {
     background-color: rgba(76, 175, 80, 0.1);
     color: #4caf50;
     border: 1px solid rgba(76, 175, 80, 0.3);
+    font-size: 0.5rem;
 }
 
 .player-badge.other-team {
     background-color: rgba(33, 150, 243, 0.1);
     color: #2196f3;
     border: 1px solid rgba(33, 150, 243, 0.3);
+    font-size: 0.5rem;
 }
 
 .player-info span {
@@ -753,6 +755,29 @@ body {
     background-color: rgba(244, 67, 54, 0.1);
     color: #f44336;
     border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.points-at-stake {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(33, 150, 243, 0.05);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.stake-label {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.stake-value {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 /* Optional: Add this if you want the status badge to have similar styling to scores */
