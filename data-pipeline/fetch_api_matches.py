@@ -1,8 +1,13 @@
 import http.client
 import json
+import sys
 from datetime import datetime, timedelta
 import os
 from supabase import create_client, Client
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configuration
 RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
@@ -431,41 +436,65 @@ def bulk_fetch_and_store(days_back=1, days_forward=2, table_name='tennis_matches
 
 # Example usage:
 if __name__ == "__main__":
-    """
-    DEFAULT BEHAVIOR:
-    Fetches yesterday, today, and next 2 days (total: 4 days)
-    Only includes ATP/WTA singles events (filters out doubles, ITF, Challenger, Junior, etc.)
-    
-    To customize, modify the parameters below:
-    - days_back: how many days in the past (1 = yesterday only)
-    - days_forward: how many days in the future (2 = tomorrow and day after)
-    """
-    
-    print("="*60)
-    print("TENNIS MATCH DATA FETCHER - ATP/WTA SINGLES ONLY")
-    print("="*60)
-    print("\nAutomatically fetching:")
-    print("  ✓ Yesterday")
-    print("  ✓ Today")
-    print("  ✓ Tomorrow")
-    print("  ✓ Day after tomorrow")
-    print("\nFiltering:")
-    print("  ✓ ATP Singles only")
-    print("  ✓ WTA Singles only")
-    print("  ✗ No Doubles")
-    print("  ✗ No ITF")
-    print("  ✗ No Challenger")
-    print("  ✗ No Junior/Youth")
-    print("  ✗ No Qualifying")
-    print()
-    
-    # Run the bulk fetch and store
-    results = bulk_fetch_and_store(
-        days_back=1,      # Yesterday
-        days_forward=2,   # Tomorrow and day after tomorrow
-        table_name='tennis_matches'
-    )
-    
-    print("\n" + "="*60)
-    print("COMPLETE!")
-    print("="*60)
+
+        # Check if a date argument was provided
+    if len(sys.argv) > 1:
+        # Manual mode: Run for specific date
+        target_date = sys.argv[1]
+        
+        # Validate date format
+        try:
+            datetime.strptime(target_date, '%Y-%m-%d')
+        except ValueError:
+            print("❌ Invalid date format. Please use YYYY-MM-DD (e.g., '2026-01-20')")
+            sys.exit(1)
+        
+        print("="*60)
+        print("TENNIS MATCH DATA FETCHER - MANUAL MODE")
+        print("="*60)
+        print(f"\nFetching matches for: {target_date}")
+        print("\nFiltering:")
+        print("  ✓ ATP Singles only")
+        print("  ✓ WTA Singles only")
+        print("  ✗ No Doubles")
+        print("  ✗ No ITF/Challenger/Junior/Youth/Qualifying")
+        print()
+        
+        # Fetch and store for the specific date
+        results = fetch_and_store_matches(target_date)
+        
+        if results:
+            print(f"\n✓ Successfully processed {len(results)} matches")
+        else:
+            print("\n⚠️ No matches found or error occurred")
+        
+    else:
+        
+        print("="*60)
+        print("TENNIS MATCH DATA FETCHER - ATP/WTA SINGLES ONLY")
+        print("="*60)
+        print("\nAutomatically fetching:")
+        print("  ✓ Yesterday")
+        print("  ✓ Today")
+        print("  ✓ Tomorrow")
+        print("  ✓ Day after tomorrow")
+        print("\nFiltering:")
+        print("  ✓ ATP Singles only")
+        print("  ✓ WTA Singles only")
+        print("  ✗ No Doubles")
+        print("  ✗ No ITF")
+        print("  ✗ No Challenger")
+        print("  ✗ No Junior/Youth")
+        print("  ✗ No Qualifying")
+        print()
+        
+        # Run the bulk fetch and store
+        results = bulk_fetch_and_store(
+            days_back=1,      # Yesterday
+            days_forward=2,   # Tomorrow and day after tomorrow
+            table_name='tennis_matches'
+        )
+        
+        print("\n" + "="*60)
+        print("COMPLETE!")
+        print("="*60)
