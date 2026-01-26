@@ -1083,25 +1083,42 @@ body {
         font-size: 1rem;
     }
     
-    /* Players Table - Mobile - Keep Gender, hide Matches */
-    .data-table .table-header,
-    .data-table .table-row {
-        grid-template-columns: 40px 1fr 45px 90px 70px;
+    /* Players Table - Mobile - Gender & Team in same cell */
+    .data-table .table-header {
+        grid-template-columns: 40px 1fr 100px 70px;
         gap: 0.4rem;
         padding: 0.75rem 0.5rem;
         font-size: 0.75rem;
     }
     
-    .col-matches {
+    .data-table .table-row {
+        grid-template-columns: 40px 1fr 100px 70px;
+        gap: 0.4rem;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+        align-items: start;
+    }
+    
+    /* Hide gender column header, combine with team */
+    .data-table .col-gender {
         display: none;
     }
     
-    .col-gender {
-        justify-self: center;
+    /* Show gender column in rows but combine with team */
+    .data-table .table-row .col-gender {
+        display: none;
     }
     
-    .col-team {
-        font-size: 0.65rem;
+    .data-table .table-row .col-team {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        align-items: center;
+        justify-self: start;
+    }
+    
+    .col-matches {
+        display: none;
     }
     
     .gender-badge {

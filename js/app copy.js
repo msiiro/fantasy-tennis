@@ -463,7 +463,7 @@ async function loadRecentMatches() {
             .eq('status_type', 'finished')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: false })
-            .limit(50);
+            .limit(200);
         
         if (error) {
             console.error('Error loading recent matches:', error);

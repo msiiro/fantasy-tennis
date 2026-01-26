@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tennis Fantasy League</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎾</text></svg>">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,8 +164,8 @@
                 <div class="table-header">
                     <div class="col-rank">Rank</div>
                     <div class="col-player">Player</div>
-                    <div class="col-gender">Gender</div>
-                    <div class="col-team">Team</div>
+                    <div class="col-gender"></div>
+                    <div class="col-team"></div>
                     <div class="col-points">Points</div>
                     <div class="col-matches">Matches</div>
                 </div>
@@ -173,7 +174,9 @@
         </section>
     </div>
 
-   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="app.js"></script>
+    <!-- Load Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Load your app as a module -->
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
