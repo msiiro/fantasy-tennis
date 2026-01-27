@@ -130,8 +130,7 @@ def insert_ranking(ranking_entry, ranking_type, ranking_date):
             'rank': ranking_entry.get('ranking'),
             'points': ranking_entry.get('points'),
             'ranking_movement': ranking_entry.get('rankingMovement'),
-            'tournaments_played': ranking_entry.get('tournamentsPlayed'),
-            'raw_data': json.dumps(ranking_entry)
+            'tournaments_played': ranking_entry.get('tournamentsPlayed')
         }
         
         # Upsert ranking (update if exists for same player/date/type)
