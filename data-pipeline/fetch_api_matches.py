@@ -427,11 +427,6 @@ def bulk_fetch_and_store(days_back=1, days_forward=2, table_name='tennis_matches
     for category, count in sorted(category_counts.items()):
         print(f"  {category}: {count} matches")
     
-    print(f"\nBreakdown by gender:")
-    for gender, count in sorted(gender_counts.items()):
-        gender_label = "Men" if gender == "M" else "Women" if gender == "F" else gender
-        print(f"  {gender_label}: {count} matches")
-    
     return all_results
 
 # Example usage:
