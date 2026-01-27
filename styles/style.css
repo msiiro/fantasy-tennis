@@ -1117,13 +1117,14 @@ body {
         justify-self: start;
     }
     
+    
     .col-matches {
         display: none;
     }
     
     .gender-badge {
         font-size: 0.65rem;
-        padding: 0.2rem 0.35rem;
+        padding: 0.25rem 0.35rem;
     }
     
     .rank-badge {
@@ -1133,7 +1134,8 @@ body {
     }
     
     .player-name {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        padding: 0rem 0.4rem;
         word-break: break-word;
     }
     
