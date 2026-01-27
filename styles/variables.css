@@ -1,0 +1,21 @@
+:root {
+    --color-bg: #0a0e14;
+    --color-surface: #151a23;
+    --color-surface-elevated: #1d2332;
+    --color-border: #2a3142;
+    --color-text: #e8eaed;
+    --color-text-secondary: #9ca3b4;
+    --color-accent: #00ff88;
+    --color-accent-secondary: #00d4ff;
+    --color-warning: #ffa500;
+    --color-danger: #ff4444;
+    --color-primary: #00ff88;
+    --color-background: #0a0e14;
+    --color-text-primary: #e8eaed;
+    
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Archivo', sans-serif;
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

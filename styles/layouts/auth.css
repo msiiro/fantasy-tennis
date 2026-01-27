@@ -1,0 +1,92 @@
+.sign-in-screen {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.sign-in-screen.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    z-index: 2;
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sign-in-header {
+    margin-bottom: 4rem;
+}
+
+.brand-title {
+    font-family: var(--font-display);
+    font-size: 7rem;
+    line-height: 0.85;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+}
+
+.sign-in-form {
+    max-width: 400px;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
+}
+
+.sign-in-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.sign-in-footer p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.sign-in-visual {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-bg) 100%);
+    overflow: hidden;
+}
+
+.visual-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(var(--color-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    animation: gridMove 20s linear infinite;
+}
+
+.visual-accent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+    opacity: 0.1;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+}

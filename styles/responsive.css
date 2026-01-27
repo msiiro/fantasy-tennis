@@ -1,0 +1,191 @@
+@media (max-width: 1024px) {
+    .sign-in-screen.active {
+        grid-template-columns: 1fr;
+    }
+    
+    .sign-in-visual {
+        display: none;
+    }
+    
+    .matches-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-nav {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-title {
+        font-size: 4rem;
+    }
+    
+    .logo {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Header - Mobile */
+    .header-content {
+        align-items: flex-start;
+    }
+    
+    .user-info {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+    
+    .user-name {
+        font-size: 0.75rem;
+        word-break: break-all;
+        text-align: right;
+        max-width: 150px;
+    }
+    
+    .btn-ghost {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+    }
+    
+    /* Leaderboard Table - Mobile */
+    .leaderboard-table .table-header,
+    .leaderboard-table .table-row {
+        grid-template-columns: 40px 1fr 70px 60px;
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .leaderboard-table .team-name {
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+    
+    .leaderboard-table .points {
+        font-size: 0.95rem;
+    }
+    
+    .leaderboard-table .change {
+        font-size: 0.7rem;
+        flex-direction: column;
+        gap: 0.2rem;
+        align-items: center;
+    }
+    
+    .leaderboard-table .rank-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+    
+    /* Players Table - Mobile */
+    .data-table .table-header {
+        grid-template-columns: 40px 1fr 100px 70px;
+        gap: 0.4rem;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .data-table .table-row {
+        grid-template-columns: 40px 1fr 100px 70px;
+        gap: 0.4rem;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+        align-items: start;
+    }
+    
+    .data-table .col-gender {
+        display: none;
+    }
+    
+    .data-table .table-row .col-gender {
+        display: none;
+    }
+    
+    .data-table .table-row .col-team {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        align-items: center;
+        justify-self: start;
+    }
+    
+    .col-matches {
+        display: none;
+    }
+    
+    .gender-badge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.35rem;
+    }
+    
+    .rank-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 0.875rem;
+    }
+    
+    .player-name {
+        font-size: 0.85rem;
+        word-break: break-word;
+    }
+    
+    .team-name {
+        font-size: 0.95rem;
+    }
+    
+    .points {
+        font-size: 0.95rem;
+    }
+    
+    .team-badge {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.35rem;
+    }
+    
+    #playerSearch {
+        min-width: 100%;
+    }
+    
+    .players-filters {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .filter-group .filter-buttons {
+        width: 100%;
+    }
+    
+    .filter-btn {
+        flex: 1;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .team-dropdown {
+        width: 100%;
+        min-width: unset;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+}

@@ -1,0 +1,107 @@
+.main-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 1.5rem;
+    font-family: var(--font-body);
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+.nav-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.nav-label {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nav-btn:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    border-color: var(--color-accent);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+}
+
+.nav-btn.active .nav-number {
+    color: var(--color-accent);
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--color-surface);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+    color: var(--color-text);
+}
+
+.filter-btn.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.players-filters {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-surface);
+    border-radius: 12px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.filter-group .filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
