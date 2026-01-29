@@ -12,7 +12,7 @@ load_dotenv()
 # Configuration
 RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
 SUPABASE_URL = os.getenv('SUPABASE_URL')
-SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_KEY')
 OUTPUT_FOLDER = "tennis_data"
 
 # Initialize Supabase client
@@ -457,6 +457,14 @@ if __name__ == "__main__":
         
         # Fetch and store for the specific date
         results = fetch_and_store_matches(target_date)
+
+        response = supabase.functions.invoke(
+            'process_unlogged_matches'
+        )
+
+        response = supabase.functions.invoke(
+            'update_all_team_points'
+        )
         
         if results:
             print(f"\n✓ Successfully processed {len(results)} matches")
