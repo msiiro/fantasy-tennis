@@ -12,7 +12,7 @@ load_dotenv()
 # Configuration
 RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
 SUPABASE_URL = os.getenv('SUPABASE_URL')
-SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_KEY')
 OUTPUT_FOLDER = "tennis_data"
 
 # Initialize Supabase client
@@ -92,6 +92,41 @@ def get_tennis_matches(date_str, save_to_file=True, subfolder=None):
     finally:
         conn.close()
 
+def upsert_player(player_data):
+    """
+    Insert or update player in players table
+    
+    Args:
+        player_data: Player data from rankings API
+    
+    Returns:
+        Player ID
+    """
+    try:
+        player_record = {
+            'player_id': player_data.get('id'),
+            'name': player_data.get('name'),
+            'slug': player_data.get('slug'),
+            'short_name': player_data.get('shortName'),
+            'country': player_data.get('country', {}).get('name'),
+            'country_code': player_data.get('country', {}).get('alpha2'),
+            'gender': player_data.get('gender'),
+            'disabled': player_data.get('disabled', False),
+            'national': player_data.get('national', False)
+        }
+        
+        # Upsert player
+        response = supabase.table('players').upsert(
+            player_record,
+            on_conflict='player_id'
+        ).execute()
+        
+        return player_data.get('id')
+        
+    except Exception as e:
+        print(f"✗ Failed to upsert player {player_data.get('name')}: {e}")
+        return None
+
 def should_include_event(event):
     """
     Check if an event should be included based on filters
@@ -170,23 +205,9 @@ def transform_match_data(event):
         
         # Player 1 (formerly homeTeam)
         'player1_id': event.get('homeTeam', {}).get('id'),
-        'player1_name': event.get('homeTeam', {}).get('name'),
-        'player1_slug': event.get('homeTeam', {}).get('slug'),
-        'player1_short_name': event.get('homeTeam', {}).get('shortName'),
-        'player1_name_code': event.get('homeTeam', {}).get('nameCode'),
-        'player1_country': event.get('homeTeam', {}).get('country', {}).get('name'),
-        'player1_country_code': event.get('homeTeam', {}).get('country', {}).get('alpha2'),
-        'player1_gender': event.get('homeTeam', {}).get('gender'),
         
         # Player 2 (formerly awayTeam)
         'player2_id': event.get('awayTeam', {}).get('id'),
-        'player2_name': event.get('awayTeam', {}).get('name'),
-        'player2_slug': event.get('awayTeam', {}).get('slug'),
-        'player2_short_name': event.get('awayTeam', {}).get('shortName'),
-        'player2_name_code': event.get('awayTeam', {}).get('nameCode'),
-        'player2_country': event.get('awayTeam', {}).get('country', {}).get('name'),
-        'player2_country_code': event.get('awayTeam', {}).get('country', {}).get('alpha2'),
-        'player2_gender': event.get('awayTeam', {}).get('gender'),
         
         # Scores - Player 1 (formerly homeScore)
         'player1_score_current': event.get('homeScore', {}).get('current'),
@@ -254,9 +275,7 @@ def transform_match_data(event):
         'level': event.get('eventFilters', {}).get('level', [None])[0] if event.get('eventFilters', {}).get('level') else None,
         'tournament_type': event.get('eventFilters', {}).get('tournament', [None])[0] if event.get('eventFilters', {}).get('tournament') else None,
         
-        # Metadata
-        'processed_at': datetime.now().isoformat(),
-        'raw_data': json.dumps(event)  # Store complete original data as JSON
+        
     }
     
     # Convert timestamp to datetime if available
@@ -308,6 +327,37 @@ def process_and_upsert_matches(matches_data, table_name='tennis_matches'):
         try:
             # Transform the match data
             transformed_match = transform_match_data(event)
+
+            # Upsert players if not already in database
+            
+            # Player 1 (formerly homeTeam)
+            player1 = {
+                'player1_id': event.get('homeTeam', {}).get('id'),
+                'player1_name': event.get('homeTeam', {}).get('name'),
+                'player1_slug': event.get('homeTeam', {}).get('slug'),
+                'player1_short_name': event.get('homeTeam', {}).get('shortName'),
+                'player1_name_code': event.get('homeTeam', {}).get('nameCode'),
+                'player1_country': event.get('homeTeam', {}).get('country', {}).get('name'),
+                'player1_country_code': event.get('homeTeam', {}).get('country', {}).get('alpha2'),
+                'player1_gender': event.get('homeTeam', {}).get('gender')
+            }
+
+            player1_id = upsert_player(player1)
+            
+            # Player 2 (formerly awayTeam)
+            player2 = {
+                'player2_id': event.get('awayTeam', {}).get('id'),
+                'player2_name': event.get('awayTeam', {}).get('name'),
+                'player2_slug': event.get('awayTeam', {}).get('slug'),
+                'player2_short_name': event.get('awayTeam', {}).get('shortName'),
+                'player2_name_code': event.get('awayTeam', {}).get('nameCode'),
+                'player2_country': event.get('awayTeam', {}).get('country', {}).get('name'),
+                'player2_country_code': event.get('awayTeam', {}).get('country', {}).get('alpha2'),
+                'player2_gender': event.get('awayTeam', {}).get('gender')
+            }
+
+            player2_id = upsert_player(player2)
+            
             
             # Upsert into Supabase (insert or update)
             response = supabase.table(table_name).upsert(
@@ -448,12 +498,6 @@ if __name__ == "__main__":
         print("TENNIS MATCH DATA FETCHER - MANUAL MODE")
         print("="*60)
         print(f"\nFetching matches for: {target_date}")
-        print("\nFiltering:")
-        print("  ✓ ATP Singles only")
-        print("  ✓ WTA Singles only")
-        print("  ✗ No Doubles")
-        print("  ✗ No ITF/Challenger/Junior/Youth/Qualifying")
-        print()
         
         # Fetch and store for the specific date
         results = fetch_and_store_matches(target_date)
@@ -473,13 +517,6 @@ if __name__ == "__main__":
         print("  ✓ Today")
         print("  ✓ Tomorrow")
         print("  ✓ Day after tomorrow")
-        print("\nFiltering:")
-        print("  ✓ ATP Singles only")
-        print("  ✓ WTA Singles only")
-        print("  ✗ No Doubles")
-        print("  ✗ No ITF")
-        print("  ✗ No Junior/Youth")
-        print()
         
         # Run the bulk fetch and store
         results = bulk_fetch_and_store(
