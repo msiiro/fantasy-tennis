@@ -495,6 +495,14 @@ if __name__ == "__main__":
             days_forward=2,   # Tomorrow and day after tomorrow
             table_name='tennis_matches'
         )
+
+        response = supabase.functions.invoke(
+            'process_unlogged_matches'
+        )
+
+        response = supabase.functions.invoke(
+            'update_all_team_points'
+        )
         
         print("\n" + "="*60)
         print("COMPLETE!")
