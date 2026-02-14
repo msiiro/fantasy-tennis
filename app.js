@@ -350,7 +350,7 @@ async function loadUpcomingMatches() {
             .eq('status_type', 'notstarted')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: true })
-            .limit(50);
+            .limit(100);
 
         if (error) {
             console.error('Error loading upcoming matches:', error);
@@ -480,18 +480,44 @@ async function loadRecentMatches() {
             return;
         }
         
-        // Now fetch matches where player1_id OR player2_id is in the team players list
+        // Fetch upcoming matches
         const { data, error } = await supabaseClient
             .from('tennis_matches')
-            .select(`
-                *,
-                player1:players!player1_id(name),
-                player2:players!player2_id(name)
-            `)
-            .eq('status_type', 'finished')
+            .select('*')
+            .eq('status_type', 'notstarted')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
-            .order('start_timestamp', { ascending: false })
-            .limit(50);
+            .order('start_timestamp', { ascending: true })
+            .limit(100);
+
+        if (error) {
+            console.error('Error loading upcoming matches:', error);
+            container.innerHTML = '<p style="color: var(--color-danger); padding: 1rem;">Error loading matches</p>';
+            return;
+        }
+
+        // Get unique player IDs from matches
+        const playerIds = [...new Set([
+            ...data.map(m => m.player1_id),
+            ...data.map(m => m.player2_id)
+        ])];
+
+        // Fetch player names
+        const { data: players, error: playersError } = await supabaseClient
+            .from('players')
+            .select('player_id, name')
+            .in('player_id', playerIds);
+
+        if (playersError) {
+            console.error('Error loading players:', playersError);
+        }
+
+        // Create player name map
+        const playerNameMap = {};
+        if (players) {
+            players.forEach(p => {
+                playerNameMap[p.player_id] = p.name;
+            });
+        }
         
         if (error) {
             console.error('Error loading recent matches:', error);
@@ -540,13 +566,13 @@ async function loadRecentMatches() {
                 startTimestamp: match.start_timestamp,
                 homePlayer: {
                     id: match.player1_id,
-                    name: match.player1?.name || 'Unknown Player',  // Changed
+                    name: playerNameMap[match.player1_id] || 'Unknown Player',
                     teamId: player1Team?.teamId || null,
                     teamName: player1Team?.teamName || null
                 },
                 awayPlayer: {
                     id: match.player2_id,
-                    name: match.player2?.name || 'Unknown Player',  // Changed
+                    name: playerNameMap[match.player2_id] || 'Unknown Player',
                     teamId: player2Team?.teamId || null,
                     teamName: player2Team?.teamName || null
                 },
