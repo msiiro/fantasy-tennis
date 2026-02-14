@@ -1,4 +1,5 @@
 import http.client
+import requests
 import json
 import sys
 from datetime import datetime, timedelta
@@ -429,6 +430,38 @@ def bulk_fetch_and_store(days_back=1, days_forward=2, table_name='tennis_matches
     
     return all_results
 
+def call_supabase_function(function_name):
+    """Call Supabase Edge Function via HTTP"""
+    supabase_url = os.environ.get('SUPABASE_URL', supabase.supabase_url)
+    supabase_key = os.environ.get('SUPABASE_SERVICE_KEY', supabase.supabase_key)
+    
+    function_url = f"{supabase_url}/functions/v1/{function_name}"
+    
+    headers = {
+        'Authorization': f'Bearer {supabase_key}',
+        'Content-Type': 'application/json'
+    }
+    
+    try:
+        print(f"   Calling: {function_url}")
+        response = requests.post(function_url, headers=headers, timeout=300)
+        
+        print(f"   Status: {response.status_code}")
+        
+        if response.status_code == 200:
+            print(f"   ✓ Success")
+            return response.json() if response.text else None
+        else:
+            print(f"   ✗ Error: {response.text}")
+            return None
+            
+    except requests.exceptions.Timeout:
+        print(f"   ✗ Timeout after 300 seconds")
+        return None
+    except Exception as e:
+        print(f"   ✗ Error: {e}")
+        return None
+
 # Example usage:
 if __name__ == "__main__":
 
@@ -458,13 +491,20 @@ if __name__ == "__main__":
         # Fetch and store for the specific date
         results = fetch_and_store_matches(target_date)
 
-        response = supabase.functions.invoke(
-            'process_unlogged_matches'
-        )
+        # Update points
+        try:
+            print("\n1. Calling 'process_unlogged_matches'...")
+            response = supabase.rpc('process_unlogged_matches').execute()
+            print(f"   ✓ Success: {response.data}")
+        except Exception as e:
+            print(f"   ✗ Error: {e}")
 
-        response = supabase.functions.invoke(
-            'update_all_team_points'
-        )
+        try:
+            print("\n2. Calling 'update_all_team_points'...")
+            response = supabase.rpc('update_all_team_points').execute()
+            print(f"   ✓ Success: {response.data}")
+        except Exception as e:
+            print(f"   ✗ Error: {e}")
         
         if results:
             print(f"\n✓ Successfully processed {len(results)} matches")
@@ -496,13 +536,20 @@ if __name__ == "__main__":
             table_name='tennis_matches'
         )
 
-        response = supabase.functions.invoke(
-            'process_unlogged_matches'
-        )
+        # Update points
+        try:
+            print("\n1. Calling 'process_unlogged_matches'...")
+            response = supabase.rpc('process_unlogged_matches').execute()
+            print(f"   ✓ Success: {response.data}")
+        except Exception as e:
+            print(f"   ✗ Error: {e}")
 
-        response = supabase.functions.invoke(
-            'update_all_team_points'
-        )
+        try:
+            print("\n2. Calling 'update_all_team_points'...")
+            response = supabase.rpc('update_all_team_points').execute()
+            print(f"   ✓ Success: {response.data}")
+        except Exception as e:
+            print(f"   ✗ Error: {e}")
         
         print("\n" + "="*60)
         print("COMPLETE!")
