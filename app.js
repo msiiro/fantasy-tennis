@@ -480,11 +480,11 @@ async function loadRecentMatches() {
             return;
         }
         
-        // Fetch upcoming matches
+        // Fetch recent matches
         const { data, error } = await supabaseClient
             .from('tennis_matches')
             .select('*')
-            .eq('status_type', 'notstarted')
+            .eq('status_type', 'finished')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: true })
             .limit(100);
