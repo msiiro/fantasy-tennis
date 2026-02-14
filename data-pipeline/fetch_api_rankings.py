@@ -12,7 +12,7 @@ load_dotenv()
 # Configuration
 RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
 SUPABASE_URL = os.getenv('SUPABASE_URL')
-SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_KEY')
 
 # Initialize Supabase client
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
@@ -77,14 +77,11 @@ def upsert_player(player_data):
             'name': player_data.get('name'),
             'slug': player_data.get('slug'),
             'short_name': player_data.get('shortName'),
-            'name_code': player_data.get('nameCode'),
             'country': player_data.get('country', {}).get('name'),
             'country_code': player_data.get('country', {}).get('alpha2'),
             'gender': player_data.get('gender'),
             'disabled': player_data.get('disabled', False),
-            'national': player_data.get('national', False),
-            'type': player_data.get('type'),
-            'team_colors': json.dumps(player_data.get('teamColors', {}))
+            'national': player_data.get('national', False)
         }
         
         # Upsert player
