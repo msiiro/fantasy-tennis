@@ -782,10 +782,22 @@ async function loadPlayers() {
     container.innerHTML = '<p style="color: var(--color-text-secondary); padding: 1rem;">Loading...</p>';
     
     try {
-        // Fetch players first
+        // Fetch players with their season points from teams_players
         const { data: players, error: playersError } = await supabaseClient
             .from('players')
-            .select('player_id, name, gender');
+            .select(`
+                player_id, 
+                name, 
+                gender,
+                teams_players (
+                    team_id,
+                    season_points,
+                    teams (
+                        id,
+                        name
+                    )
+                )
+            `);
         
         if (playersError) {
             console.error('Error loading players:', playersError);
@@ -814,50 +826,19 @@ async function loadPlayers() {
             }
         }
         
-        // Fetch team assignments separately
-        const { data: teamAssignments, error: teamError } = await supabaseClient
-            .from('teams_players')
-            .select(`
-                player_id,
-                team_id,
-                teams (
-                    id,
-                    name
-                )
-            `);
-        
-        if (teamError) {
-            console.error('Error loading team assignments:', teamError);
-        }
-        
-        // Create a map of player_id -> team info
-        const teamMap = {};
-        if (teamAssignments) {
-            teamAssignments.forEach(ta => {
-                teamMap[ta.player_id] = {
-                    teamId: ta.team_id,
-                    teamName: ta.teams?.name || 'Unknown Team'
-                };
-            });
-        }
-        
-        // Fetch match points to calculate total points and match count per player
-        const { data: matchPoints, error: matchError } = await supabaseClient
+        // Fetch match counts per player
+        const { data: matchCounts, error: matchError } = await supabaseClient
             .from('match_points')
-            .select('player_id, points_earned, match_id');
+            .select('player_id, match_id');
         
         if (matchError) {
-            console.error('Error loading match points:', matchError);
+            console.error('Error loading match counts:', matchError);
         }
         
-        // Create maps for points and match counts
-        const playerPointsMap = {};
+        // Count unique matches per player
         const matchCountMap = {};
-        if (matchPoints) {
-            matchPoints.forEach(mp => {
-                // Sum up points
-                playerPointsMap[mp.player_id] = (playerPointsMap[mp.player_id] || 0) + (mp.points_earned || 0);
-                // Count unique matches
+        if (matchCounts) {
+            matchCounts.forEach(mp => {
                 if (!matchCountMap[mp.player_id]) {
                     matchCountMap[mp.player_id] = new Set();
                 }
@@ -866,19 +847,19 @@ async function loadPlayers() {
         }
         
         console.log('Players data:', players);
-        console.log('Team map:', teamMap);
-        console.log('Points map:', playerPointsMap);
         
         // Create player data array with all info
         allPlayers = players.map(player => {
-            const teamInfo = teamMap[player.player_id];
+            // Get team info from teams_players join (if exists)
+            const teamPlayerData = player.teams_players?.[0];
+            
             return {
                 id: player.player_id,
                 name: player.name,
                 gender: player.gender || 'M',
-                team: teamInfo?.teamName || 'Free Agent',
-                teamId: teamInfo?.teamId || null,
-                points: playerPointsMap[player.player_id] || 0,
+                team: teamPlayerData?.teams?.name || 'Free Agent',
+                teamId: teamPlayerData?.team_id || null,
+                points: teamPlayerData?.season_points || 0, // Use season_points from teams_players
                 matches: matchCountMap[player.player_id]?.size || 0
             };
         });
