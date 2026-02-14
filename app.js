@@ -346,7 +346,11 @@ async function loadUpcomingMatches() {
         // Fetch upcoming matches
         const { data, error } = await supabaseClient
             .from('tennis_matches')
-            .select('*')
+            .select(`
+                *,
+                player1:players!tennis_matches_player1_id_fkey(name),
+                player2:players!tennis_matches_player2_id_fkey(name)
+            `)
             .eq('status_type', 'notstarted')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: true })
@@ -399,13 +403,13 @@ async function loadUpcomingMatches() {
                 startTimestamp: match.start_timestamp,
                 homePlayer: {
                     id: match.player1_id,
-                    name: match.player1_name || 'Unknown Player',
+                    name: match.player1?.name || 'Unknown Player',  // Changed this line
                     teamId: player1Team?.teamId || null,
                     teamName: player1Team?.teamName || null
                 },
                 awayPlayer: {
                     id: match.player2_id,
-                    name: match.player2_name || 'Unknown Player',
+                    name: match.player2?.name || 'Unknown Player',  // Changed this line
                     teamId: player2Team?.teamId || null,
                     teamName: player2Team?.teamName || null
                 },
@@ -459,7 +463,11 @@ async function loadRecentMatches() {
         // Now fetch matches where player1_id OR player2_id is in the team players list
         const { data, error } = await supabaseClient
             .from('tennis_matches')
-            .select('*')
+            .select(`
+                *,
+                player1:players!tennis_matches_player1_id_fkey(name),
+                player2:players!tennis_matches_player2_id_fkey(name)
+            `)
             .eq('status_type', 'finished')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
             .order('start_timestamp', { ascending: false })
@@ -512,13 +520,13 @@ async function loadRecentMatches() {
                 startTimestamp: match.start_timestamp,
                 homePlayer: {
                     id: match.player1_id,
-                    name: match.player1_short_name || 'Unknown Player',
+                    name: match.player1?.name || 'Unknown Player',  // Changed this line
                     teamId: player1Team?.teamId || null,
                     teamName: player1Team?.teamName || null
                 },
                 awayPlayer: {
                     id: match.player2_id,
-                    name: match.player2_short_name || 'Unknown Player',
+                    name: match.player2?.name || 'Unknown Player',  // Changed this line
                     teamId: player2Team?.teamId || null,
                     teamName: player2Team?.teamName || null
                 },
