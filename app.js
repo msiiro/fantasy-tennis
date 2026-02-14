@@ -486,7 +486,7 @@ async function loadRecentMatches() {
             .select('*')
             .eq('status_type', 'finished')
             .or(`player1_id.in.(${teamPlayerIds.join(',')}),player2_id.in.(${teamPlayerIds.join(',')})`)
-            .order('start_timestamp', { ascending: true })
+            .order('start_timestamp', { ascending: false })
             .limit(100);
 
         if (error) {
