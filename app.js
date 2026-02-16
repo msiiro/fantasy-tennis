@@ -846,7 +846,28 @@ async function loadPlayers() {
             });
         }
         
+        // Fetch total points per player from match_points
+        const { data: playerPoints, error: pointsError } = await supabaseClient
+            .from('match_points')
+            .select('player_id, points_earned');
+        
+        if (pointsError) {
+            console.error('Error loading player points:', pointsError);
+        }
+        
+        // Calculate total points per player
+        const playerPointsMap = {};
+        if (playerPoints) {
+            playerPoints.forEach(mp => {
+                if (!playerPointsMap[mp.player_id]) {
+                    playerPointsMap[mp.player_id] = 0;
+                }
+                playerPointsMap[mp.player_id] += mp.points_earned || 0;
+            });
+        }
+        
         console.log('Players data:', players);
+        console.log('Player points map:', playerPointsMap);
         
         // Create player data array with all info
         allPlayers = players.map(player => {
@@ -859,7 +880,7 @@ async function loadPlayers() {
                 gender: player.gender || 'M',
                 team: teamPlayerData?.teams?.name || 'Free Agent',
                 teamId: teamPlayerData?.team_id || null,
-                points: teamPlayerData?.season_points || 0, // Use season_points from teams_players
+                points: playerPointsMap[player.player_id] || 0, // Use total points from match_points
                 matches: matchCountMap[player.player_id]?.size || 0
             };
         });
