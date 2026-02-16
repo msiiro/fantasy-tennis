@@ -63,7 +63,7 @@ def get_tennis_matches(date_str, save_to_file=True, subfolder=None):
             return None
         
         if not data:
-            print("✗ Empty response")
+            print(f"✗ Empty response")
             return None
         
         matches = json.loads(data.decode("utf-8"))
@@ -151,6 +151,115 @@ def should_include_event(event):
         print(f"  ⊘ Filtered out: {player1} vs {player2} - {' | '.join(reason)}")
     
     return should_include
+
+def ensure_players_exist(events):
+    """
+    Ensure all players in the events exist in the players table.
+    Adds missing players as placeholders.
+    
+    Args:
+        events: List of event/match dictionaries
+    
+    Returns:
+        Tuple of (added_count, error_count)
+    """
+    print(f"\nChecking for missing players...")
+    
+    # Collect all unique player IDs and their info
+    players_to_check = {}
+    
+    for event in events:
+        # Get gender from event filters
+        gender = event.get('eventFilters', {}).get('gender', [None])[0] if event.get('eventFilters', {}).get('gender') else None
+        
+        # Player 1 (homeTeam)
+        player1_id = event.get('homeTeam', {}).get('id')
+        if player1_id:
+            players_to_check[player1_id] = {
+                'player_id': player1_id,
+                'name': event.get('homeTeam', {}).get('name', event.get('homeTeam', {}).get('shortName', 'Unknown')),
+                'short_name': event.get('homeTeam', {}).get('shortName'),
+                'slug': event.get('homeTeam', {}).get('slug'),
+                'country': event.get('homeTeam', {}).get('country', {}).get('alpha3') if event.get('homeTeam', {}).get('country') else None,
+                'gender': gender
+            }
+        
+        # Player 2 (awayTeam)
+        player2_id = event.get('awayTeam', {}).get('id')
+        if player2_id:
+            players_to_check[player2_id] = {
+                'player_id': player2_id,
+                'name': event.get('awayTeam', {}).get('name', event.get('awayTeam', {}).get('shortName', 'Unknown')),
+                'short_name': event.get('awayTeam', {}).get('shortName'),
+                'slug': event.get('awayTeam', {}).get('slug'),
+                'country': event.get('awayTeam', {}).get('country', {}).get('alpha3') if event.get('awayTeam', {}).get('country') else None,
+                'gender': gender
+            }
+    
+    print(f"Found {len(players_to_check)} unique players in events")
+    
+    # Fetch existing players from database
+    try:
+        response = supabase.table('players').select('player_id').execute()
+        existing_player_ids = {player['player_id'] for player in response.data}
+        print(f"Found {len(existing_player_ids)} existing players in database")
+    except Exception as e:
+        print(f"✗ Error fetching existing players: {e}")
+        return 0, 0
+    
+    # Find missing players
+    missing_player_ids = set(players_to_check.keys()) - existing_player_ids
+    
+    if not missing_player_ids:
+        print("✓ All players already exist in database")
+        return 0, 0
+    
+    print(f"Found {len(missing_player_ids)} missing players to add")
+    
+    # Prepare player records to insert
+    players_to_insert = []
+    for player_id in missing_player_ids:
+        player_info = players_to_check[player_id]
+        players_to_insert.append(player_info)
+    
+    # Upsert missing players (insert or update if exists)
+    added_count = 0
+    error_count = 0
+    
+    # Upsert in batches of 100 to avoid hitting limits
+    batch_size = 100
+    for i in range(0, len(players_to_insert), batch_size):
+        batch = players_to_insert[i:i + batch_size]
+        
+        try:
+            response = supabase.table('players').upsert(
+                batch,
+                on_conflict='player_id'
+            ).execute()
+            added_count += len(batch)
+            print(f"  ✓ Upserted batch of {len(batch)} players")
+        except Exception as e:
+            error_count += len(batch)
+            print(f"  ✗ Error upserting batch: {e}")
+            
+            # Try upserting one by one for this batch to identify issues
+            for player in batch:
+                try:
+                    supabase.table('players').upsert(
+                        player,
+                        on_conflict='player_id'
+                    ).execute()
+                    added_count += 1
+                    error_count -= 1
+                    print(f"    ✓ Upserted: {player['name']} (ID: {player['player_id']})")
+                except Exception as e2:
+                    print(f"    ✗ Failed to upsert {player['name']} (ID: {player['player_id']}): {e2}")
+    
+    print(f"\n✓ Player check complete:")
+    print(f"  Added: {added_count}")
+    print(f"  Errors: {error_count}")
+    
+    return added_count, error_count
 
 def transform_match_data(event):
     """
@@ -282,6 +391,9 @@ def process_and_upsert_matches(matches_data, table_name='tennis_matches'):
         print("No ATP/WTA singles events to process after filtering")
         return []
     
+    # IMPORTANT: Ensure all players exist in the database before upserting matches
+    ensure_players_exist(filtered_events)
+    
     upserted_records = []
     failed_records = []
     
@@ -299,7 +411,7 @@ def process_and_upsert_matches(matches_data, table_name='tennis_matches'):
             ).execute()
             
             upserted_records.append(transformed_match)
-            match_info = f"{transformed_match.get('player1_short_name')} vs {transformed_match.get('player2_short_name')}"
+            match_info = f"{event.get('homeTeam', {}).get('shortName')} vs {event.get('awayTeam', {}).get('shortName')}"
             tournament_info = f"{transformed_match.get('category_name')} - {transformed_match.get('tournament_name')}"
             print(f"✓ Upserted: {match_info} | {tournament_info}")
             
