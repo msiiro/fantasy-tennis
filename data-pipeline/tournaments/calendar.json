@@ -1,0 +1,5862 @@
+{
+  "groups": [
+    {
+      "name": "January",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Brisbane",
+          "slug": "brisbane",
+          "primaryColorHex": "#fbc607",
+          "secondaryColorHex": "#f24f1c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2187,
+          "tennisPoints": 250,
+          "id": 2437,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بريسبان",
+              "hi": "ब्रिसबेन",
+              "bn": "ব্রিসবেন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Brisbane, Doubles",
+          "slug": "brisbane-doubles",
+          "primaryColorHex": "#fbc607",
+          "secondaryColorHex": "#f24f1c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 161,
+          "tennisPoints": 250,
+          "id": 2485,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بريسبان، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Hong Kong Men Singles",
+          "slug": "atp-hong-kong-hong-kong-men-singles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1108,
+          "tennisPoints": 250,
+          "id": 21817,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هونغ كونغ فردي الرجال"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Hong Kong Men Doubles",
+          "slug": "atp-hong-kong-hong-kong-men-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 86,
+          "tennisPoints": 250,
+          "id": 21819,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هونغ كونغ زوجي الرجال"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Auckland",
+          "slug": "auckland",
+          "primaryColorHex": "#fec20f",
+          "secondaryColorHex": "#a57c01",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1540,
+          "tennisPoints": 250,
+          "id": 2481,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أوكلاند",
+              "hi": "ऑकलैंड",
+              "bn": "অকল্যান্ড"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Adelaide",
+          "slug": "adelaide",
+          "primaryColorHex": "#dedd2a",
+          "secondaryColorHex": "#00a1d9",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1813,
+          "tennisPoints": 250,
+          "id": 14522,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أديلايد"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Australian Open",
+          "slug": "australian-open",
+          "primaryColorHex": "#d0d830",
+          "secondaryColorHex": "#2294dc",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 32017,
+          "tennisPoints": 2000,
+          "id": 2363,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أستراليا المفتوحة",
+              "hi": "ऑस्ट्रेलियन ओपन",
+              "bn": "অস্ট্রেলিয়ান ওপেন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Adelaide, Doubles",
+          "slug": "adelaide-doubles",
+          "primaryColorHex": "#dedd2a",
+          "secondaryColorHex": "#00a1d9",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 132,
+          "tennisPoints": 250,
+          "id": 14521,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أديلايد، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Auckland, Doubles",
+          "slug": "auckland-doubles",
+          "primaryColorHex": "#fec20f",
+          "secondaryColorHex": "#b88a01",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 103,
+          "tennisPoints": 250,
+          "id": 2443,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أوكلاند، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Australian Open, Doubles",
+          "slug": "australian-open-doubles",
+          "primaryColorHex": "#009dbf",
+          "secondaryColorHex": "#005b80",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1005,
+          "tennisPoints": 2000,
+          "id": 2455,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أستراليا المفتوحة للزوجي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Australian Open, Mixed Doubles",
+          "slug": "australian-open-mixed-doubles",
+          "primaryColorHex": "#009dbf",
+          "secondaryColorHex": "#005b80",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 564,
+          "tennisPoints": 2000,
+          "id": 2403,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أستراليا المفتوحة للتنس، مزدوج مختلط"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "February",
+      "isActive": true,
+      "uniqueTournaments": [
+        {
+          "name": "Australian Open",
+          "slug": "australian-open",
+          "primaryColorHex": "#d0d830",
+          "secondaryColorHex": "#2294dc",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 32017,
+          "tennisPoints": 2000,
+          "id": 2363,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أستراليا المفتوحة",
+              "hi": "ऑस्ट्रेलियन ओपन",
+              "bn": "অস্ট্রেলিয়ান ওপেন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Montpellier",
+          "slug": "montpellier",
+          "primaryColorHex": "#85194f",
+          "secondaryColorHex": "#1b84c6",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2003,
+          "tennisPoints": 250,
+          "id": 2421,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مونبلييه",
+              "hi": "मॉन्टपेलियर",
+              "bn": "মন্টপেলিয়ার"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Montpellier, Doubles",
+          "slug": "montpellier-doubles",
+          "primaryColorHex": "#85194f",
+          "secondaryColorHex": "#1b84c6",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 137,
+          "tennisPoints": 250,
+          "id": 2526,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مونبلييه، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Buenos Aires",
+          "slug": "buenos-aires",
+          "primaryColorHex": "#01b5ed",
+          "secondaryColorHex": "#2e4989",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2600,
+          "tennisPoints": 250,
+          "id": 2383,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بوينس آيرس",
+              "hi": "ब्यूनस आयर्स",
+              "bn": "বুয়েনস আয়ার্স"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Rotterdam",
+          "slug": "rotterdam",
+          "primaryColorHex": "#539991",
+          "secondaryColorHex": "#09ab95",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 3277,
+          "tennisPoints": 500,
+          "id": 2444,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "روتردام",
+              "hi": "रॉटरडैम",
+              "bn": "রটারডাম"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Dallas, Doubles",
+          "slug": "dallas-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 100,
+          "tennisPoints": 250,
+          "id": 18376,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دالاس، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Dallas",
+          "slug": "dallas",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1666,
+          "tennisPoints": 500,
+          "id": 18377,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دالاس"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Rotterdam, Doubles",
+          "slug": "rotterdam-doubles",
+          "primaryColorHex": "#539991",
+          "secondaryColorHex": "#09ab95",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 198,
+          "tennisPoints": 500,
+          "id": 2424,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "روتردام، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Buenos Aires, Doubles",
+          "slug": "buenos-aires-doubles",
+          "primaryColorHex": "#01b5ed",
+          "secondaryColorHex": "#2e4989",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 146,
+          "tennisPoints": 250,
+          "id": 2446,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بوينس آيرس، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Doha, Doubles",
+          "slug": "doha-doubles",
+          "primaryColorHex": "#0b542a",
+          "secondaryColorHex": "#cbdb2c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 167,
+          "tennisPoints": 500,
+          "id": 2394,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "الدوحة، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Doha",
+          "slug": "doha",
+          "primaryColorHex": "#0b542a",
+          "secondaryColorHex": "#cbdb2c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2938,
+          "tennisPoints": 500,
+          "id": 2420,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "الدوحة",
+              "hi": "दोहा",
+              "bn": "দোহা"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Rio de Janeiro, Doubles",
+          "slug": "rio-de-janeiro-doubles",
+          "primaryColorHex": "#535f5f",
+          "secondaryColorHex": "#e62844",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 252,
+          "tennisPoints": 500,
+          "id": 2521,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ريو دي جانيرو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Rio de Janeiro",
+          "slug": "rio-de-janeiro",
+          "primaryColorHex": "#535f5f",
+          "secondaryColorHex": "#e62844",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 3017,
+          "tennisPoints": 500,
+          "id": 2433,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ريو دي جانيرو",
+              "hi": "रियो डी जेनेरो",
+              "bn": "রিও ডি জেনিরো"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Delray Beach",
+          "slug": "delray-beach",
+          "primaryColorHex": "#0a9bc3",
+          "secondaryColorHex": "#81c8d8",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1553,
+          "tennisPoints": 250,
+          "id": 2506,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ديلراي بيتش",
+              "hi": "डेलरे बीच",
+              "bn": "ডেলরে বিচ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Delray Beach, Doubles",
+          "slug": "delray-beach-doubles",
+          "primaryColorHex": "#0a9bc3",
+          "secondaryColorHex": "#81c8d8",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 107,
+          "tennisPoints": 250,
+          "id": 2376,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دلراي بيتش، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Santiago",
+          "slug": "santiago",
+          "primaryColorHex": "#383838",
+          "secondaryColorHex": "#828282",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1487,
+          "tennisPoints": 250,
+          "id": 2523,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "سانتياغو"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Acapulco",
+          "slug": "acapulco",
+          "primaryColorHex": "#f9a51d",
+          "secondaryColorHex": "#12467c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2402,
+          "tennisPoints": 500,
+          "id": 2366,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أكابولكو",
+              "hi": "अकापुल्को",
+              "bn": "আকাপুলকো"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Dubai",
+          "slug": "dubai",
+          "primaryColorHex": "#258842",
+          "secondaryColorHex": "#a4cd3d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2679,
+          "tennisPoints": 500,
+          "id": 2389,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دبي",
+              "hi": "दुबई",
+              "bn": "দুবাই"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Dubai, Doubles",
+          "slug": "dubai-doubles",
+          "primaryColorHex": "#258842",
+          "secondaryColorHex": "#a4cd3d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 129,
+          "tennisPoints": 1000,
+          "id": 2395,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دبي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Acapulco, Doubles",
+          "slug": "acapulco-doubles",
+          "primaryColorHex": "#f9a51d",
+          "secondaryColorHex": "#12467c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 146,
+          "tennisPoints": 500,
+          "id": 2398,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أكابولكو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Santiago, Doubles",
+          "slug": "santiago-doubles",
+          "primaryColorHex": "#383838",
+          "secondaryColorHex": "#828282",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 85,
+          "tennisPoints": 250,
+          "id": 2547,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "سانتياغو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "March",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Santiago",
+          "slug": "santiago",
+          "primaryColorHex": "#383838",
+          "secondaryColorHex": "#828282",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1487,
+          "tennisPoints": 250,
+          "id": 2523,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "سانتياغو"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Acapulco",
+          "slug": "acapulco",
+          "primaryColorHex": "#f9a51d",
+          "secondaryColorHex": "#12467c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2402,
+          "tennisPoints": 500,
+          "id": 2366,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أكابولكو",
+              "hi": "अकापुल्को",
+              "bn": "আকাপুলকো"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Dubai",
+          "slug": "dubai",
+          "primaryColorHex": "#258842",
+          "secondaryColorHex": "#a4cd3d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2679,
+          "tennisPoints": 500,
+          "id": 2389,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دبي",
+              "hi": "दुबई",
+              "bn": "দুবাই"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Acapulco, Doubles",
+          "slug": "acapulco-doubles",
+          "primaryColorHex": "#f9a51d",
+          "secondaryColorHex": "#12467c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 146,
+          "tennisPoints": 500,
+          "id": 2398,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أكابولكو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Indian Wells",
+          "slug": "indian-wells",
+          "primaryColorHex": "#f3bd2a",
+          "secondaryColorHex": "#873968",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 6942,
+          "tennisPoints": 1000,
+          "id": 2487,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة إنديان ويلز",
+              "hi": "इंडियन वेल्स",
+              "bn": "ইন্ডিয়ান ওয়েলস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Indian Wells, Doubles",
+          "slug": "indian-wells-doubles",
+          "primaryColorHex": "#f3bd2a",
+          "secondaryColorHex": "#8f3d6b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 338,
+          "tennisPoints": 1000,
+          "id": 2422,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "إنديان ويلز، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Miami",
+          "slug": "miami-open",
+          "primaryColorHex": "#0dacd1",
+          "secondaryColorHex": "#e5731f",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 7070,
+          "tennisPoints": 1000,
+          "id": 2430,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ميامي",
+              "hi": "मियामी",
+              "bn": "মিয়ামি"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Miami, Doubles",
+          "slug": "miami-doubles",
+          "primaryColorHex": "#0dacd1",
+          "secondaryColorHex": "#e5731f",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 314,
+          "tennisPoints": 1000,
+          "id": 2462,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ميامي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Houston",
+          "slug": "houston",
+          "primaryColorHex": "#41516f",
+          "secondaryColorHex": "#ffe554",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1311,
+          "tennisPoints": 250,
+          "id": 2409,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هيوستن",
+              "hi": "ह्यूस्टन",
+              "bn": "হিউস্টন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Bucharest",
+          "slug": "bucharest",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 818,
+          "tennisPoints": 250,
+          "id": 2431,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بوخارست",
+              "hi": "बुखारेस्ट",
+              "bn": "বুখারেস্ট"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Marrakech",
+          "slug": "marrakech",
+          "primaryColorHex": "#8b2e6b",
+          "secondaryColorHex": "#20974b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1138,
+          "tennisPoints": 250,
+          "id": 6794,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مراكش",
+              "hi": "मारकेश",
+              "bn": "মারাকেচ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Marrakech, Doubles",
+          "slug": "marrakech-doubles",
+          "primaryColorHex": "#8b2e6b",
+          "secondaryColorHex": "#20974b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 60,
+          "tennisPoints": 250,
+          "id": 6795,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مراكش، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Houston, Doubles",
+          "slug": "houston-doubles",
+          "primaryColorHex": "#41516f",
+          "secondaryColorHex": "#ffe554",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 84,
+          "tennisPoints": 250,
+          "id": 2379,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هيوستن، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "April",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Houston",
+          "slug": "houston",
+          "primaryColorHex": "#41516f",
+          "secondaryColorHex": "#ffe554",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1311,
+          "tennisPoints": 250,
+          "id": 2409,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هيوستن",
+              "hi": "ह्यूस्टन",
+              "bn": "হিউস্টন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Bucharest",
+          "slug": "bucharest",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 818,
+          "tennisPoints": 250,
+          "id": 2431,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بوخارست",
+              "hi": "बुखारेस्ट",
+              "bn": "বুখারেস্ট"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Marrakech",
+          "slug": "marrakech",
+          "primaryColorHex": "#8b2e6b",
+          "secondaryColorHex": "#20974b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1138,
+          "tennisPoints": 250,
+          "id": 6794,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مراكش",
+              "hi": "मारकेश",
+              "bn": "মারাকেচ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Marrakech, Doubles",
+          "slug": "marrakech-doubles",
+          "primaryColorHex": "#8b2e6b",
+          "secondaryColorHex": "#20974b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 60,
+          "tennisPoints": 250,
+          "id": 6795,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مراكش، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Houston, Doubles",
+          "slug": "houston-doubles",
+          "primaryColorHex": "#41516f",
+          "secondaryColorHex": "#ffe554",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 84,
+          "tennisPoints": 250,
+          "id": 2379,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هيوستن، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Bucharest, Doubles",
+          "slug": "bucharest-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 37,
+          "tennisPoints": 250,
+          "id": 2377,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بوخارست، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Monte Carlo",
+          "slug": "monte-carlo",
+          "primaryColorHex": "#eb6602",
+          "secondaryColorHex": "#0091d1",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 6983,
+          "tennisPoints": 1000,
+          "id": 2391,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مونتي كارلو",
+              "hi": "मोंटे कार्लो",
+              "bn": "মন্টে কার্লো"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Monte Carlo, Doubles",
+          "slug": "monte-carlo-doubles",
+          "primaryColorHex": "#eb6602",
+          "secondaryColorHex": "#0091d1",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 345,
+          "tennisPoints": 1000,
+          "id": 2396,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مونت كارلو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Barcelona",
+          "slug": "barcelona",
+          "primaryColorHex": "#2b86bd",
+          "secondaryColorHex": "#1d5b81",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 4946,
+          "tennisPoints": 500,
+          "id": 2407,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "برشلونة",
+              "hi": "बार्सिलोना",
+              "bn": "বার্সেলোনা"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Munich",
+          "slug": "munich",
+          "primaryColorHex": "#011b48",
+          "secondaryColorHex": "#0f528d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1932,
+          "tennisPoints": 500,
+          "id": 2491,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ميونيخ",
+              "hi": "म्यूनिख",
+              "bn": "মিউনিখ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Munich, Doubles",
+          "slug": "munich-doubles",
+          "primaryColorHex": "#011b48",
+          "secondaryColorHex": "#0f528d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 100,
+          "tennisPoints": 500,
+          "id": 2514,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ميونيخ، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Barcelona, Doubles",
+          "slug": "barcelona-doubles",
+          "primaryColorHex": "#2b86bd",
+          "secondaryColorHex": "#1d5b81",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 196,
+          "tennisPoints": 500,
+          "id": 2423,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "برشلونة، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Madrid",
+          "slug": "madrid-open",
+          "primaryColorHex": "#64c9d0",
+          "secondaryColorHex": "#1f7072",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 7628,
+          "tennisPoints": 1000,
+          "id": 2374,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مدريد",
+              "hi": "मैड्रिड",
+              "bn": "মাদ্রিদ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Madrid, Doubles",
+          "slug": "madrid-doubles",
+          "primaryColorHex": "#64c9d0",
+          "secondaryColorHex": "#1f7072",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 281,
+          "tennisPoints": 1000,
+          "id": 2511,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مدريد، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "May",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Madrid",
+          "slug": "madrid-open",
+          "primaryColorHex": "#64c9d0",
+          "secondaryColorHex": "#1f7072",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 7628,
+          "tennisPoints": 1000,
+          "id": 2374,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مدريد",
+              "hi": "मैड्रिड",
+              "bn": "মাদ্রিদ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Madrid, Doubles",
+          "slug": "madrid-doubles",
+          "primaryColorHex": "#64c9d0",
+          "secondaryColorHex": "#1f7072",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 281,
+          "tennisPoints": 1000,
+          "id": 2511,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مدريد، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Rome",
+          "slug": "rome",
+          "primaryColorHex": "#19503b",
+          "secondaryColorHex": "#379460",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 8138,
+          "tennisPoints": 1000,
+          "id": 2488,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "روما",
+              "hi": "रोम",
+              "bn": "রোম"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Rome, Doubles",
+          "slug": "rome-doubles",
+          "primaryColorHex": "#19503b",
+          "secondaryColorHex": "#379460",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 343,
+          "tennisPoints": 1000,
+          "id": 2415,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "روما، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Roland Garros",
+          "slug": "roland-garros",
+          "primaryColorHex": "#c85a19",
+          "secondaryColorHex": "#01503d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 37075,
+          "tennisPoints": 2000,
+          "id": 2480,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة رولان جاروس",
+              "hi": "रोलैंड गर्रोस",
+              "bn": "রোল্যান্ড গ্যারোস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Geneva",
+          "slug": "geneva",
+          "primaryColorHex": "#e0aa89",
+          "secondaryColorHex": "#cf7d4b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1855,
+          "tennisPoints": 250,
+          "id": 2531,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "جنيف",
+              "hi": "जिनेवा",
+              "bn": "জেনেভা"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Hamburg, Doubles",
+          "slug": "hamburg-doubles",
+          "primaryColorHex": "#ffdf1d",
+          "secondaryColorHex": "#906b1c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 107,
+          "tennisPoints": 500,
+          "id": 2465,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هامبورغ، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Hamburg",
+          "slug": "hamburg",
+          "primaryColorHex": "#ffdf1d",
+          "secondaryColorHex": "#906b1c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2327,
+          "tennisPoints": 500,
+          "id": 2405,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هامبورغ",
+              "hi": "हैम्बर्ग",
+              "bn": "হামবুর্গ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Geneva, Doubles",
+          "slug": "geneva-doubles",
+          "primaryColorHex": "#e0aa89",
+          "secondaryColorHex": "#cf7d4b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 81,
+          "tennisPoints": 250,
+          "id": 2525,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "جنيف، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Roland Garros, Mixed Doubles",
+          "slug": "roland-garros-mixed-doubles",
+          "primaryColorHex": "#c95800",
+          "secondaryColorHex": "#01503d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 650,
+          "tennisPoints": 2000,
+          "id": 2417,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دورة رولان غاروس الدولية، مزدوج مختلط"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Roland Garros, Doubles",
+          "slug": "roland-garros-doubles",
+          "primaryColorHex": "#c85a19",
+          "secondaryColorHex": "#01503d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1183,
+          "tennisPoints": 2000,
+          "id": 2393,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دورة رولان غاروس الدولية، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "June",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Roland Garros",
+          "slug": "roland-garros",
+          "primaryColorHex": "#c85a19",
+          "secondaryColorHex": "#01503d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 37075,
+          "tennisPoints": 2000,
+          "id": 2480,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة رولان جاروس",
+              "hi": "रोलैंड गर्रोस",
+              "bn": "রোল্যান্ড গ্যারোস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Roland Garros, Mixed Doubles",
+          "slug": "roland-garros-mixed-doubles",
+          "primaryColorHex": "#c95800",
+          "secondaryColorHex": "#01503d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 650,
+          "tennisPoints": 2000,
+          "id": 2417,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دورة رولان غاروس الدولية، مزدوج مختلط"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Roland Garros, Doubles",
+          "slug": "roland-garros-doubles",
+          "primaryColorHex": "#c85a19",
+          "secondaryColorHex": "#01503d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1183,
+          "tennisPoints": 2000,
+          "id": 2393,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "دورة رولان غاروس الدولية، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "'s-Hertogenbosch",
+          "slug": "s-hertogenbosch",
+          "primaryColorHex": "#92c462",
+          "secondaryColorHex": "#6c9d3c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1788,
+          "tennisPoints": 250,
+          "id": 2387,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "إس-هيرتوجنبوش",
+              "hi": "स-हर्टोजेनबोस",
+              "bn": "এস-হেরটোজেনবোস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Stuttgart",
+          "slug": "stuttgart",
+          "primaryColorHex": "#a1a7aa",
+          "secondaryColorHex": "#415665",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2319,
+          "tennisPoints": 250,
+          "id": 2483,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "شتوتغارت",
+              "hi": "स्टुटगार्ट",
+              "bn": "স্টুটগার্ট"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Stuttgart, Doubles",
+          "slug": "stuttgart-doubles",
+          "primaryColorHex": "#a1a7aa",
+          "secondaryColorHex": "#415665",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 137,
+          "tennisPoints": 250,
+          "id": 2378,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "شتوتغارت، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "'s-Hertogenbosch, Doubles",
+          "slug": "s-hertogenbosch-doubles",
+          "primaryColorHex": "#92c462",
+          "secondaryColorHex": "#6c9d3c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 93,
+          "tennisPoints": 250,
+          "id": 2463,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هيرتوجنبوش، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Halle, Doubles",
+          "slug": "halle-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 211,
+          "tennisPoints": 500,
+          "id": 2451,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هاله، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Halle",
+          "slug": "halle",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 3434,
+          "tennisPoints": 500,
+          "id": 2493,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هاله",
+              "hi": "हाले",
+              "bn": "হ্যালে"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "London",
+          "slug": "london",
+          "primaryColorHex": "#7dcfdb",
+          "secondaryColorHex": "#07a3b6",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 3327,
+          "tennisPoints": 500,
+          "id": 2494,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "لندن",
+              "hi": "लंदन",
+              "bn": "লন্ডন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "London, Doubles",
+          "slug": "london-doubles",
+          "primaryColorHex": "#7dcfdb",
+          "secondaryColorHex": "#07a3b6",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 155,
+          "tennisPoints": 500,
+          "id": 2411,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "لندن، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Mallorca",
+          "slug": "mallorca-spain",
+          "primaryColorHex": "#2a929b",
+          "secondaryColorHex": "#0168ba",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1436,
+          "tennisPoints": 250,
+          "id": 14548,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مايوركا"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Mallorca, Doubles",
+          "slug": "mallorca-spain-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 94,
+          "tennisPoints": 250,
+          "id": 14549,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مايوركا، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Eastbourne",
+          "slug": "eastbourne",
+          "primaryColorHex": "#ffe501",
+          "secondaryColorHex": "#00692a",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1677,
+          "tennisPoints": 250,
+          "id": 2362,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "إيستبورن",
+              "hi": "ईस्टबॉर्न",
+              "bn": "ইস্টবোর্ন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Wimbledon",
+          "slug": "wimbledon",
+          "primaryColorHex": "#006633",
+          "secondaryColorHex": "#54008b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 39236,
+          "tennisPoints": 2000,
+          "id": 2361,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة ويمبلدون",
+              "hi": "विंबलडन",
+              "bn": "উইম্বলডন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Eastbourne, Doubles",
+          "slug": "eastbourne-doubles",
+          "primaryColorHex": "#ffe501",
+          "secondaryColorHex": "#00692a",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 104,
+          "tennisPoints": 250,
+          "id": 2528,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "Eastbourne، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "July",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Wimbledon",
+          "slug": "wimbledon",
+          "primaryColorHex": "#006633",
+          "secondaryColorHex": "#54008b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 39236,
+          "tennisPoints": 2000,
+          "id": 2361,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة ويمبلدون",
+              "hi": "विंबलडन",
+              "bn": "উইম্বলডন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Wimbledon, Doubles",
+          "slug": "wimbledon-doubles",
+          "primaryColorHex": "#006632",
+          "secondaryColorHex": "#54008b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1062,
+          "tennisPoints": 2000,
+          "id": 2375,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة ويمبلدون، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Wimbledon, Mixed Doubles",
+          "slug": "wimbledon-mixed-doubles",
+          "primaryColorHex": "#006632",
+          "secondaryColorHex": "#54008b",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 682,
+          "tennisPoints": 2000,
+          "id": 2364,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة ويمبلدون، مزدوج مختلط"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Gstaad",
+          "slug": "gstaad",
+          "primaryColorHex": "#3a4265",
+          "secondaryColorHex": "#5a669e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1563,
+          "tennisPoints": 250,
+          "id": 2416,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "غشتاد",
+              "hi": "गस्ताद",
+              "bn": "জিসটাদ"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Umag",
+          "slug": "umag",
+          "primaryColorHex": "#f39801",
+          "secondaryColorHex": "#515155",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1710,
+          "tennisPoints": 250,
+          "id": 2426,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "اوماج",
+              "hi": "उमाग",
+              "bn": "উমং"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Bastad",
+          "slug": "bastad",
+          "primaryColorHex": "#034ea2",
+          "secondaryColorHex": "#ffe37e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1780,
+          "tennisPoints": 250,
+          "id": 2413,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "باستاد",
+              "hi": "बस्ताद",
+              "bn": "বাস্তাড"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Umag, Doubles",
+          "slug": "umag-doubles",
+          "primaryColorHex": "#f39801",
+          "secondaryColorHex": "#515155",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 73,
+          "tennisPoints": 250,
+          "id": 2371,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "أوماغ، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Bastad, Doubles",
+          "slug": "bastad-doubles",
+          "primaryColorHex": "#034ea2",
+          "secondaryColorHex": "#ffe37e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 114,
+          "tennisPoints": 250,
+          "id": 2384,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "باستاد، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Gstaad, Doubles",
+          "slug": "gstaad-doubles",
+          "primaryColorHex": "#3a4265",
+          "secondaryColorHex": "#5a669e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 78,
+          "tennisPoints": 250,
+          "id": 2467,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "غشتاد، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Kitzbuhel",
+          "slug": "kitzbuhel",
+          "primaryColorHex": "#232a3c",
+          "secondaryColorHex": "#c4251c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1542,
+          "tennisPoints": 250,
+          "id": 2501,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "كيتزبوهيل",
+              "hi": "किट्ज़ब्यूल",
+              "bn": "কিটজবুহেল"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Estoril",
+          "slug": "estoril",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1871,
+          "tennisPoints": 250,
+          "id": 2541,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "استوريل",
+              "hi": "एस्टोरिल",
+              "bn": "এস্টোরিল"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Estoril, Doubles",
+          "slug": "estoril-doubles",
+          "primaryColorHex": "#eedf00",
+          "secondaryColorHex": "#c1b300",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 111,
+          "tennisPoints": 250,
+          "id": 2529,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "إستوريل، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Kitzbuhel, Doubles",
+          "slug": "kitzbuhel-doubles",
+          "primaryColorHex": "#232a3c",
+          "secondaryColorHex": "#c4251c",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 87,
+          "tennisPoints": 250,
+          "id": 2473,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "كيتزبوهيل، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Washington, Doubles",
+          "slug": "washington-doubles",
+          "primaryColorHex": "#002d71",
+          "secondaryColorHex": "#ff0709",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 163,
+          "tennisPoints": 500,
+          "id": 2468,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "واشنطن، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Los Cabos",
+          "slug": "los-cabos",
+          "primaryColorHex": "#00adec",
+          "secondaryColorHex": "#fff22d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1353,
+          "tennisPoints": 250,
+          "id": 2369,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "لوس كابوس",
+              "hi": "लॉस काबोस",
+              "bn": "লস কাবোস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Toronto",
+          "slug": "toronto",
+          "primaryColorHex": "#9e171a",
+          "secondaryColorHex": "#c44133",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 3537,
+          "tennisPoints": 1000,
+          "id": 2510,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "تورنتو",
+              "hi": "टोरंटो",
+              "bn": "টরন্টো"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Washington",
+          "slug": "washington",
+          "primaryColorHex": "#002d71",
+          "secondaryColorHex": "#ff0709",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2419,
+          "tennisPoints": 500,
+          "id": 2368,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "واشنطن",
+              "hi": "वॉशिंगटन",
+              "bn": "ওয়াশিংটন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Los Cabos, Doubles",
+          "slug": "los-cabos-doubles",
+          "primaryColorHex": "#00adec",
+          "secondaryColorHex": "#fff22d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 85,
+          "tennisPoints": 250,
+          "id": 2544,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "لوس كابوس، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Toronto, Doubles",
+          "slug": "toronto-doubles",
+          "primaryColorHex": "#9e171a",
+          "secondaryColorHex": "#c44133",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 168,
+          "tennisPoints": 1000,
+          "id": 2419,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "تورونتو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "August",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Washington, Doubles",
+          "slug": "washington-doubles",
+          "primaryColorHex": "#002d71",
+          "secondaryColorHex": "#ff0709",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 163,
+          "tennisPoints": 500,
+          "id": 2468,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "واشنطن، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Los Cabos",
+          "slug": "los-cabos",
+          "primaryColorHex": "#00adec",
+          "secondaryColorHex": "#fff22d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1353,
+          "tennisPoints": 250,
+          "id": 2369,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "لوس كابوس",
+              "hi": "लॉस काबोस",
+              "bn": "লস কাবোস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Toronto",
+          "slug": "toronto",
+          "primaryColorHex": "#9e171a",
+          "secondaryColorHex": "#c44133",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 3537,
+          "tennisPoints": 1000,
+          "id": 2510,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "تورنتو",
+              "hi": "टोरंटो",
+              "bn": "টরন্টো"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Washington",
+          "slug": "washington",
+          "primaryColorHex": "#002d71",
+          "secondaryColorHex": "#ff0709",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2419,
+          "tennisPoints": 500,
+          "id": 2368,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "واشنطن",
+              "hi": "वॉशिंगटन",
+              "bn": "ওয়াশিংটন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Los Cabos, Doubles",
+          "slug": "los-cabos-doubles",
+          "primaryColorHex": "#00adec",
+          "secondaryColorHex": "#fff22d",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 85,
+          "tennisPoints": 250,
+          "id": 2544,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "لوس كابوس، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Toronto, Doubles",
+          "slug": "toronto-doubles",
+          "primaryColorHex": "#9e171a",
+          "secondaryColorHex": "#c44133",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 168,
+          "tennisPoints": 1000,
+          "id": 2419,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "تورونتو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Montreal",
+          "slug": "montreal",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2819,
+          "tennisPoints": 1000,
+          "id": 2390,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مونتريال",
+              "hi": "मॉन्ट्रियल",
+              "bn": "মন্ট্রিল"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Montreal, Doubles",
+          "slug": "montreal-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 138,
+          "tennisPoints": 1000,
+          "id": 2478,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مونتريال، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Cincinnati",
+          "slug": "cincinnati",
+          "primaryColorHex": "#184d8c",
+          "secondaryColorHex": "#4a8ec8",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 6595,
+          "tennisPoints": 1000,
+          "id": 2373,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "سينسيناتي",
+              "hi": "सिनसिनाटी",
+              "bn": "সিনসিনাটি"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Cincinnati, Doubles",
+          "slug": "cincinnati-doubles",
+          "primaryColorHex": "#184d8c",
+          "secondaryColorHex": "#4a8ec8",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 301,
+          "tennisPoints": 1000,
+          "id": 2381,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "سنسيناتي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Winston Salem",
+          "slug": "winston-salem",
+          "primaryColorHex": "#231f20",
+          "secondaryColorHex": "#725b2e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1585,
+          "tennisPoints": 250,
+          "id": 2439,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ونستون سالم",
+              "hi": "विंस्टन सलेम",
+              "bn": "উইনস্টন সালেম"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Winston Salem, Doubles",
+          "slug": "winston-salem-doubles",
+          "primaryColorHex": "#231f20",
+          "secondaryColorHex": "#725b2e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 101,
+          "tennisPoints": 250,
+          "id": 2537,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "وينستون سالم، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "US Open",
+          "slug": "us-open",
+          "primaryColorHex": "#00288c",
+          "secondaryColorHex": "#63a1e0",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 30957,
+          "tennisPoints": 2000,
+          "id": 2449,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أمريكا المفتوحة",
+              "hi": "यूएस ओपन",
+              "bn": "ইউএস ওপেন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "US Open, Mixed Doubles",
+          "slug": "us-open-mixed-doubles",
+          "primaryColorHex": "#006cc2",
+          "secondaryColorHex": "#e51937",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1467,
+          "tennisPoints": 2000,
+          "id": 2402,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أمريكا المفتوحة للتنس، مزدوج مختلط"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "US Open, Doubles",
+          "slug": "us-open-doubles",
+          "primaryColorHex": "#0073b9",
+          "secondaryColorHex": "#e51937",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 836,
+          "tennisPoints": 2000,
+          "id": 2508,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أمريكا المفتوحة للزوجي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "September",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "US Open",
+          "slug": "us-open",
+          "primaryColorHex": "#00288c",
+          "secondaryColorHex": "#63a1e0",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 30957,
+          "tennisPoints": 2000,
+          "id": 2449,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أمريكا المفتوحة",
+              "hi": "यूएस ओपन",
+              "bn": "ইউএস ওপেন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "US Open, Doubles",
+          "slug": "us-open-doubles",
+          "primaryColorHex": "#0073b9",
+          "secondaryColorHex": "#e51937",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 836,
+          "tennisPoints": 2000,
+          "id": 2508,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة أمريكا المفتوحة للزوجي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Chengdu",
+          "slug": "chengdu",
+          "primaryColorHex": "#f6dd0f",
+          "secondaryColorHex": "#dab07a",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1073,
+          "tennisPoints": 250,
+          "id": 9402,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "تشنغدو",
+              "hi": "चेंगडू",
+              "bn": "চেংদু"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Hangzhou",
+          "slug": "atp-hangzhou-china-men-singles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 587,
+          "tennisPoints": 250,
+          "id": 23614,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هانغتشو"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Hangzhou, Doubles",
+          "slug": "atp-hangzhou-china-men-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 28,
+          "tennisPoints": 250,
+          "id": 23617,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "هانغتشو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Chengdu, Doubles",
+          "slug": "chengdu-doubles",
+          "primaryColorHex": "#f6dd0f",
+          "secondaryColorHex": "#dab07a",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 51,
+          "tennisPoints": 250,
+          "id": 9400,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "تشنغدو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Tokyo, Doubles",
+          "slug": "tokyo-doubles",
+          "primaryColorHex": "#b41e23",
+          "secondaryColorHex": "#939192",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 118,
+          "tennisPoints": 500,
+          "id": 2454,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "طوكيو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Beijing, Doubles",
+          "slug": "beijing-doubles",
+          "primaryColorHex": "#bb141a",
+          "secondaryColorHex": "#636363",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 115,
+          "tennisPoints": 500,
+          "id": 2438,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بكين، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Tokyo",
+          "slug": "tokyo",
+          "primaryColorHex": "#b41e23",
+          "secondaryColorHex": "#939192",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2332,
+          "tennisPoints": 500,
+          "id": 2435,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "طوكيو",
+              "hi": "टोक्यो",
+              "bn": "টোকিও"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Beijing",
+          "slug": "beijing",
+          "primaryColorHex": "#bb141a",
+          "secondaryColorHex": "#636363",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2590,
+          "tennisPoints": 500,
+          "id": 2436,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بكين",
+              "hi": "बीजिंग",
+              "bn": "বেইজিং"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "October",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Tokyo, Doubles",
+          "slug": "tokyo-doubles",
+          "primaryColorHex": "#b41e23",
+          "secondaryColorHex": "#939192",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 118,
+          "tennisPoints": 500,
+          "id": 2454,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "طوكيو، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Beijing, Doubles",
+          "slug": "beijing-doubles",
+          "primaryColorHex": "#bb141a",
+          "secondaryColorHex": "#636363",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 115,
+          "tennisPoints": 500,
+          "id": 2438,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بكين، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Tokyo",
+          "slug": "tokyo",
+          "primaryColorHex": "#b41e23",
+          "secondaryColorHex": "#939192",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2332,
+          "tennisPoints": 500,
+          "id": 2435,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "طوكيو",
+              "hi": "टोक्यो",
+              "bn": "টোকিও"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Beijing",
+          "slug": "beijing",
+          "primaryColorHex": "#bb141a",
+          "secondaryColorHex": "#636363",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2590,
+          "tennisPoints": 500,
+          "id": 2436,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بكين",
+              "hi": "बीजिंग",
+              "bn": "বেইজিং"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Shanghai",
+          "slug": "shanghai",
+          "primaryColorHex": "#002c61",
+          "secondaryColorHex": "#315384",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 4532,
+          "tennisPoints": 1000,
+          "id": 2519,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "شنغهاي",
+              "hi": "शंघाई",
+              "bn": "সাংহাই"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Shanghai, Doubles",
+          "slug": "shanghai-doubles",
+          "primaryColorHex": "#002c61",
+          "secondaryColorHex": "#315384",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 183,
+          "tennisPoints": 1000,
+          "id": 2440,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "شنغهاي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Almaty",
+          "slug": "atp-almaty-kazakhstan-men-singles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 799,
+          "tennisPoints": 250,
+          "id": 23849,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "الماتي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Lyon",
+          "slug": "lyon",
+          "primaryColorHex": "#ce490f",
+          "secondaryColorHex": "#f99766",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1251,
+          "tennisPoints": 250,
+          "id": 2498,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ليون",
+              "hi": "लियोन",
+              "bn": "লিয়ন"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "ATP Brussels, Belgium Singles",
+          "slug": "atp-brussels-belgium-singles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 633,
+          "tennisPoints": 250,
+          "id": 30070,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ATP بروكسل، بلجيكا فردي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Marseille",
+          "slug": "marseille",
+          "primaryColorHex": "#636361",
+          "secondaryColorHex": "#015675",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1545,
+          "tennisPoints": 250,
+          "id": 2486,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مارسيليا",
+              "hi": "मार्सिले",
+              "bn": "মার্সেই"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "ATP Brussels, Belgium Doubles",
+          "slug": "atp-brussels-belgium-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 32,
+          "tennisPoints": 250,
+          "id": 30071,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بطولة ATP بروكسل، بلجيكا زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Lyon, Doubles",
+          "slug": "lyon-doubles",
+          "primaryColorHex": "#e2a791",
+          "secondaryColorHex": "#f8cdaf",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 78,
+          "tennisPoints": 250,
+          "id": 2470,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ليون، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Almaty, Doubles",
+          "slug": "atp-almaty-kazakhstan-men-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 42,
+          "tennisPoints": 250,
+          "id": 23851,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "الماتي، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Marseille, Doubles",
+          "slug": "marseille-doubles",
+          "primaryColorHex": "#636361",
+          "secondaryColorHex": "#015675",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 87,
+          "tennisPoints": 250,
+          "id": 2461,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "مارسيليا، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Basel",
+          "slug": "basel",
+          "primaryColorHex": "#e1121a",
+          "secondaryColorHex": "#940c12",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2356,
+          "tennisPoints": 500,
+          "id": 2406,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بازل",
+              "hi": "बासेल",
+              "bn": "বাসেল"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Basel, Doubles",
+          "slug": "basel-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 126,
+          "tennisPoints": 500,
+          "id": 2427,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بازل، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Vienna",
+          "slug": "vienna",
+          "primaryColorHex": "#e03530",
+          "secondaryColorHex": "#fbd518",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2848,
+          "tennisPoints": 500,
+          "id": 2428,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "فيينا",
+              "hi": "वियना",
+              "bn": "ভিয়েনা"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Vienna, Doubles",
+          "slug": "vienna-doubles",
+          "primaryColorHex": "#e03530",
+          "secondaryColorHex": "#fbd518",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 139,
+          "tennisPoints": 500,
+          "id": 2471,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "فيينا، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "November",
+      "isActive": false,
+      "uniqueTournaments": [
+        {
+          "name": "Basel",
+          "slug": "basel",
+          "primaryColorHex": "#e1121a",
+          "secondaryColorHex": "#940c12",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2356,
+          "tennisPoints": 500,
+          "id": 2406,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بازل",
+              "hi": "बासेल",
+              "bn": "বাসেল"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Basel, Doubles",
+          "slug": "basel-doubles",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 126,
+          "tennisPoints": 500,
+          "id": 2427,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "بازل، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Vienna",
+          "slug": "vienna",
+          "primaryColorHex": "#e03530",
+          "secondaryColorHex": "#fbd518",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 2848,
+          "tennisPoints": 500,
+          "id": 2428,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "فيينا",
+              "hi": "वियना",
+              "bn": "ভিয়েনা"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Vienna, Doubles",
+          "slug": "vienna-doubles",
+          "primaryColorHex": "#e03530",
+          "secondaryColorHex": "#fbd518",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 139,
+          "tennisPoints": 500,
+          "id": 2471,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "فيينا، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Paris",
+          "slug": "paris",
+          "primaryColorHex": "#174742",
+          "secondaryColorHex": "#2b7064",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 6645,
+          "tennisPoints": 1000,
+          "id": 2404,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "باريس",
+              "hi": "पेरिस",
+              "bn": "প্যারিস"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Paris, Doubles",
+          "slug": "paris-doubles",
+          "primaryColorHex": "#174742",
+          "secondaryColorHex": "#2b7064",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 261,
+          "tennisPoints": 1000,
+          "id": 2442,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "باريس، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Stockholm",
+          "slug": "stockholm",
+          "primaryColorHex": "#acc2bf",
+          "secondaryColorHex": "#999c9e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1583,
+          "tennisPoints": 250,
+          "id": 2382,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ستوكهولم",
+              "hi": "स्टॉकहोम",
+              "bn": "স্টকহোম"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "Stockholm, Doubles",
+          "slug": "stockholm-doubles",
+          "primaryColorHex": "#acc2bf",
+          "secondaryColorHex": "#999c9e",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 92,
+          "tennisPoints": 250,
+          "id": 2410,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "ستوكهولم، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "ATP Finals, Doubles",
+          "slug": "atp-finals-doubles",
+          "primaryColorHex": "#3dbfed",
+          "secondaryColorHex": "#017ccb",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 1436,
+          "id": 2385,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "نهائيات الجولة العالمية للتنس، زوجي"
+            },
+            "shortNameTranslation": {}
+          }
+        },
+        {
+          "name": "ATP Finals",
+          "slug": "atp-finals",
+          "primaryColorHex": "#3dbfed",
+          "secondaryColorHex": "#017ccb",
+          "category": {
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "name": "Tennis",
+              "slug": "tennis",
+              "id": 5
+            },
+            "id": 3,
+            "flag": "atp",
+            "fieldTranslations": {
+              "nameTranslation": {
+                "ar": "رابطة محترفي التنس",
+                "ru": "ATP",
+                "hi": "डब्ल्यूटीए",
+                "bn": "এটিপি"
+              },
+              "shortNameTranslation": {}
+            }
+          },
+          "userCount": 25205,
+          "id": 2517,
+          "displayInverseHomeAwayTeams": false,
+          "fieldTranslations": {
+            "nameTranslation": {
+              "ar": "نهائيات رابطة محترفي التنس",
+              "hi": "एटीपी फाइनल्स",
+              "bn": "এটিপি ফাইনাল"
+            },
+            "shortNameTranslation": {}
+          }
+        }
+      ]
+    }
+  ],
+  "activeUniqueTournamentIds": [
+    2394,
+    2521,
+    2506,
+    2420,
+    2433,
+    2376
+  ]
+}

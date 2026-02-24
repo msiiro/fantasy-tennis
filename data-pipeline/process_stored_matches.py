@@ -1,8 +1,7 @@
-import http.client
-import requests
 import json
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
+from pathlib import Path
 import os
 from supabase import create_client, Client
 from dotenv import load_dotenv
@@ -11,94 +10,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-RAPIDAPI_KEY = os.getenv('RAPIDAPI_KEY')
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_KEY = os.getenv('SUPABASE_SERVICE_KEY')
-OUTPUT_FOLDER = "tennis_data"
+INPUT_FOLDER = "tennis_data"
 
 # Initialize Supabase client
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-def ensure_folder_exists(folder_path):
-    """Create folder if it doesn't exist"""
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-
-def get_tennis_matches(date_str, save_to_file=True, subfolder=None):
-    """
-    Get tennis fixtures for a specific date
-    
-    Args:
-        date_str: Format 'YYYY-MM-DD' (e.g., '2026-01-23')
-        save_to_file: If True, saves the response to a JSON file
-        subfolder: Optional subfolder within OUTPUT_FOLDER
-    """
-    conn = http.client.HTTPSConnection("tennisapi1.p.rapidapi.com")
-    
-    headers = {
-        'x-rapidapi-key': RAPIDAPI_KEY,
-        'x-rapidapi-host': "tennisapi1.p.rapidapi.com"
-    }
-    
-    date_obj = datetime.strptime(date_str, '%Y-%m-%d')
-    day = date_obj.day
-    month = date_obj.month
-    year = date_obj.year
-    
-    endpoint = f"/api/tennis/events/{day}/{month}/{year}"
-    
-    print(f"Requesting: {endpoint} for date {date_str}")
-    
-    try:
-        conn.request("GET", endpoint, headers=headers)
-        res = conn.getresponse()
-        data = res.read()
-        
-        if res.status != 200:
-            print(f"✗ Error: HTTP {res.status}")
-            return None
-        
-        if not data:
-            print(f"✗ Empty response")
-            return None
-        
-        matches = json.loads(data.decode("utf-8"))
-        
-        if save_to_file:
-            if subfolder:
-                save_path = os.path.join(OUTPUT_FOLDER, subfolder)
-            else:
-                save_path = OUTPUT_FOLDER
-            
-            ensure_folder_exists(save_path)
-            
-            filename = f"matches_{date_str}.json"
-            filepath = os.path.join(save_path, filename)
-            
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(matches, f, indent=2, ensure_ascii=False)
-            
-            print(f"✓ Saved to: {filepath}")
-        
-        return matches
-        
-    except Exception as e:
-        print(f"✗ Error: {e}")
-        return None
-    finally:
-        conn.close()
 
 def should_include_event(event):
     """
     Check if an event should be included based on filters.
     Includes ATP, WTA, Challenger, WTA 125, and ITF singles events.
     Excludes doubles, junior, and youth events.
-    
-    Args:
-        event: Single event/match from the API response
-    
-    Returns:
-        Boolean: True if event should be included, False otherwise
     """
     category_name = event.get('tournament', {}).get('category', {}).get('name', '').upper()
     category_slug = event.get('tournament', {}).get('category', {}).get('slug', '').lower()
@@ -109,17 +32,13 @@ def should_include_event(event):
     event_filters = event.get('eventFilters', {})
     match_categories = event_filters.get('category', [])
 
-    # Include ATP, WTA, Challenger, WTA 125, and ITF
     is_included_tour = category_name in ['ATP', 'WTA', 'CHALLENGER', 'WTA 125', 'ITF MEN', 'ITF WOMEN', 'ITF'] or \
                        category_slug in ['atp', 'wta', 'challenger', 'wta-125', 'itf-men', 'itf-women', 'itf']
     
-    # Singles only
     is_singles = 'singles' in match_categories
     
-    # No doubles in name
     has_doubles_in_name = 'doubles' in tournament_name or 'doubles' in season_name or 'double' in season_name
     
-    # Exclude only junior/youth (no longer excluding ITF)
     excluded_keywords = ['junior', 'youth', 'u18', 'u21']
     is_excluded = any(keyword in category_name.lower() for keyword in excluded_keywords)
     is_excluded = is_excluded or any(keyword in category_slug for keyword in excluded_keywords)
@@ -146,10 +65,7 @@ def should_include_event(event):
     return should_include
 
 def ensure_players_exist(events):
-    """
-    Ensure all players in the events exist in the players table.
-    Adds missing players as placeholders.
-    """
+    """Ensure all players in the events exist in the players table."""
     print(f"\nChecking for missing players...")
     
     players_to_check = {}
@@ -205,23 +121,20 @@ def ensure_players_exist(events):
     batch_size = 100
     for i in range(0, len(players_to_insert), batch_size):
         batch = players_to_insert[i:i + batch_size]
-        
         try:
-            response = supabase.table('players').upsert(batch, on_conflict='player_id').execute()
+            supabase.table('players').upsert(batch, on_conflict='player_id').execute()
             added_count += len(batch)
             print(f"  ✓ Upserted batch of {len(batch)} players")
         except Exception as e:
             error_count += len(batch)
             print(f"  ✗ Error upserting batch: {e}")
-            
             for player in batch:
                 try:
                     supabase.table('players').upsert(player, on_conflict='player_id').execute()
                     added_count += 1
                     error_count -= 1
-                    print(f"    ✓ Upserted: {player['name']} (ID: {player['player_id']})")
                 except Exception as e2:
-                    print(f"    ✗ Failed to upsert {player['name']} (ID: {player['player_id']}): {e2}")
+                    print(f"    ✗ Failed: {player['name']} (ID: {player['player_id']}): {e2}")
     
     print(f"\n✓ Player check complete: Added={added_count}, Errors={error_count}")
     return added_count, error_count
@@ -233,10 +146,10 @@ ITF_POINTS_MAP = {
     'w15':  15,
     'w25':  25,
     'w35':  35,
-    'w50':  50,
     'w60':  60,
+    'w50':  50,
     'w75':  75,
-    'w100': 10,
+    'w100': 100,
     # Men's tiers
     'm15':  15,
     'm25':  25,
@@ -245,15 +158,17 @@ ITF_POINTS_MAP = {
 def get_itf_tennis_points(event):
     """
     Extract tennis_points for ITF events by parsing the tier from
-    tournament name or slug (e.g. 'ITF W15 Manacor Women' -> 15000).
+    tournament name or slug (e.g. 'ITF W15 Manacor Women' -> 15).
     Returns None if the tier cannot be determined.
     """
     tournament = event.get('tournament', {})
     category_name = tournament.get('category', {}).get('name', '').upper()
 
+    # Only applies to ITF events
     if 'ITF' not in category_name:
         return None
 
+    # Try name first, then slug - both usually contain the tier
     sources = [
         tournament.get('name', '').lower(),
         tournament.get('slug', '').lower(),
@@ -263,6 +178,7 @@ def get_itf_tennis_points(event):
 
     import re
     for source in sources:
+        # Match patterns like w15, w25, w35, w60, w100, m15, m25
         match = re.search(r'\b([wm]\d{2,3})\b', source)
         if match:
             tier = match.group(1)
@@ -273,6 +189,7 @@ def get_itf_tennis_points(event):
 
 def transform_match_data(event):
     """Transform match data from API format to database format"""
+    # Prefer the API's tennisPoints value; fall back to ITF tier parsing
     api_tennis_points = event.get('tournament', {}).get('uniqueTournament', {}).get('tennisPoints')
     tennis_points = api_tennis_points if api_tennis_points is not None else get_itf_tennis_points(event)
 
@@ -337,228 +254,142 @@ def transform_match_data(event):
     
     return transformed
 
-def process_and_upsert_matches(matches_data, table_name='tennis_matches'):
+def process_file(filepath, table_name='tennis_matches'):
     """
-    Process match data and upsert into Supabase.
-    Includes ATP, WTA, Challenger, WTA 125, and ITF singles events.
+    Load a single JSON file and upsert its matches into Supabase.
+    
+    Args:
+        filepath: Path to the JSON file
+        table_name: Supabase table name
+    
+    Returns:
+        Tuple of (upserted_count, failed_count)
     """
-    if not matches_data:
-        print("No data to process")
-        return []
+    print(f"\n{'='*60}")
+    print(f"Processing: {filepath}")
+    print(f"{'='*60}")
     
-    events = matches_data.get('events', [])
+    with open(filepath, 'r', encoding='utf-8') as f:
+        data = json.load(f)
     
-    if not events:
-        print("No events found in data")
-        return []
+    events = data.get('events', []) if isinstance(data, dict) else data
+    print(f"Total events in file: {len(events)}")
     
-    print(f"Total events received: {len(events)}")
-    
-    filtered_events = [event for event in events if should_include_event(event)]
-    
+    filtered_events = [e for e in events if should_include_event(e)]
     print(f"Events after filtering: {len(filtered_events)}")
     
     if not filtered_events:
         print("No events to process after filtering")
-        return []
+        return 0, 0
     
     ensure_players_exist(filtered_events)
     
-    upserted_records = []
+    upserted = 0
+    failed = 0
     failed_records = []
-    
-    print(f"\nProcessing {len(filtered_events)} matches...")
     
     for event in filtered_events:
         try:
-            transformed_match = transform_match_data(event)
-            
-            response = supabase.table(table_name).upsert(
-                transformed_match,
-                on_conflict='match_id'
-            ).execute()
-            
-            upserted_records.append(transformed_match)
+            transformed = transform_match_data(event)
+            supabase.table(table_name).upsert(transformed, on_conflict='match_id').execute()
+            upserted += 1
             match_info = f"{event.get('homeTeam', {}).get('shortName')} vs {event.get('awayTeam', {}).get('shortName')}"
-            tournament_info = f"{transformed_match.get('category_name')} - {transformed_match.get('tournament_name')}"
-            print(f"✓ Upserted: {match_info} | {tournament_info}")
-            
+            tour_info = f"{transformed.get('category_name')} - {transformed.get('tournament_name')}"
+            print(f"✓ {match_info} | {tour_info}")
         except Exception as e:
-            print(f"✗ Failed to upsert match: {e}")
+            failed += 1
             match_info = f"{event.get('homeTeam', {}).get('shortName')} vs {event.get('awayTeam', {}).get('shortName')}"
-            print(f"   Match: {match_info}")
+            print(f"✗ Failed: {match_info} - {e}")
             failed_records.append({'event': event, 'error': str(e)})
     
-    print(f"\n✓ Successfully upserted: {len(upserted_records)}")
-    print(f"✗ Failed: {len(failed_records)}")
-    
     if failed_records:
-        error_file = f"errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        error_file = f"errors_{Path(filepath).stem}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(error_file, 'w') as f:
             json.dump(failed_records, f, indent=2)
         print(f"Failed records saved to: {error_file}")
     
-    return upserted_records
+    print(f"\n  ✓ Upserted: {upserted} | ✗ Failed: {failed}")
+    return upserted, failed
 
-def fetch_and_store_matches(date_str, table_name='tennis_matches'):
-    """Fetch matches for a date and store in Supabase"""
-    print(f"\n{'='*60}")
-    print(f"Fetching and storing matches for {date_str}")
-    print(f"{'='*60}\n")
+def process_all_files(folder=INPUT_FOLDER, table_name='tennis_matches'):
+    """
+    Loop through all JSON files in the folder and upsert to Supabase.
     
-    matches = get_tennis_matches(date_str, save_to_file=True)
+    Args:
+        folder: Path to folder containing JSON files
+        table_name: Supabase table name
+    """
+    json_files = sorted(Path(folder).glob("*.json"))
     
-    if not matches:
-        print("No matches fetched from API")
-        return None
+    if not json_files:
+        print(f"No JSON files found in {folder}")
+        return
     
-    results = process_and_upsert_matches(matches, table_name)
-    return results
-
-def bulk_fetch_and_store(days_back=1, days_forward=2, table_name='tennis_matches'):
-    """Fetch and store matches for multiple days"""
-    today = datetime.now()
-    all_results = {}
+    print(f"Found {len(json_files)} files to process in '{folder}'")
     
-    print(f"\nFetching matches for {days_back + 1 + days_forward} days")
-    print(f"Including: ATP, WTA, Challenger, WTA 125, ITF Singles")
-    print(f"Excluding: Doubles, Junior, Youth\n")
+    total_upserted = 0
+    total_failed = 0
     
-    for i in range(days_back, 0, -1):
-        date = today - timedelta(days=i)
-        date_str = date.strftime('%Y-%m-%d')
-        results = fetch_and_store_matches(date_str, table_name)
-        if results:
-            all_results[date_str] = results
-    
-    today_str = today.strftime('%Y-%m-%d')
-    results = fetch_and_store_matches(today_str, table_name)
-    if results:
-        all_results[today_str] = results
-    
-    for i in range(1, days_forward + 1):
-        date = today + timedelta(days=i)
-        date_str = date.strftime('%Y-%m-%d')
-        results = fetch_and_store_matches(date_str, table_name)
-        if results:
-            all_results[date_str] = results
+    for filepath in json_files:
+        upserted, failed = process_file(filepath, table_name)
+        total_upserted += upserted
+        total_failed += failed
     
     print(f"\n{'='*60}")
-    print(f"SUMMARY")
+    print(f"ALL FILES COMPLETE")
     print(f"{'='*60}")
-    print(f"Total dates processed: {len(all_results)}")
-    total_matches = sum(len(matches) for matches in all_results.values())
-    print(f"Total matches stored: {total_matches}")
-    
-    category_counts = {}
-    for matches in all_results.values():
-        for match in matches:
-            category = match.get('category_name', 'Unknown')
-            category_counts[category] = category_counts.get(category, 0) + 1
-    
-    print(f"\nBreakdown by category:")
-    for category, count in sorted(category_counts.items()):
-        print(f"  {category}: {count} matches")
-    
-    return all_results
-
-def call_supabase_function(function_name):
-    """Call Supabase Edge Function via HTTP"""
-    supabase_url = os.environ.get('SUPABASE_URL', supabase.supabase_url)
-    supabase_key = os.environ.get('SUPABASE_SERVICE_KEY', supabase.supabase_key)
-    
-    function_url = f"{supabase_url}/functions/v1/{function_name}"
-    headers = {
-        'Authorization': f'Bearer {supabase_key}',
-        'Content-Type': 'application/json'
-    }
-    
-    try:
-        print(f"   Calling: {function_url}")
-        response = requests.post(function_url, headers=headers, timeout=300)
-        print(f"   Status: {response.status_code}")
-        
-        if response.status_code == 200:
-            print(f"   ✓ Success")
-            return response.json() if response.text else None
-        else:
-            print(f"   ✗ Error: {response.text}")
-            return None
-    except requests.exceptions.Timeout:
-        print(f"   ✗ Timeout after 300 seconds")
-        return None
-    except Exception as e:
-        print(f"   ✗ Error: {e}")
-        return None
+    print(f"Files processed: {len(json_files)}")
+    print(f"Total upserted:  {total_upserted}")
+    print(f"Total failed:    {total_failed}")
 
 
 if __name__ == "__main__":
 
-    if len(sys.argv) > 1:
-        target_date = sys.argv[1]
-        
-        try:
-            datetime.strptime(target_date, '%Y-%m-%d')
-        except ValueError:
-            print("❌ Invalid date format. Please use YYYY-MM-DD (e.g., '2026-01-20')")
-            sys.exit(1)
-        
-        print("="*60)
-        print("TENNIS MATCH DATA FETCHER - MANUAL MODE (WITH ITF)")
-        print("="*60)
-        print(f"\nFetching matches for: {target_date}")
-        print("\nIncluding: ATP, WTA, Challenger, WTA 125, ITF Singles")
-        print("Excluding: Doubles, Junior, Youth\n")
-        
-        results = fetch_and_store_matches(target_date)
+    # Optional: pass a specific file or folder as argument
+    # Usage:
+    #   python process_stored_matches.py                          -> processes all files in tennis_data/
+    #   python process_stored_matches.py tennis_data/             -> processes all files in specified folder
+    #   python process_stored_matches.py tennis_data/matches_2026-01-15.json  -> processes single file
 
-        try:
-            print("\n1. Calling 'process_unlogged_matches'...")
-            response = supabase.rpc('process_unlogged_matches').execute()
-            print(f"   ✓ Success: {response.data}")
-        except Exception as e:
-            print(f"   ✗ Error: {e}")
+    target = sys.argv[1] if len(sys.argv) > 1 else INPUT_FOLDER
+    target_path = Path(target)
 
-        try:
-            print("\n2. Calling 'update_all_team_points'...")
-            response = supabase.rpc('update_all_team_points').execute()
-            print(f"   ✓ Success: {response.data}")
-        except Exception as e:
-            print(f"   ✗ Error: {e}")
-        
-        if results:
-            print(f"\n✓ Successfully processed {len(results)} matches")
-        else:
-            print("\n⚠️ No matches found or error occurred")
-        
-    else:
+    if target_path.is_file():
+        # Single file mode
         print("="*60)
-        print("TENNIS MATCH DATA FETCHER (WITH ITF)")
+        print("PROCESS STORED MATCHES - SINGLE FILE MODE")
         print("="*60)
-        print("\nAutomatically fetching: Yesterday, Today, Tomorrow, Day after tomorrow")
+        upserted, failed = process_file(target_path)
+        
+    elif target_path.is_dir():
+        # Folder mode
+        print("="*60)
+        print("PROCESS STORED MATCHES - FOLDER MODE")
+        print("="*60)
+        print(f"Folder: {target_path}")
         print("Including: ATP, WTA, Challenger, WTA 125, ITF Singles")
         print("Excluding: Doubles, Junior, Youth\n")
+        process_all_files(target_path)
         
-        results = bulk_fetch_and_store(
-            days_back=1,
-            days_forward=2,
-            table_name='tennis_matches'
-        )
+    else:
+        print(f"❌ Path not found: {target}")
+        sys.exit(1)
 
-        try:
-            print("\n1. Calling 'process_unlogged_matches'...")
-            response = supabase.rpc('process_unlogged_matches').execute()
-            print(f"   ✓ Success: {response.data}")
-        except Exception as e:
-            print(f"   ✗ Error: {e}")
+    # Update points after processing
+    try:
+        print("\n1. Calling 'process_unlogged_matches'...")
+        response = supabase.rpc('process_unlogged_matches').execute()
+        print(f"   ✓ Success: {response.data}")
+    except Exception as e:
+        print(f"   ✗ Error: {e}")
 
-        try:
-            print("\n2. Calling 'update_all_team_points'...")
-            response = supabase.rpc('update_all_team_points').execute()
-            print(f"   ✓ Success: {response.data}")
-        except Exception as e:
-            print(f"   ✗ Error: {e}")
-        
-        print("\n" + "="*60)
-        print("COMPLETE!")
-        print("="*60)
+    try:
+        print("\n2. Calling 'update_all_team_points'...")
+        response = supabase.rpc('update_all_team_points').execute()
+        print(f"   ✓ Success: {response.data}")
+    except Exception as e:
+        print(f"   ✗ Error: {e}")
+
+    print("\n" + "="*60)
+    print("COMPLETE!")
+    print("="*60)
