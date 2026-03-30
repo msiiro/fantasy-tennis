@@ -1,0 +1,223 @@
+table_name,column_name,data_type,character_maximum_length,is_nullable,column_default
+atp_points_reference,id,integer,null,NO,nextval('atp_points_reference_id_seq'::regclass)
+atp_points_reference,category_slug,text,null,NO,null
+atp_points_reference,tournament_type,text,null,NO,null
+atp_points_reference,round_name,text,null,YES,null
+atp_points_reference,round_type,integer,null,YES,null
+atp_points_reference,points_for_win,integer,null,NO,null
+atp_points_reference,created_at,timestamp with time zone,null,YES,now()
+countries,code,text,null,NO,null
+countries,name,text,null,NO,null
+countries,flag_emoji,text,null,YES,null
+countries,created_at,timestamp with time zone,null,YES,now()
+current_rosters,league_id,integer,null,YES,null
+current_rosters,league_name,text,null,YES,null
+current_rosters,team_id,integer,null,YES,null
+current_rosters,team_name,text,null,YES,null
+current_rosters,player_id,integer,null,YES,null
+current_rosters,player_name,text,null,YES,null
+current_rosters,gender,text,null,YES,null
+current_rosters,country,text,null,YES,null
+current_rosters,points_at_acquisition,integer,null,YES,null
+current_rosters,acquired_date,timestamp with time zone,null,YES,null
+current_rosters,total_points_earned,bigint,null,YES,null
+leagues,league_id,bigint,null,NO,null
+leagues,league_name,text,null,NO,null
+leagues,created_at,timestamp with time zone,null,NO,now()
+match_fact,match_id,bigint,null,YES,null
+match_fact,match_date,timestamp with time zone,null,YES,null
+match_fact,match_type,text,null,YES,null
+match_fact,gender,text,null,YES,null
+match_fact,round_name,text,null,YES,null
+match_fact,round_number,integer,null,YES,null
+match_fact,status_description,text,null,YES,null
+match_fact,winner_code,integer,null,YES,null
+match_fact,first_to_serve,integer,null,YES,null
+match_fact,player1_id,bigint,null,YES,null
+match_fact,player1_name,text,null,YES,null
+match_fact,player1_short_name,text,null,YES,null
+match_fact,player1_country,text,null,YES,null
+match_fact,player1_score_current,integer,null,YES,null
+match_fact,player1_set1_score,integer,null,YES,null
+match_fact,player1_set2_score,integer,null,YES,null
+match_fact,player1_set3_score,integer,null,YES,null
+match_fact,player1_set4_score,integer,null,YES,null
+match_fact,player1_set5_score,integer,null,YES,null
+match_fact,player2_id,bigint,null,YES,null
+match_fact,player2_name,text,null,YES,null
+match_fact,player2_short_name,text,null,YES,null
+match_fact,player2_country,text,null,YES,null
+match_fact,player2_score_current,integer,null,YES,null
+match_fact,player2_set1_score,integer,null,YES,null
+match_fact,player2_set2_score,integer,null,YES,null
+match_fact,player2_set3_score,integer,null,YES,null
+match_fact,player2_set4_score,integer,null,YES,null
+match_fact,player2_set5_score,integer,null,YES,null
+match_fact,tournament_id,integer,null,YES,null
+match_fact,tournament_name,text,null,YES,null
+match_fact,season_year,text,null,YES,null
+match_fact,unique_tournament_name,text,null,YES,null
+match_fact,category_name,text,null,YES,null
+match_fact,category_slug,text,null,YES,null
+match_fact,tournament_type,text,null,YES,null
+match_fact,ground_type,text,null,YES,null
+match_fact,tennis_points,integer,null,YES,null
+match_points,id,bigint,null,NO,nextval('match_points_id_seq'::regclass)
+match_points,player_id,bigint,null,NO,null
+match_points,match_id,bigint,null,NO,null
+match_points,match_date,timestamp with time zone,null,YES,null
+match_points,points_earned,integer,null,NO,0
+match_points,created_at,timestamp with time zone,null,YES,now()
+player_matches,match_id,bigint,null,YES,null
+player_matches,match_date,timestamp with time zone,null,YES,null
+player_matches,round_name,text,null,YES,null
+player_matches,round_number,integer,null,YES,null
+player_matches,status_description,text,null,YES,null
+player_matches,tournament_id,integer,null,YES,null
+player_matches,tournament_name,text,null,YES,null
+player_matches,season_year,text,null,YES,null
+player_matches,category_slug,text,null,YES,null
+player_matches,tournament_type,text,null,YES,null
+player_matches,ground_type,text,null,YES,null
+player_matches,player_id,bigint,null,YES,null
+player_matches,player_name,text,null,YES,null
+player_matches,player_short_name,text,null,YES,null
+player_matches,country,text,null,YES,null
+player_matches,is_winner,boolean,null,YES,null
+player_matches,sets_won,integer,null,YES,null
+player_matches,opponent_id,bigint,null,YES,null
+player_matches,opponent_name,text,null,YES,null
+player_matches,points_earned,integer,null,YES,null
+player_rankings,id,bigint,null,NO,nextval('player_rankings_id_seq'::regclass)
+player_rankings,player_id,bigint,null,YES,null
+player_rankings,ranking_date,date,null,NO,null
+player_rankings,ranking_type,text,null,NO,null
+player_rankings,rank,integer,null,YES,null
+player_rankings,points,numeric,null,YES,null
+player_rankings,ranking_movement,integer,null,YES,null
+player_rankings,tournaments_played,integer,null,YES,null
+player_rankings,created_at,timestamp with time zone,null,YES,now()
+player_rankings,updated_at,timestamp with time zone,null,YES,now()
+player_transactions,transaction_id,integer,null,NO,nextval('player_transactions_transaction_id_seq'::regclass)
+player_transactions,league_id,integer,null,NO,null
+player_transactions,team_id,integer,null,NO,null
+player_transactions,player_id,integer,null,NO,null
+player_transactions,transaction_type,text,null,NO,null
+player_transactions,transaction_date,timestamp with time zone,null,NO,now()
+player_transactions,ranking_points,integer,null,YES,null
+player_transactions,ranking_date,date,null,YES,null
+players,player_id,bigint,null,NO,null
+players,name,text,null,YES,null
+players,slug,text,null,YES,null
+players,short_name,text,null,YES,null
+players,country,text,null,YES,null
+players,country_code,text,null,YES,null
+players,gender,text,null,YES,null
+players,disabled,boolean,null,YES,false
+players,national,boolean,null,YES,false
+players,created_at,timestamp with time zone,null,YES,now()
+players,updated_at,timestamp with time zone,null,YES,now()
+points_reference,id,integer,null,NO,nextval('points_reference_id_seq'::regclass)
+points_reference,category_slug,text,null,NO,null
+points_reference,tournament_type,text,null,NO,null
+points_reference,round_name,text,null,NO,null
+points_reference,points_for_champion,integer,null,NO,0
+points_reference,points_for_place,integer,null,NO,0
+points_reference,points_for_win,integer,null,NO,0
+points_reference,points_for_loss,integer,null,NO,0
+teams,id,bigint,null,NO,null
+teams,created_at,timestamp with time zone,null,NO,now()
+teams,name,text,null,NO,null
+teams,user_id,uuid,null,YES,null
+teams,current_points,bigint,null,YES,null
+teams,updated_at,timestamp with time zone,null,YES,now()
+teams,league_id,bigint,null,NO,null
+teams_players,id,integer,null,NO,nextval('teams_players_id_seq'::regclass)
+teams_players,team_id,bigint,null,YES,null
+teams_players,player_id,bigint,null,YES,null
+teams_players,season_selected,integer,null,YES,null
+teams_players,points_at_selection,integer,null,YES,null
+teams_players,season_points,bigint,null,YES,null
+teams_players,updated_at,timestamp with time zone,null,YES,now()
+tennis_matches,match_id,bigint,null,NO,null
+tennis_matches,player1_id,bigint,null,YES,null
+tennis_matches,player2_id,bigint,null,YES,null
+tennis_matches,player1_score_current,integer,null,YES,null
+tennis_matches,player1_score_display,integer,null,YES,null
+tennis_matches,player1_set1_score,integer,null,YES,null
+tennis_matches,player1_set2_score,integer,null,YES,null
+tennis_matches,player1_set3_score,integer,null,YES,null
+tennis_matches,player1_set4_score,integer,null,YES,null
+tennis_matches,player1_set5_score,integer,null,YES,null
+tennis_matches,player1_set1_tiebreak,integer,null,YES,null
+tennis_matches,player1_set2_tiebreak,integer,null,YES,null
+tennis_matches,player1_set3_tiebreak,integer,null,YES,null
+tennis_matches,player1_current_point,text,null,YES,null
+tennis_matches,player2_score_current,integer,null,YES,null
+tennis_matches,player2_score_display,integer,null,YES,null
+tennis_matches,player2_set1_score,integer,null,YES,null
+tennis_matches,player2_set2_score,integer,null,YES,null
+tennis_matches,player2_set3_score,integer,null,YES,null
+tennis_matches,player2_set4_score,integer,null,YES,null
+tennis_matches,player2_set5_score,integer,null,YES,null
+tennis_matches,player2_set1_tiebreak,integer,null,YES,null
+tennis_matches,player2_set2_tiebreak,integer,null,YES,null
+tennis_matches,player2_set3_tiebreak,integer,null,YES,null
+tennis_matches,player2_current_point,text,null,YES,null
+tennis_matches,status_code,integer,null,YES,null
+tennis_matches,status_description,text,null,YES,null
+tennis_matches,status_type,text,null,YES,null
+tennis_matches,winner_code,integer,null,YES,null
+tennis_matches,first_to_serve,integer,null,YES,null
+tennis_matches,tournament_id,bigint,null,YES,null
+tennis_matches,tournament_name,text,null,YES,null
+tennis_matches,tournament_slug,text,null,YES,null
+tennis_matches,unique_tournament_id,bigint,null,YES,null
+tennis_matches,unique_tournament_name,text,null,YES,null
+tennis_matches,unique_tournament_slug,text,null,YES,null
+tennis_matches,category_id,integer,null,YES,null
+tennis_matches,category_name,text,null,YES,null
+tennis_matches,category_slug,text,null,YES,null
+tennis_matches,season_id,bigint,null,YES,null
+tennis_matches,season_name,text,null,YES,null
+tennis_matches,season_year,text,null,YES,null
+tennis_matches,round_number,integer,null,YES,null
+tennis_matches,round_name,text,null,YES,null
+tennis_matches,round_type,integer,null,YES,null
+tennis_matches,ground_type,text,null,YES,null
+tennis_matches,tennis_points,integer,null,YES,null
+tennis_matches,start_timestamp,bigint,null,YES,null
+tennis_matches,match_date,timestamp with time zone,null,YES,null
+tennis_matches,gender,text,null,YES,null
+tennis_matches,match_type,text,null,YES,null
+tennis_matches,level,text,null,YES,null
+tennis_matches,tournament_type,text,null,YES,null
+tennis_matches,processed_at,timestamp with time zone,null,YES,null
+tennis_matches,created_at,timestamp with time zone,null,YES,now()
+tennis_matches,updated_at,timestamp with time zone,null,YES,now()
+tournaments,tournament_id,integer,null,NO,null
+tournaments,tournament_name,text,null,NO,null
+tournaments,tournament_slug,text,null,NO,null
+tournaments,unique_tournament_id,integer,null,NO,null
+tournaments,season_id,integer,null,NO,null
+tournaments,season_name,text,null,NO,null
+tournaments,season_year,text,null,NO,null
+tournaments,created_at,timestamp with time zone,null,YES,now()
+tournaments,updated_at,timestamp with time zone,null,YES,now()
+unique_tournaments,unique_tournament_id,integer,null,NO,null
+unique_tournaments,unique_tournament_name,text,null,NO,null
+unique_tournaments,unique_tournament_slug,text,null,NO,null
+unique_tournaments,category_id,integer,null,NO,null
+unique_tournaments,category_name,text,null,NO,null
+unique_tournaments,category_slug,text,null,NO,null
+unique_tournaments,tournament_type,text,null,YES,null
+unique_tournaments,ground_type,text,null,YES,null
+unique_tournaments,tennis_points,integer,null,YES,null
+unique_tournaments,created_at,timestamp with time zone,null,YES,now()
+unique_tournaments,updated_at,timestamp with time zone,null,YES,now()
+users,id,uuid,null,NO,null
+users,username,text,null,NO,null
+users,email,text,null,NO,null
+users,team_name,text,null,YES,null
+users,created_at,timestamp with time zone,null,YES,now()
+users,updated_at,timestamp with time zone,null,YES,now()
