@@ -32,7 +32,7 @@ export default function Players() {
           .in('ranking_type', ['atp', 'wta'])
           .order('ranking_date', { ascending: false }),
         supabase.from('teams').select('id, name, current_points, league_id'),
-        supabase.from('current_rosters').select('player_id, team_id, teams(id, name)'),
+        supabase.from('current_rosters').select('player_id, team_id, team_name'),
       ]);
 
       // Deduplicate to latest ranking per player
