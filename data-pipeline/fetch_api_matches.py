@@ -110,8 +110,8 @@ def should_include_event(event):
     match_categories = event_filters.get('category', [])
 
     # Include ATP, WTA, Challenger, WTA 125, and ITF
-    is_included_tour = category_name in ['ATP', 'WTA', 'CHALLENGER', 'WTA 125', 'ITF MEN', 'ITF WOMEN', 'ITF'] or \
-                       category_slug in ['atp', 'wta', 'challenger', 'wta-125', 'itf-men', 'itf-women', 'itf']
+    is_included_tour = category_name in ['ATP', 'WTA', 'CHALLENGER', 'WTA 125', 'ITF MEN', 'ITF WOMEN', 'ITF', 'UNITED CUP'] or \
+                       category_slug in ['atp', 'wta', 'challenger', 'wta-125', 'itf-men', 'itf-women', 'itf', 'united-cup']
     
     # Singles only
     is_singles = 'singles' in match_categories
