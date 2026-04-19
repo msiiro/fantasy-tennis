@@ -65,13 +65,7 @@ export default function Players() {
     if (userTeam && Number(p.team_id) === Number(userTeam.id)) return 'my-team-row';
     return 'other-team-row';
   }
-
-  function fmtRoi(val: number | null): string {
-    if (val == null) return '—';
-    return (val >= 0 ? '+' : '') + val.toFixed(1) + '%';
-  }
-
-  return (
+return (
     <div className="players-page">
       <div className="players-controls">
         <input
@@ -141,6 +135,7 @@ export default function Players() {
             <span className="right">Points</span>
             <span className="right">Cost</span>
             <span className="right">ROI Index</span>
+            <span className="right stats-header">Stats</span>
           </div>
           <div className="table-body">
             {filtered.length === 0
@@ -153,6 +148,15 @@ export default function Players() {
                   <span className="player-info">
                     <span className="player-name">{p.name}</span>
                     {p.country && <span className="country">{p.country}</span>}
+                    <span className="player-meta">
+                      <span>
+                        <span className="wins">{p.wins ?? 0}</span>
+                        <span className="wl-sep">–</span>
+                        <span className="losses">{p.losses ?? 0}</span>
+                      </span>
+                      {p.team_name && <span>{p.team_name}</span>}
+                      {p.roi_index != null && <span>ROI {p.roi_index.toFixed(1)}</span>}
+                    </span>
                   </span>
                   <span className={`gender-badge center ${p.gender ?? ''}`}>{p.gender ?? '—'}</span>
                   <span className="team-name">
@@ -167,10 +171,17 @@ export default function Players() {
                     <span className="losses">{p.losses ?? 0}</span>
                   </span>
                   <span className="center">{p.tournament_count ?? 0}</span>
-                  <span className="points right">{(p.points ?? 0).toLocaleString()}</span>
+                  <span className="right">{(p.points ?? 0).toLocaleString()}</span>
                   <span className="right">{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
                   <span className={`roi right ${(p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'}`}>
                     {p.roi_index != null ? p.roi_index.toFixed(1) : '—'}
+                  </span>
+                  <span className="player-stats-cell">
+                    <span className="stat-points">{(p.points ?? 0).toLocaleString()}</span>
+                    <span className="stat-secondary">{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
+                    <span className={`stat-secondary ${(p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'}`}>
+                      {p.roi_index != null ? p.roi_index.toFixed(1) : '—'}
+                    </span>
                   </span>
                 </div>
               ))
@@ -179,5 +190,5 @@ export default function Players() {
         </div>
       )}
     </div>
-  );
+  );  
 }
