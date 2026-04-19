@@ -25,6 +25,7 @@ type PlayerStat = {
   roi_index: number | null;
 };
 
+type SortField = 'points' | 'cost' | 'roi_index';
 type TeamOption = { id: number; name: string; league_id: number };
 
 export default function Players() {
@@ -36,6 +37,7 @@ export default function Players() {
   const [genderFilter, setGenderFilter] = useState<GenderFilter>('all');
   const [teamFilter, setTeamFilter] = useState<TeamFilter>('all');
   const [specificTeam, setSpecificTeam] = useState<number | null>(null);
+  const [sortBy, setSortBy] = useState<SortField>('points');
 
   useEffect(() => {
     async function load() {
@@ -51,21 +53,24 @@ export default function Players() {
   }, []);
 
   const filtered = useMemo(() => {
-    return players.filter(p => {
-      if (search && !p.name.toLowerCase().includes(search.toLowerCase())) return false;
-      if (genderFilter !== 'all' && p.gender !== genderFilter) return false;
-      if (teamFilter === 'league' && !p.team_id) return false;
-      if (teamFilter === 'specific' && Number(p.team_id) !== specificTeam) return false;
-      return true;
-    });
-  }, [players, search, genderFilter, teamFilter, specificTeam]);
+    return players
+      .filter(p => {
+        if (search && !p.name.toLowerCase().includes(search.toLowerCase())) return false;
+        if (genderFilter !== 'all' && p.gender !== genderFilter) return false;
+        if (teamFilter === 'league' && !p.team_id) return false;
+        if (teamFilter === 'specific' && Number(p.team_id) !== specificTeam) return false;
+        return true;
+      })
+      .sort((a, b) => (b[sortBy] ?? 0) - (a[sortBy] ?? 0));
+  }, [players, search, genderFilter, teamFilter, specificTeam, sortBy]);
 
   function getRowClass(p: PlayerStat): string {
     if (!p.team_id) return 'no-team-row';
     if (userTeam && Number(p.team_id) === Number(userTeam.id)) return 'my-team-row';
     return 'other-team-row';
   }
-return (
+
+  return (
     <div className="players-page">
       <div className="players-controls">
         <input
@@ -101,6 +106,21 @@ return (
                 onClick={() => { setTeamFilter(t); if (t !== 'specific') setSpecificTeam(null); }}
               >
                 {t === 'all' ? 'All' : t === 'league' ? 'League' : 'By Team'}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="filter-group">
+          <span className="filter-label">Sort By</span>
+          <div className="filter-btns">
+            {([['points', 'Points'], ['cost', 'Cost'], ['roi_index', 'ROI Index']] as [SortField, string][]).map(([field, label]) => (
+              <button
+                key={field}
+                className={`filter-btn ${sortBy === field ? 'active' : ''}`}
+                onClick={() => setSortBy(field)}
+              >
+                {label}
               </button>
             ))}
           </div>
@@ -190,5 +210,5 @@ return (
         </div>
       )}
     </div>
-  );  
+  );
 }
