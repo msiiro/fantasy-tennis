@@ -369,6 +369,9 @@ input, select { font-family: inherit; }
 }
 
 /* ── Players ───────────────────────────────────────────── */
+.player-stats-cell,
+.players-header .stats-header { display: none; }
+.player-meta { display: none; }
 .players-page { display: flex; flex-direction: column; gap: 1.5rem; }
 
 .players-controls {
@@ -413,10 +416,26 @@ input, select { font-family: inherit; }
   overflow: hidden; border: 1px solid var(--color-border);
 }
 
+/* Updated grid for expanded players table */
 .players-header,
 .player-row-item {
-  display: grid; grid-template-columns: 60px 1fr 80px 150px 100px; gap: 1rem; align-items: center;
+  display: grid;
+  grid-template-columns: 60px 1fr 80px 150px 90px 100px 100px 90px 90px;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
 }
+
+/* W-L record */
+.wl-record { display: flex; align-items: center; justify-content: center; gap: 0.2rem; font-variant-numeric: tabular-nums; }
+.wl-record .wins   { color: #4ade80; font-weight: 600; }
+.wl-record .losses { color: var(--color-text-secondary); }
+.wl-record .wl-sep { color: var(--color-text-secondary); }
+
+/* ROI */
+.roi { font-weight: 600; font-variant-numeric: tabular-nums; }
+.roi-pos { color: #4ade80; }
+.roi-neg { color: #f87171; }
 
 .rank-num { justify-self: center; font-weight: 600; color: var(--color-text-secondary); }
 
@@ -474,10 +493,50 @@ input, select { font-family: inherit; }
   .leaderboard-header,
   .leaderboard-row { grid-template-columns: 40px 1fr 70px 60px; gap: 0.5rem; padding: 1rem 0.5rem; font-size: 0.75rem; }
 
-  .players-header,
-  .player-row-item { grid-template-columns: 40px 1fr 60px; gap: 0.4rem; padding: 0.75rem 0.5rem; font-size: 0.75rem; }
-  .players-header > :nth-child(4), .player-row-item > :nth-child(4),
-  .players-header > :nth-child(5), .player-row-item > :nth-child(5) { display: none; }
+  /* Players: rank | player info | points — hide everything else */
+  .player-meta { display: flex; }
+    .player-stats-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+  }
+
+    .players-header,
+    .player-row-item {
+    grid-template-columns: 40px 1fr 70px;
+    gap: 0.4rem;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  /* Hide columns 3–8 on mobile */
+  .players-header > :nth-child(n+3):not(:last-child),
+  .player-row-item > :nth-child(n+3):not(:last-child) { display: none; }
+
+  .stat-points {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-secondary {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Stack W-L and ROI index as subtitle inside player-info */
+  .player-info .player-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.15rem;
+    flex-wrap: wrap;
+  }
+  .player-info .player-meta .wins  { color: #4ade80; }
+  .player-info .player-meta .losses { color: var(--color-text-secondary); }
 
   .players-controls { flex-direction: column; gap: 1rem; }
   .filter-group { width: 100%; flex-direction: column; align-items: flex-start; }

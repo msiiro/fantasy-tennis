@@ -245,7 +245,7 @@ ITF_POINTS_MAP = {
 def get_itf_tennis_points(event):
     """
     Extract tennis_points for ITF events by parsing the tier from
-    tournament name or slug (e.g. 'ITF W15 Manacor Women' -> 15000).
+    tournament name or slug (e.g. 'ITF W15 Manacor Women' -> 15).
     Returns None if the tier cannot be determined.
     """
     tournament = event.get('tournament', {})
@@ -379,9 +379,9 @@ def process_and_upsert_matches(matches_data, table_name='tennis_matches'):
             ).execute()
             
             upserted_records.append(transformed_match)
-            match_info = f"{event.get('homeTeam', {}).get('shortName')} vs {event.get('awayTeam', {}).get('shortName')}"
-            tournament_info = f"{transformed_match.get('category_name')} - {transformed_match.get('tournament_name')}"
-            print(f"✓ Upserted: {match_info} | {tournament_info}")
+            # match_info = f"{event.get('homeTeam', {}).get('shortName')} vs {event.get('awayTeam', {}).get('shortName')}"
+            # tournament_info = f"{transformed_match.get('category_name')} - {transformed_match.get('tournament_name')}"
+            # print(f"✓ Upserted: {match_info} | {tournament_info}")
             
         except Exception as e:
             print(f"✗ Failed to upsert match: {e}")

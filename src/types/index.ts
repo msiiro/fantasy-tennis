@@ -29,6 +29,18 @@ export interface PlayerWithRank extends Player {
   matchesCount: number;
 }
 
+export interface PlayerWithStats extends Player {
+  team_id: number | null;
+  team_name: string | null;
+  tournament_count: number | null;
+  match_count: number | null;
+  wins: number | null;
+  points: number;
+  cost: number | null;
+  roi: number | null;
+  roi_index: number | null;
+}
+
 export interface MatchFact {
   match_id: number;
   match_date: string | null;
