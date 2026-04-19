@@ -144,6 +144,14 @@ CREATE TABLE public.teams (
   CONSTRAINT teams_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id)
 );
 
+CREATE TABLE public.seasons (
+    season_id integer NOT NULL,
+    season_name text NOT NULL,
+    start_date timestamp with time zone NOT NULL,
+    end_date timestamp with time zone NOT NULL,
+    created_at timestamp with time zone DEFAULT now()
+);
+
 CREATE TABLE public.player_transactions (
   transaction_id integer NOT NULL DEFAULT nextval('player_transactions_transaction_id_seq'::regclass),
   league_id integer NOT NULL,
