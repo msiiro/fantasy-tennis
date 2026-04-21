@@ -42,7 +42,7 @@ export default function Players() {
   useEffect(() => {
     async function load() {
       const [{ data: statsData }, { data: teamsData }] = await Promise.all([
-        supabase.from('player_stats').select('*'),
+        supabase.from('player_stats').select('*').limit(500),
         supabase.from('teams').select('id, name, league_id'),
       ]);
       setPlayers(statsData ?? []);
@@ -58,7 +58,7 @@ export default function Players() {
         if (search && !p.name.toLowerCase().includes(search.toLowerCase())) return false;
         if (genderFilter !== 'all' && p.gender !== genderFilter) return false;
         if (teamFilter === 'league' && !p.team_id) return false;
-        if (teamFilter === 'specific' && Number(p.team_id) !== specificTeam) return false;
+        if (teamFilter === 'available' && p.team_id) return false;
         return true;
       })
       .sort((a, b) => (b[sortBy] ?? 0) - (a[sortBy] ?? 0));
@@ -99,13 +99,13 @@ export default function Players() {
         <div className="filter-group">
           <span className="filter-label">Players</span>
           <div className="filter-btns">
-            {(['all', 'league', 'specific'] as TeamFilter[]).map(t => (
+            {(['all', 'league', 'available'] as TeamFilter[]).map(t => (
               <button
                 key={t}
                 className={`filter-btn ${teamFilter === t ? 'active' : ''}`}
                 onClick={() => { setTeamFilter(t); if (t !== 'specific') setSpecificTeam(null); }}
               >
-                {t === 'all' ? 'All' : t === 'league' ? 'League' : 'By Team'}
+                {t === 'league' ? 'League' : t === 'available' ? 'Available': 'All'}
               </button>
             ))}
           </div>
@@ -151,10 +151,10 @@ export default function Players() {
             <span className="center">Gender</span>
             <span>Team</span>
             <span className="center">W–L</span>
-            <span className="center">Tournaments</span>
-            <span className="right">Points</span>
-            <span className="right">Cost</span>
-            <span className="right">ROI Index</span>
+              <span className="center">Tournaments</span>
+              <span className={`right ${sortBy === 'points' ? 'active-sort' : ''}`}>Points</span>
+              <span className={`right ${sortBy === 'cost' ? 'active-sort' : ''}`}>Cost</span>
+              <span className={`right ${sortBy === 'roi_index' ? 'active-sort' : ''}`}>ROI Index</span>
             <span className="right stats-header">Stats</span>
           </div>
           <div className="table-body">
@@ -175,7 +175,6 @@ export default function Players() {
                         <span className="losses">{p.losses ?? 0}</span>
                       </span>
                       {p.team_name && <span>{p.team_name}</span>}
-                      {p.roi_index != null && <span>ROI {p.roi_index.toFixed(1)}</span>}
                     </span>
                   </span>
                   <span className={`gender-badge center ${p.gender ?? ''}`}>{p.gender ?? '—'}</span>
@@ -191,15 +190,15 @@ export default function Players() {
                     <span className="losses">{p.losses ?? 0}</span>
                   </span>
                   <span className="center">{p.tournament_count ?? 0}</span>
-                  <span className="right">{(p.points ?? 0).toLocaleString()}</span>
-                  <span className="right">{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
-                  <span className={`roi right ${(p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'}`}>
+                  <span className={`right ${sortBy === 'points' ? 'active-sort' : ''}`}>{(p.points ?? 0).toLocaleString()}</span>
+                  <span className={`right ${sortBy === 'cost' ? 'active-sort' : ''}`}>{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
+                  <span className={`roi right ${(p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'} ${sortBy === 'roi_index' ? 'active-sort' : ''}`}>
                     {p.roi_index != null ? p.roi_index.toFixed(1) : '—'}
                   </span>
-                  <span className="player-stats-cell">
-                    <span className="stat-points">{(p.points ?? 0).toLocaleString()}</span>
-                    <span className="stat-secondary">{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
-                    <span className={`stat-secondary ${(p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'}`}>
+                 <span className="player-stats-cell">
+                    <span className={`stat-points ${sortBy === 'points' ? 'active-sort' : ''}`}>{(p.points ?? 0).toLocaleString()}</span>
+                    <span className={`stat-secondary ${sortBy === 'cost' ? 'active-sort' : ''}`}>{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
+                    <span className={`stat-secondary ${sortBy === 'roi_index' ? 'active-sort' : (p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'}`}>
                       {p.roi_index != null ? p.roi_index.toFixed(1) : '—'}
                     </span>
                   </span>
