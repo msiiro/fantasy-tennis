@@ -103,4 +103,4 @@ export interface PlayerRankingHistory {
 export type Section = 'leaderboard' | 'matches' | 'players';
 export type MatchFilter = 'all' | 'anyteam' | 'myteam' | 'headtohead';
 export type GenderFilter = 'all' | 'M' | 'F';
-export type TeamFilter = 'all' | 'league' | 'specific';
+export type TeamFilter = 'all' | 'league' | 'available' | 'specific';

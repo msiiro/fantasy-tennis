@@ -426,6 +426,11 @@ input, select { font-family: inherit; }
   padding: 0.75rem 1rem;
 }
 
+.active-sort {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 /* W-L record */
 .wl-record { display: flex; align-items: center; justify-content: center; gap: 0.2rem; font-variant-numeric: tabular-nums; }
 .wl-record .wins   { color: #4ade80; font-weight: 600; }
@@ -434,8 +439,6 @@ input, select { font-family: inherit; }
 
 /* ROI */
 .roi { font-weight: 600; font-variant-numeric: tabular-nums; }
-.roi-pos { color: #4ade80; }
-.roi-neg { color: #f87171; }
 
 .rank-num { justify-self: center; font-weight: 600; color: var(--color-text-secondary); }
 
@@ -494,6 +497,7 @@ input, select { font-family: inherit; }
   .leaderboard-row { grid-template-columns: 40px 1fr 70px 60px; gap: 0.5rem; padding: 1rem 0.5rem; font-size: 0.75rem; }
 
   /* Players: rank | player info | points — hide everything else */
+  
   .player-meta { display: flex; }
     .player-stats-cell {
     display: flex;
@@ -515,16 +519,20 @@ input, select { font-family: inherit; }
   .player-row-item > :nth-child(n+3):not(:last-child) { display: none; }
 
   .stat-points {
-    font-weight: 700;
     font-size: 0.85rem;
     color: var(--color-text-primary);
     font-variant-numeric: tabular-nums;
   }
   .stat-secondary {
-    font-size: 0.7rem;
-    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
     font-variant-numeric: tabular-nums;
   }
+
+  .active-sort {
+  color: var(--color-primary);
+  font-weight: 700;
+  } 
 
   /* Stack W-L and ROI index as subtitle inside player-info */
   .player-info .player-meta {
