@@ -39,18 +39,40 @@ export default function Players() {
   const [specificTeam, setSpecificTeam] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<SortField>('points');
 
+  // Advanced filter state
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [pointsRange, setPointsRange] = useState<[number, number]>([0, 10000]);
+  const [costRange, setCostRange] = useState<[number, number]>([0, 5000]);
+  const [minMatches, setMinMatches] = useState(0);
+  const [minTournaments, setMinTournaments] = useState(0);
+  const [minRoi, setMinRoi] = useState(-100);
+
   useEffect(() => {
     async function load() {
       const [{ data: statsData }, { data: teamsData }] = await Promise.all([
         supabase.from('player_stats').select('*').limit(500),
         supabase.from('teams').select('id, name, league_id'),
       ]);
-      setPlayers(statsData ?? []);
+      const stats = statsData ?? [];
+      setPlayers(stats);
       setTeams(teamsData ?? []);
       setLoading(false);
+
+      // Initialise ranges to full extent of loaded data
+      const pts = stats.map(p => p.points ?? 0);
+      const costs = stats.map(p => p.cost ?? 0);
+      setPointsRange([0, Math.max(...pts, 1)]);
+      setCostRange([0, Math.max(...costs, 1)]);
     }
     load();
   }, []);
+
+  // Dynamic maxima derived from loaded data
+  const maxPoints      = useMemo(() => Math.max(...players.map(p => p.points ?? 0), 1), [players]);
+  const maxCost        = useMemo(() => Math.max(...players.map(p => p.cost ?? 0), 1), [players]);
+  const maxMatches     = useMemo(() => Math.max(...players.map(p => p.match_count ?? 0), 1), [players]);
+  const maxTournaments = useMemo(() => Math.max(...players.map(p => p.tournament_count ?? 0), 1), [players]);
+  const minRoiVal      = useMemo(() => Math.min(...players.map(p => p.roi_index ?? 0), -100), [players]);
 
   const filtered = useMemo(() => {
     return players
@@ -59,10 +81,19 @@ export default function Players() {
         if (genderFilter !== 'all' && p.gender !== genderFilter) return false;
         if (teamFilter === 'league' && !p.team_id) return false;
         if (teamFilter === 'available' && p.team_id) return false;
+        // Advanced filters
+        const pts = p.points ?? 0;
+        if (pts < pointsRange[0] || pts > pointsRange[1]) return false;
+        const cost = p.cost ?? 0;
+        if (cost < costRange[0] || cost > costRange[1]) return false;
+        if ((p.match_count ?? 0) < minMatches) return false;
+        if ((p.tournament_count ?? 0) < minTournaments) return false;
+        if ((p.roi_index ?? 0) < minRoi) return false;
         return true;
       })
       .sort((a, b) => (b[sortBy] ?? 0) - (a[sortBy] ?? 0));
-  }, [players, search, genderFilter, teamFilter, specificTeam, sortBy]);
+  }, [players, search, genderFilter, teamFilter, specificTeam, sortBy,
+      pointsRange, costRange, minMatches, minTournaments, minRoi]);
 
   function getRowClass(p: PlayerStat): string {
     if (!p.team_id) return 'no-team-row';
@@ -105,7 +136,7 @@ export default function Players() {
                 className={`filter-btn ${teamFilter === t ? 'active' : ''}`}
                 onClick={() => { setTeamFilter(t); if (t !== 'specific') setSpecificTeam(null); }}
               >
-                {t === 'league' ? 'League' : t === 'available' ? 'Available': 'All'}
+                {t === 'league' ? 'League' : t === 'available' ? 'Available' : 'All'}
               </button>
             ))}
           </div>
@@ -125,6 +156,100 @@ export default function Players() {
             ))}
           </div>
         </div>
+
+        <div className="filter-group advanced-toggle-group">
+          <button
+            className={`filter-btn advanced-toggle ${showAdvanced ? 'active' : ''}`}
+            onClick={() => setShowAdvanced(v => !v)}
+          >
+            {showAdvanced ? '▲ Hide Filters' : '▼ Advanced Filters'}
+          </button>
+        </div>
+
+        {showAdvanced && (
+          <div className="advanced-filters">
+
+            {/* Points range */}
+            <div className="range-filter">
+              <div className="range-label">
+                <span>Points</span>
+                <span className="range-value">{pointsRange[0].toLocaleString()} – {pointsRange[1].toLocaleString()}</span>
+              </div>
+              <div className="dual-slider">
+                <input
+                  type="range" min={0} max={maxPoints}
+                  value={pointsRange[0]}
+                  onChange={e => setPointsRange([Math.min(Number(e.target.value), pointsRange[1] - 1), pointsRange[1]])}
+                />
+                <input
+                  type="range" min={0} max={maxPoints}
+                  value={pointsRange[1]}
+                  onChange={e => setPointsRange([pointsRange[0], Math.max(Number(e.target.value), pointsRange[0] + 1)])}
+                />
+              </div>
+            </div>
+
+            {/* Cost range */}
+            <div className="range-filter">
+              <div className="range-label">
+                <span>Cost</span>
+                <span className="range-value">{costRange[0].toLocaleString()} – {costRange[1].toLocaleString()}</span>
+              </div>
+              <div className="dual-slider">
+                <input
+                  type="range" min={0} max={maxCost}
+                  value={costRange[0]}
+                  onChange={e => setCostRange([Math.min(Number(e.target.value), costRange[1] - 1), costRange[1]])}
+                />
+                <input
+                  type="range" min={0} max={maxCost}
+                  value={costRange[1]}
+                  onChange={e => setCostRange([costRange[0], Math.max(Number(e.target.value), costRange[0] + 1)])}
+                />
+              </div>
+            </div>
+
+            {/* Min matches */}
+            <div className="range-filter">
+              <div className="range-label">
+                <span>Min Matches</span>
+                <span className="range-value">{minMatches}+</span>
+              </div>
+              <input
+                type="range" min={0} max={maxMatches}
+                value={minMatches}
+                onChange={e => setMinMatches(Number(e.target.value))}
+              />
+            </div>
+
+            {/* Min tournaments */}
+            <div className="range-filter">
+              <div className="range-label">
+                <span>Min Tournaments</span>
+                <span className="range-value">{minTournaments}+</span>
+              </div>
+              <input
+                type="range" min={0} max={maxTournaments}
+                value={minTournaments}
+                onChange={e => setMinTournaments(Number(e.target.value))}
+              />
+            </div>
+
+            {/* Min ROI index */}
+            <div className="range-filter">
+              <div className="range-label">
+                <span>Min ROI Index</span>
+                <span className="range-value">{minRoi.toFixed(1)}</span>
+              </div>
+              <input
+                type="range" min={Math.floor(minRoiVal)} max={100} step={0.5}
+                value={minRoi}
+                onChange={e => setMinRoi(Number(e.target.value))}
+              />
+            </div>
+
+          </div>
+        )}
 
         {teamFilter === 'specific' && (
           <div className="filter-group">
@@ -151,10 +276,10 @@ export default function Players() {
             <span className="center">Gender</span>
             <span>Team</span>
             <span className="center">W–L</span>
-              <span className="center">Tournaments</span>
-              <span className={`right ${sortBy === 'points' ? 'active-sort' : ''}`}>Points</span>
-              <span className={`right ${sortBy === 'cost' ? 'active-sort' : ''}`}>Cost</span>
-              <span className={`right ${sortBy === 'roi_index' ? 'active-sort' : ''}`}>ROI Index</span>
+            <span className="center">Tournaments</span>
+            <span className={`right ${sortBy === 'points' ? 'active-sort' : ''}`}>Points</span>
+            <span className={`right ${sortBy === 'cost' ? 'active-sort' : ''}`}>Cost</span>
+            <span className={`right ${sortBy === 'roi_index' ? 'active-sort' : ''}`}>ROI Index</span>
             <span className="right stats-header">Stats</span>
           </div>
           <div className="table-body">
@@ -195,7 +320,7 @@ export default function Players() {
                   <span className={`roi right ${(p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'} ${sortBy === 'roi_index' ? 'active-sort' : ''}`}>
                     {p.roi_index != null ? p.roi_index.toFixed(1) : '—'}
                   </span>
-                 <span className="player-stats-cell">
+                  <span className="player-stats-cell">
                     <span className={`stat-points ${sortBy === 'points' ? 'active-sort' : ''}`}>{(p.points ?? 0).toLocaleString()}</span>
                     <span className={`stat-secondary ${sortBy === 'cost' ? 'active-sort' : ''}`}>{p.cost != null ? p.cost.toLocaleString() : '—'}</span>
                     <span className={`stat-secondary ${sortBy === 'roi_index' ? 'active-sort' : (p.roi_index ?? 0) >= 0 ? 'roi-pos' : 'roi-neg'}`}>

@@ -460,6 +460,89 @@ input, select { font-family: inherit; }
 .table-row.other-team-row .rank-badge { background: rgba(33,150,243,0.1); color: #2196f3; border: 1px solid rgba(33,150,243,0.3); }
 .table-row.no-team-row    .rank-badge { background: rgba(158,158,158,0.1); color: var(--color-text-secondary); border: 1px solid rgba(158,158,158,0.3); }
 
+/* Advanced Filters */
+.advanced-toggle-group {
+  width: 100%;
+}
+
+.advanced-toggle {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.advanced-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  padding: 1rem 0 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 0.25rem;
+}
+
+.range-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.range-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary, #aaa);
+}
+
+.range-value {
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.dual-slider {
+  position: relative;
+  height: 20px;
+}
+
+.dual-slider input[type="range"] {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  appearance: none;
+  background: transparent;
+  top: 0;
+}
+
+.dual-slider input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 2px solid var(--bg-primary, #0a0e14);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 2px solid var(--bg-primary, #0a0e14);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+}
+
+
 /* ── Utilities ─────────────────────────────────────────── */
 .right  { text-align: right; justify-self: end; }
 .center { text-align: center; justify-self: center; }
