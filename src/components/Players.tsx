@@ -45,7 +45,7 @@ export default function Players() {
   const [costRange, setCostRange] = useState<[number, number]>([0, 5000]);
   const [minMatches, setMinMatches] = useState(0);
   const [minTournaments, setMinTournaments] = useState(0);
-  const [minRoi, setMinRoi] = useState(-100);
+  const [minRoi, setMinRoi] = useState(0);
 
   useEffect(() => {
     async function load() {
@@ -72,7 +72,7 @@ export default function Players() {
   const maxCost        = useMemo(() => Math.max(...players.map(p => p.cost ?? 0), 1), [players]);
   const maxMatches     = useMemo(() => Math.max(...players.map(p => p.match_count ?? 0), 1), [players]);
   const maxTournaments = useMemo(() => Math.max(...players.map(p => p.tournament_count ?? 0), 1), [players]);
-  const minRoiVal      = useMemo(() => Math.min(...players.map(p => p.roi_index ?? 0), -100), [players]);
+  const minRoiVal      = useMemo(() => Math.min(...players.map(p => p.roi_index ?? 0), 0), [players]);
 
   const filtered = useMemo(() => {
     return players
@@ -94,11 +94,29 @@ export default function Players() {
       .sort((a, b) => (b[sortBy] ?? 0) - (a[sortBy] ?? 0));
   }, [players, search, genderFilter, teamFilter, specificTeam, sortBy,
       pointsRange, costRange, minMatches, minTournaments, minRoi]);
+  
+  const hasActiveAdvancedFilters = useMemo(() => (
+    pointsRange[0] > 0 ||
+    pointsRange[1] < maxPoints ||
+    costRange[0] > 0 ||
+    costRange[1] < maxCost ||
+    minMatches > 0 ||
+    minTournaments > 0 ||
+    minRoi > 0
+  ), [pointsRange, costRange, minMatches, minTournaments, minRoi, maxPoints, maxCost]);
 
   function getRowClass(p: PlayerStat): string {
     if (!p.team_id) return 'no-team-row';
     if (userTeam && Number(p.team_id) === Number(userTeam.id)) return 'my-team-row';
     return 'other-team-row';
+  }
+
+  function resetAdvancedFilters() {
+    setPointsRange([0, maxPoints]);
+    setCostRange([0, maxCost]);
+    setMinMatches(0);
+    setMinTournaments(0);
+    setMinRoi(0);
   }
 
   return (
@@ -159,10 +177,22 @@ export default function Players() {
 
         <div className="filter-group advanced-toggle-group">
           <button
-            className={`filter-btn advanced-toggle ${showAdvanced ? 'active' : ''}`}
+            className={`filter-btn advanced-toggle ${showAdvanced ? 'active' : ''} ${!showAdvanced && hasActiveAdvancedFilters ? 'filters-active' : ''}`}
             onClick={() => setShowAdvanced(v => !v)}
           >
-            {showAdvanced ? '▲ Hide Filters' : '▼ Advanced Filters'}
+            {showAdvanced
+              ? '▲ Hide Filters'
+              : hasActiveAdvancedFilters
+                ? '▼ Filters Active'
+                : '▼ Advanced Filters'
+            }
+          </button>
+          <button
+            className="filter-btn-reset"
+            onClick={resetAdvancedFilters}
+            title="Reset advanced filters"
+          >
+            ↺ Reset
           </button>
         </div>
 
@@ -215,11 +245,13 @@ export default function Players() {
                 <span>Min Matches</span>
                 <span className="range-value">{minMatches}+</span>
               </div>
-              <input
-                type="range" min={0} max={maxMatches}
-                value={minMatches}
-                onChange={e => setMinMatches(Number(e.target.value))}
-              />
+              <div className="dual-slider">
+                <input
+                  type="range" min={0} max={maxMatches}
+                  value={minMatches}
+                  onChange={e => setMinMatches(Number(e.target.value))}
+                />
+              </div>
             </div>
 
             {/* Min tournaments */}
@@ -228,11 +260,13 @@ export default function Players() {
                 <span>Min Tournaments</span>
                 <span className="range-value">{minTournaments}+</span>
               </div>
-              <input
-                type="range" min={0} max={maxTournaments}
-                value={minTournaments}
-                onChange={e => setMinTournaments(Number(e.target.value))}
-              />
+              <div className="dual-slider">
+                <input
+                  type="range" min={0} max={maxTournaments}
+                  value={minTournaments}
+                  onChange={e => setMinTournaments(Number(e.target.value))}
+                />
+              </div>
             </div>
 
             {/* Min ROI index */}
@@ -241,11 +275,13 @@ export default function Players() {
                 <span>Min ROI Index</span>
                 <span className="range-value">{minRoi.toFixed(1)}</span>
               </div>
-              <input
-                type="range" min={Math.floor(minRoiVal)} max={100} step={0.5}
-                value={minRoi}
-                onChange={e => setMinRoi(Number(e.target.value))}
-              />
+              <div className="dual-slider">
+                <input
+                  type="range" min={minRoiVal} max={10} step={0.1}
+                  value={minRoi}
+                  onChange={e => setMinRoi(Number(e.target.value))}
+                />
+              </div>
             </div>
 
           </div>
